@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - MMSMS</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/fontawesome/css/all.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap4.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/Site.css" />
+    <script type="text/javascript" src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="~/Scripts/popper/umd/popper.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/popper/umd/popper-utils.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap4.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/highchart/highcharts.js"></script>
+    <script type="text/javascript" src="~/Scripts/highchart/highcharts-more.js"></script>
+    <script type="text/javascript" src="~/Scripts/highchart/modules/solid-gauge.js"></script>
+    @*<script type="text/javascript" src="~/Scripts/highchart/themes/dark-blue.js"></script>*@
+    <script type="text/javascript" src="~/Scripts/highchart/themes/avocado.js"></script>
+
+    @RenderSection("styles", required: false)
+</head>
+<body style="background-color:transparent;">
+    <div id="body">
+        @RenderSection("components", required: false)
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

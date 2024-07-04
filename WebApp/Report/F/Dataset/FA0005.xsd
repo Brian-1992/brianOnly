@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FA0005" targetNamespace="http://tempuri.org/FA0005.xsd" xmlns:mstns="http://tempuri.org/FA0005.xsd" xmlns="http://tempuri.org/FA0005.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FA0005" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FA0005" msprop:Generator_UserDSName="FA0005">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="FA0005" msprop:Generator_TableClassName="FA0005DataTable" msprop:Generator_TableVarName="tableFA0005" msprop:Generator_TablePropName="_FA0005" msprop:Generator_RowDeletingName="FA0005RowDeleting" msprop:Generator_RowChangingName="FA0005RowChanging" msprop:Generator_RowEvHandlerName="FA0005RowChangeEventHandler" msprop:Generator_RowDeletedName="FA0005RowDeleted" msprop:Generator_UserTableName="FA0005" msprop:Generator_RowChangedName="FA0005RowChanged" msprop:Generator_RowEvArgName="FA0005RowChangeEvent" msprop:Generator_RowClassName="FA0005Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MMCODE" msprop:Generator_ColumnVarNameInTable="columnMMCODE" msprop:Generator_ColumnPropNameInRow="MMCODE" msprop:Generator_ColumnPropNameInTable="MMCODEColumn" msprop:Generator_UserColumnName="MMCODE" type="xs:string" minOccurs="0" />
+              <xs:element name="MMNAME_C" msprop:Generator_ColumnVarNameInTable="columnMMNAME_C" msprop:Generator_ColumnPropNameInRow="MMNAME_C" msprop:Generator_ColumnPropNameInTable="MMNAME_CColumn" msprop:Generator_UserColumnName="MMNAME_C" type="xs:string" minOccurs="0" />
+              <xs:element name="MMNAME_E" msprop:Generator_ColumnVarNameInTable="columnMMNAME_E" msprop:Generator_ColumnPropNameInRow="MMNAME_E" msprop:Generator_ColumnPropNameInTable="MMNAME_EColumn" msprop:Generator_UserColumnName="MMNAME_E" type="xs:string" minOccurs="0" />
+              <xs:element name="COMMENT" msprop:Generator_ColumnVarNameInTable="columnCOMMENT" msprop:Generator_ColumnPropNameInRow="COMMENT" msprop:Generator_ColumnPropNameInTable="COMMENTColumn" msprop:Generator_UserColumnName="COMMENT" type="xs:string" minOccurs="0" />
+              <xs:element name="STORE_QTY" msprop:Generator_ColumnVarNameInTable="columnSTORE_QTY" msprop:Generator_ColumnPropNameInRow="STORE_QTY" msprop:Generator_ColumnPropNameInTable="STORE_QTYColumn" msprop:Generator_UserColumnName="STORE_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="STORE_COST" msprop:Generator_ColumnVarNameInTable="columnSTORE_COST" msprop:Generator_ColumnPropNameInRow="STORE_COST" msprop:Generator_ColumnPropNameInTable="STORE_COSTColumn" msprop:Generator_UserColumnName="STORE_COST" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_QTY" msprop:Generator_ColumnVarNameInTable="columnCHK_QTY" msprop:Generator_ColumnPropNameInRow="CHK_QTY" msprop:Generator_ColumnPropNameInTable="CHK_QTYColumn" msprop:Generator_UserColumnName="CHK_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_COST" msprop:Generator_ColumnVarNameInTable="columnCHK_COST" msprop:Generator_ColumnPropNameInRow="CHK_COST" msprop:Generator_ColumnPropNameInTable="CHK_COSTColumn" msprop:Generator_UserColumnName="CHK_COST" type="xs:string" minOccurs="0" />
+              <xs:element name="DIFF_COST" msprop:Generator_ColumnVarNameInTable="columnDIFF_COST" msprop:Generator_ColumnPropNameInRow="DIFF_COST" msprop:Generator_ColumnPropNameInTable="DIFF_COSTColumn" msprop:Generator_UserColumnName="DIFF_COST" type="xs:string" minOccurs="0" />
+              <xs:element name="PrintUser" msprop:Generator_ColumnVarNameInTable="columnPrintUser" msprop:Generator_ColumnPropNameInRow="PrintUser" msprop:Generator_ColumnPropNameInTable="PrintUserColumn" msprop:Generator_UserColumnName="PrintUser" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_YYYY" msprop:Generator_ColumnVarNameInTable="columnCHK_YYYY" msprop:Generator_ColumnPropNameInRow="CHK_YYYY" msprop:Generator_ColumnPropNameInTable="CHK_YYYYColumn" msprop:Generator_UserColumnName="CHK_YYYY" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_MM" msprop:Generator_ColumnVarNameInTable="columnCHK_MM" msprop:Generator_ColumnPropNameInRow="CHK_MM" msprop:Generator_ColumnPropNameInTable="CHK_MMColumn" msprop:Generator_UserColumnName="CHK_MM" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

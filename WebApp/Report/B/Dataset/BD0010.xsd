@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BD0010" targetNamespace="http://tempuri.org/BD0010.xsd" xmlns:mstns="http://tempuri.org/BD0010.xsd" xmlns="http://tempuri.org/BD0010.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BD0010" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BD0010" msprop:Generator_UserDSName="BD0010">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="BD0010" msprop:Generator_TableClassName="BD0010DataTable" msprop:Generator_TableVarName="tableBD0010" msprop:Generator_TablePropName="_BD0010" msprop:Generator_RowDeletingName="BD0010RowDeleting" msprop:Generator_RowChangingName="BD0010RowChanging" msprop:Generator_RowEvHandlerName="BD0010RowChangeEventHandler" msprop:Generator_RowDeletedName="BD0010RowDeleted" msprop:Generator_UserTableName="BD0010" msprop:Generator_RowChangedName="BD0010RowChanged" msprop:Generator_RowEvArgName="BD0010RowChangeEvent" msprop:Generator_RowClassName="BD0010Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MMCODE" msprop:Generator_ColumnVarNameInTable="columnMMCODE" msprop:Generator_ColumnPropNameInRow="MMCODE" msprop:Generator_ColumnPropNameInTable="MMCODEColumn" msprop:Generator_UserColumnName="MMCODE" type="xs:string" minOccurs="0" />
+              <xs:element name="MMNAME_E" msprop:Generator_ColumnVarNameInTable="columnMMNAME_E" msprop:Generator_ColumnPropNameInRow="MMNAME_E" msprop:Generator_ColumnPropNameInTable="MMNAME_EColumn" msprop:Generator_UserColumnName="MMNAME_E" type="xs:string" minOccurs="0" />
+              <xs:element name="M_PURUN" msprop:Generator_ColumnVarNameInTable="columnM_PURUN" msprop:Generator_ColumnPropNameInRow="M_PURUN" msprop:Generator_ColumnPropNameInTable="M_PURUNColumn" msprop:Generator_UserColumnName="M_PURUN" type="xs:string" minOccurs="0" />
+              <xs:element name="CONTRACNO" msprop:Generator_ColumnVarNameInTable="columnCONTRACNO" msprop:Generator_ColumnPropNameInRow="CONTRACNO" msprop:Generator_ColumnPropNameInTable="CONTRACNOColumn" msprop:Generator_UserColumnName="CONTRACNO" type="xs:string" minOccurs="0" />
+              <xs:element name="PO_PRICE" msprop:Generator_ColumnVarNameInTable="columnPO_PRICE" msprop:Generator_ColumnPropNameInRow="PO_PRICE" msprop:Generator_ColumnPropNameInTable="PO_PRICEColumn" msprop:Generator_UserColumnName="PO_PRICE" type="xs:string" minOccurs="0" />
+              <xs:element name="SAFE_QTY" msprop:Generator_ColumnVarNameInTable="columnSAFE_QTY" msprop:Generator_ColumnPropNameInRow="SAFE_QTY" msprop:Generator_ColumnPropNameInTable="SAFE_QTYColumn" msprop:Generator_UserColumnName="SAFE_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="OPER_QTY" msprop:Generator_ColumnVarNameInTable="columnOPER_QTY" msprop:Generator_ColumnPropNameInRow="OPER_QTY" msprop:Generator_ColumnPropNameInTable="OPER_QTYColumn" msprop:Generator_UserColumnName="OPER_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="INV_QTY" msprop:Generator_ColumnVarNameInTable="columnINV_QTY" msprop:Generator_ColumnPropNameInRow="INV_QTY" msprop:Generator_ColumnPropNameInTable="INV_QTYColumn" msprop:Generator_UserColumnName="INV_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="AdviseQty" msprop:Generator_ColumnVarNameInTable="columnAdviseQty" msprop:Generator_ColumnPropNameInRow="AdviseQty" msprop:Generator_ColumnPropNameInTable="AdviseQtyColumn" msprop:Generator_UserColumnName="AdviseQty" type="xs:string" minOccurs="0" />
+              <xs:element name="PO_QTY" msprop:Generator_ColumnVarNameInTable="columnPO_QTY" msprop:Generator_ColumnPropNameInRow="PO_QTY" msprop:Generator_ColumnPropNameInTable="PO_QTYColumn" msprop:Generator_UserColumnName="PO_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="PO_amt" msprop:Generator_ColumnVarNameInTable="columnPO_amt" msprop:Generator_ColumnPropNameInRow="PO_amt" msprop:Generator_ColumnPropNameInTable="PO_amtColumn" msprop:Generator_UserColumnName="PO_amt" type="xs:string" minOccurs="0" />
+              <xs:element name="agen_name" msprop:Generator_ColumnVarNameInTable="columnagen_name" msprop:Generator_ColumnPropNameInRow="agen_name" msprop:Generator_ColumnPropNameInTable="agen_nameColumn" msprop:Generator_UserColumnName="agen_name" type="xs:string" minOccurs="0" />
+              <xs:element name="e_purtype" msprop:Generator_ColumnVarNameInTable="columne_purtype" msprop:Generator_ColumnPropNameInRow="e_purtype" msprop:Generator_ColumnPropNameInTable="e_purtypeColumn" msprop:Generator_UserColumnName="e_purtype" type="xs:string" minOccurs="0" />
+              <xs:element name="MEMO" msprop:Generator_ColumnVarNameInTable="columnMEMO" msprop:Generator_ColumnPropNameInRow="MEMO" msprop:Generator_ColumnPropNameInTable="MEMOColumn" msprop:Generator_UserColumnName="MEMO" type="xs:string" minOccurs="0" />
+              <xs:element name="PO_PRICE_X_AdviseQty" msprop:Generator_ColumnVarNameInTable="columnPO_PRICE_X_AdviseQty" msprop:Generator_ColumnPropNameInRow="PO_PRICE_X_AdviseQty" msprop:Generator_ColumnPropNameInTable="PO_PRICE_X_AdviseQtyColumn" msprop:Generator_UserColumnName="PO_PRICE_X_AdviseQty" type="xs:string" minOccurs="0" />
+              <xs:element name="PO_PRICE_X_PO_QTY" msprop:Generator_ColumnVarNameInTable="columnPO_PRICE_X_PO_QTY" msprop:Generator_ColumnPropNameInRow="PO_PRICE_X_PO_QTY" msprop:Generator_ColumnPropNameInTable="PO_PRICE_X_PO_QTYColumn" msprop:Generator_UserColumnName="PO_PRICE_X_PO_QTY" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FA0041" targetNamespace="http://tempuri.org/FA0041.xsd" xmlns:mstns="http://tempuri.org/FA0041.xsd" xmlns="http://tempuri.org/FA0041.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FA0041" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FA0041" msprop:Generator_UserDSName="FA0041">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="FA0041" msprop:Generator_TableClassName="FA0041DataTable" msprop:Generator_TableVarName="tableFA0041" msprop:Generator_TablePropName="_FA0041" msprop:Generator_RowDeletingName="FA0041RowDeleting" msprop:Generator_RowChangingName="FA0041RowChanging" msprop:Generator_RowEvHandlerName="FA0041RowChangeEventHandler" msprop:Generator_RowDeletedName="FA0041RowDeleted" msprop:Generator_UserTableName="FA0041" msprop:Generator_RowChangedName="FA0041RowChanged" msprop:Generator_RowEvArgName="FA0041RowChangeEvent" msprop:Generator_RowClassName="FA0041Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="INID" msprop:Generator_ColumnVarNameInTable="columnINID" msprop:Generator_ColumnPropNameInRow="INID" msprop:Generator_ColumnPropNameInTable="INIDColumn" msprop:Generator_UserColumnName="INID" type="xs:string" minOccurs="0" />
+              <xs:element name="INID_NAME" msprop:Generator_ColumnVarNameInTable="columnINID_NAME" msprop:Generator_ColumnPropNameInRow="INID_NAME" msprop:Generator_ColumnPropNameInTable="INID_NAMEColumn" msprop:Generator_UserColumnName="INID_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_NO" msprop:Generator_ColumnVarNameInTable="columnWH_NO" msprop:Generator_ColumnPropNameInRow="WH_NO" msprop:Generator_ColumnPropNameInTable="WH_NOColumn" msprop:Generator_UserColumnName="WH_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_NAME" msprop:Generator_ColumnVarNameInTable="columnWH_NAME" msprop:Generator_ColumnPropNameInRow="WH_NAME" msprop:Generator_ColumnPropNameInTable="WH_NAMEColumn" msprop:Generator_UserColumnName="WH_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_YM" msprop:Generator_ColumnVarNameInTable="columnCHK_YM" msprop:Generator_ColumnPropNameInRow="CHK_YM" msprop:Generator_ColumnPropNameInTable="CHK_YMColumn" msprop:Generator_UserColumnName="CHK_YM" type="xs:string" minOccurs="0" />
+              <xs:element name="UNIT_CLASS" msprop:Generator_ColumnVarNameInTable="columnUNIT_CLASS" msprop:Generator_ColumnPropNameInRow="UNIT_CLASS" msprop:Generator_ColumnPropNameInTable="UNIT_CLASSColumn" msprop:Generator_UserColumnName="UNIT_CLASS" type="xs:string" minOccurs="0" />
+              <xs:element name="IS_CHK" msprop:Generator_ColumnVarNameInTable="columnIS_CHK" msprop:Generator_ColumnPropNameInRow="IS_CHK" msprop:Generator_ColumnPropNameInTable="IS_CHKColumn" msprop:Generator_UserColumnName="IS_CHK" type="xs:string" minOccurs="0" />
+              <xs:element name="IS_MED" msprop:Generator_ColumnVarNameInTable="columnIS_MED" msprop:Generator_ColumnPropNameInRow="IS_MED" msprop:Generator_ColumnPropNameInTable="IS_MEDColumn" msprop:Generator_UserColumnName="IS_MED" type="xs:string" minOccurs="0" />
+              <xs:element name="UNIT_CLASS_NAME" msprop:Generator_ColumnVarNameInTable="columnUNIT_CLASS_NAME" msprop:Generator_ColumnPropNameInRow="UNIT_CLASS_NAME" msprop:Generator_ColumnPropNameInTable="UNIT_CLASS_NAMEColumn" msprop:Generator_UserColumnName="UNIT_CLASS_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_PERIOD" msprop:Generator_ColumnVarNameInTable="columnCHK_PERIOD" msprop:Generator_ColumnPropNameInRow="CHK_PERIOD" msprop:Generator_ColumnPropNameInTable="CHK_PERIODColumn" msprop:Generator_UserColumnName="CHK_PERIOD" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_TYPE" msprop:Generator_ColumnVarNameInTable="columnCHK_TYPE" msprop:Generator_ColumnPropNameInRow="CHK_TYPE" msprop:Generator_ColumnPropNameInTable="CHK_TYPEColumn" msprop:Generator_UserColumnName="CHK_TYPE" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_STATUS" msprop:Generator_ColumnVarNameInTable="columnCHK_STATUS" msprop:Generator_ColumnPropNameInRow="CHK_STATUS" msprop:Generator_ColumnPropNameInTable="CHK_STATUSColumn" msprop:Generator_UserColumnName="CHK_STATUS" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_LEVEL" msprop:Generator_ColumnVarNameInTable="columnCHK_LEVEL" msprop:Generator_ColumnPropNameInRow="CHK_LEVEL" msprop:Generator_ColumnPropNameInTable="CHK_LEVELColumn" msprop:Generator_UserColumnName="CHK_LEVEL" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_NO" msprop:Generator_ColumnVarNameInTable="columnCHK_NO" msprop:Generator_ColumnPropNameInRow="CHK_NO" msprop:Generator_ColumnPropNameInTable="CHK_NOColumn" msprop:Generator_UserColumnName="CHK_NO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

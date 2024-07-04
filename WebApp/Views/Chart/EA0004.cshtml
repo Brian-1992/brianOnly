@@ -1,0 +1,305 @@
+﻿
+@{
+    ViewBag.Title = "預估庫存消耗量";
+    Layout = "~/Views/Shared/_ChartLayout.cshtml";
+}
+
+@section styles
+{
+    <style>
+        .DashboardCategory {
+            padding: 0;
+        }
+
+        .DashboardFrame {
+            padding: 0.5em;
+        }
+
+            .DashboardFrame .DashboardWordWrapper, .DashboardFrame .DashboardGraphWrapper {
+                padding: 0em;
+                height: 20em;
+            }
+
+                .DashboardFrame .DashboardWordWrapper .DashboardWordName {
+                    padding-top: 0.75em;
+                    text-align: center;
+                    font-size: 1.5em;
+                }
+
+                .DashboardFrame .DashboardWordWrapper .DashboardWordValue {
+                    padding-bottom: 0.5em;
+                    text-align: center;
+                    font-size: 3em;
+                    font-weight: bold;
+                }
+
+            .DashboardFrame .DashboardGraphWrapper {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+                .DashboardFrame .DashboardGraphWrapper > div.StatsGraph {
+                    /*height: 20em;*/
+                    height: 100%;
+                }
+    </style>
+}
+
+
+@section components
+{
+    <div class="container-fluid">
+        <div class="row" style="padding-left:2em;padding-right:1em;">
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-inline" }))
+            {
+                @Html.AntiForgeryToken()
+                <label class="sr-only" for="inlineFormInputName2">Name</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">責任中心</div>
+                    </div>
+                    <select class="form-control" id="ddlInid" onchange="ddlInidChange();">
+                        @*<option value="560000" selected>中央庫房</option>
+                        <option value='333300'>手術室</option>
+                        <option value='320203'>住院藥局</option>
+                        <option value='320202'>急診藥局</option>
+                        <option value='320201'>門診藥局</option>
+                        <option value='140000'>麻醉科部</option>*@
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2">查詢</button>
+            }
+        </div>
+
+        <div class="row" style="padding-left:1em;padding-right:1em;">
+            <div class="DashboardFrame col-md-12">
+                <div class="DashboardGraphWrapper">
+                    <div id="sg11" class="StatsGraph"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        Highcharts.setOptions({
+            lang: {
+                thousandsSep: ','
+            }
+        });
+
+        const pergG = '22EE33'; //perg_type: 0
+        const pergY = 'FFFF33'; //perg_type: 1
+        const pergR = 'FF2233'; //perg_type: 2
+
+        var inidParam = '';
+
+        var xdata = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+        var y1data = [290, 297, 310, 321, 309, 315, 332, 354, 297, 310, 321, 309];
+        var y2data = [120, 124, 136, 127, 119, 130];
+        var mergeset = [
+            { name: '過去三年平均消耗量', data: y1data, type: "column", color: 'rgba(95, 183, 223, 1)', yAxis: 1, groupPadding: 0.1 },
+            { name: '今年消耗量', data: y2data, type: "spline", color: 'rgba(255, 140, 0, 1)' },
+        ];
+
+        function ddlInidChange(inid, inidName) {
+            inidParam = $('#ddlInid').val();
+            $('#ddlInidText').text(inidName);
+            getChartData();
+        }
+
+        function getWhnos() {
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: '/api/EA0004/GetWhnos',
+                timeout: 10000,
+                dataType: "json",
+            })
+                .done(function (data, textStatus) {
+                    //alert(data);
+                    debugger
+                    if (data.success) {
+                        $('#ddlInid').empty();
+                        if (data.etts) {
+                            data.etts.map((item) => {
+                                debugger
+                                var temp = "";
+                                if (item.EXTRA1 == "1") {
+                                    temp = " selected ";
+                                    inidParam = item.VALUE;
+                                }
+                                var row = $("<option value=\"" + item.VALUE + "\"" + temp + ">" + item.TEXT + "</option>");
+                                $("#ddlInid").append(row);
+                            });
+                        }
+                    }
+                    else {
+                        alert("錯誤:" + data.msg);
+                    }
+
+                    $.unblockUI();
+                    getChartData();
+                })
+                .fail(function (data, textStatus) {
+                    alert("錯誤:" + data);
+                });
+        }
+
+        function getChartData() {
+            $.blockUI({ message: '<div style="font-size:14pt;">資料讀取中，請稍候!</div>' });
+            //alert('getChartData:inid=' + inidParam + ';perg=' + pergParam);
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: '/api/EA0004/GetSeriesData',
+                timeout: 10000,
+                dataType: "json",
+                data: {
+                    INID: inidParam
+                }
+            })
+                .done(function (data, textStatus) {
+                    //alert(data);
+                    if (data.success) {
+                        var sd = [];
+                        data.etts.map((item) => {
+                            var idx = item.MAT_CLSID - 1;
+                            for (var i = 0; i < idx; i++) {
+                                if (sd[i] == undefined || sd[i] == null) {
+                                    sd[i] = { name: getInvKindName(i+1), data:[]};
+                                }
+                            }
+                            sd[idx] = {
+                                name: getInvKindName(parseInt(item.MAT_CLSID)),
+                                data: [
+                                    item['M01'],
+                                    item['M02'],
+                                    item['M03'],
+                                    item['M04'],
+                                    item['M05'],
+                                    item['M06'],
+                                    item['M07'],
+                                    item['M08'],
+                                    item['M09'],
+                                    item['M10'],
+                                    item['M11'],
+                                    item['M12']
+                                ]
+                            }
+                        });
+                        $("#sg11.StatsGraph").highcharts(getChartSettings(sd));
+                        $.unblockUI();
+                    }
+                    else {
+                        alert("錯誤:" + data.msg);
+                    }
+                })
+                .fail(function (data, textStatus) {
+                    alert("錯誤:" + data);
+                });
+        }
+
+        $(init);
+
+        function init() {
+            getWhnos();
+            //getChartData();
+        }
+
+        function getChartSettings(data) {
+            return {
+                data: {
+                    csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',
+                    beforeParse: function (csv) {
+                        return csv.replace(/\n\n/g, '\n');
+                    }
+                },
+                colors: ['#165c26', '#e0ad16', '#DC3545', '#0256b0'],
+                title: {
+                    text: $('#ddlInid option:selected').text() + ' 現有庫存量總金額'
+                },
+
+                subtitle: {
+                    //text: 'Source: Google Analytics'
+                },
+
+                xAxis: {
+                    categories: xdata,
+                    gridLineWidth: 1
+                },
+
+                yAxis: [{
+                    title: {
+                        text: '金額'
+                    },
+                    showFirstLabel: false
+                }],
+
+                tooltip: {
+                    shared: true,
+                    crosshairs: true
+                },
+
+                plotOptions: {
+                    series: {
+                        cursor: 'pointer',
+                        point: {
+                            events: {
+                                click: function (e) {
+                                    hs.htmlExpand(null, {
+                                        pageOrigin: {
+                                            x: e.pageX || e.clientX,
+                                            y: e.pageY || e.clientY
+                                        },
+                                        headingText: this.series.name,
+                                        maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
+                                        this.y + ' sessions',
+                                        width: 200
+                                    });
+                                }
+                            }
+                        },
+                        marker: {
+                            lineWidth: 1
+                        }
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+
+                series: data
+            };
+        }
+
+        function getSeriesData(invKind, invKindName, seriesData) {
+            if (seriesData == null) seriesData = [0, 0, 0];
+            var sum = seriesData[0] + seriesData[1] + seriesData[2];
+            var rates = seriesData.map(x => (sum == 0) ? 0 : (x * 100 / sum).toFixed(1));
+            sum = Highcharts.numberFormat(sum, 0, "", ",");
+            return {
+                name: invKindName + '庫存分析', colorByPoint: true, data: [
+                    { name: rates[0] + '%', desc: '高於安全存量' + pergParam + '%', color: '#22EE33', s: sum, r: rates[0], y: seriesData[0], pt: 0, mc: invKind },
+                    { name: rates[1] + '%', desc: '接近安全存量', color: '#FFFF33', s: sum, r: rates[1], y: seriesData[1], pt: 1, mc: invKind },
+                    { name: rates[2] + '%', desc: '低於安全存量', color: '#FF2233', s: sum, r: rates[2], y: seriesData[2], pt: 2, mc: invKind }
+                ], type: 'pie', innerSize: '60%'
+            };
+        }
+
+        function getInvKindName(invKind) {
+            switch (invKind) {
+                case 1:
+                    return '藥品';
+                    break;
+                case 2:
+                    return '衛材';
+                    break;
+                case 3:
+                    return '一般物品';
+                    break;
+            }
+            return '';
+        }
+    </script>
+}

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FA0030" targetNamespace="http://tempuri.org/FA0030.xsd" xmlns:mstns="http://tempuri.org/FA0030.xsd" xmlns="http://tempuri.org/FA0030.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FA0030" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FA0030" msprop:Generator_UserDSName="FA0030">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="FA0030" msprop:Generator_TableClassName="FA0030DataTable" msprop:Generator_TableVarName="tableFA0030" msprop:Generator_TablePropName="_FA0030" msprop:Generator_RowDeletingName="FA0030RowDeleting" msprop:Generator_RowChangingName="FA0030RowChanging" msprop:Generator_RowEvHandlerName="FA0030RowChangeEventHandler" msprop:Generator_RowDeletedName="FA0030RowDeleted" msprop:Generator_UserTableName="FA0030" msprop:Generator_RowChangedName="FA0030RowChanged" msprop:Generator_RowEvArgName="FA0030RowChangeEvent" msprop:Generator_RowClassName="FA0030Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="APPDEPT" msprop:Generator_ColumnVarNameInTable="columnAPPDEPT" msprop:Generator_ColumnPropNameInRow="APPDEPT" msprop:Generator_ColumnPropNameInTable="APPDEPTColumn" msprop:Generator_UserColumnName="APPDEPT" type="xs:string" minOccurs="0" />
+              <xs:element name="APPDEPT_NAME" msprop:Generator_ColumnVarNameInTable="columnAPPDEPT_NAME" msprop:Generator_ColumnPropNameInRow="APPDEPT_NAME" msprop:Generator_ColumnPropNameInTable="APPDEPT_NAMEColumn" msprop:Generator_UserColumnName="APPDEPT_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="SUM_APV_VOLUME" msprop:Generator_ColumnVarNameInTable="columnSUM_APV_VOLUME" msprop:Generator_ColumnPropNameInRow="SUM_APV_VOLUME" msprop:Generator_ColumnPropNameInTable="SUM_APV_VOLUMEColumn" msprop:Generator_UserColumnName="SUM_APV_VOLUME" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

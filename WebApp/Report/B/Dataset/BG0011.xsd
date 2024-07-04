@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BG0011" targetNamespace="http://tempuri.org/BG0011.xsd" xmlns:mstns="http://tempuri.org/BG0011.xsd" xmlns="http://tempuri.org/BG0011.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="DB" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DB (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.DB.ConnectionString" Provider="System.Data.OracleClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BG0011TableAdapter" GeneratorDataComponentClassName="BG0011TableAdapter" Name="BG0011" UserDataComponentName="BG0011TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DB (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>                        SELECT
+                        B.AGEN_NO,      
+                        C.AGEN_NAMEC, 
+                        A.INVOICE,      
+                        C.UNI_NO,       
+                        SUM(A.PO_QTY * ( A.PO_PRICE - A.DISC_CPRICE)) MONEY_1,  
+                        SUM(A.PO_QTY * A.DISC_CPRICE) MONEY_2,                  
+                        SUM(A.PO_QTY * A.PO_PRICE ) MONEY_3                  
+                        FROM PH_INVOICE A, MM_PO_M B, PH_VENDER C
+                        WHERE A.PO_NO = B.PO_NO
+                            AND B.AGEN_NO = C.AGEN_NO
+ GROUP BY TWN_YYYMM(A.INVOICE_DT), B.AGEN_NO, C.AGEN_NAMEC, A.INVOICE, C.UNI_NO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AGEN_NO" DataSetColumn="AGEN_NO" />
+              <Mapping SourceColumn="AGEN_NAMEC" DataSetColumn="AGEN_NAMEC" />
+              <Mapping SourceColumn="INVOICE" DataSetColumn="INVOICE" />
+              <Mapping SourceColumn="UNI_NO" DataSetColumn="UNI_NO" />
+              <Mapping SourceColumn="MONEY_1" DataSetColumn="MONEY_1" />
+              <Mapping SourceColumn="MONEY_2" DataSetColumn="MONEY_2" />
+              <Mapping SourceColumn="MONEY_3" DataSetColumn="MONEY_3" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BG0011" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BG0011" msprop:Generator_UserDSName="BG0011">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="BG0011" msprop:Generator_TableClassName="BG0011DataTable" msprop:Generator_TableVarName="tableBG0011" msprop:Generator_TablePropName="_BG0011" msprop:Generator_RowDeletingName="BG0011RowDeleting" msprop:Generator_RowChangingName="BG0011RowChanging" msprop:Generator_RowEvHandlerName="BG0011RowChangeEventHandler" msprop:Generator_RowDeletedName="BG0011RowDeleted" msprop:Generator_UserTableName="BG0011" msprop:Generator_RowChangedName="BG0011RowChanged" msprop:Generator_RowEvArgName="BG0011RowChangeEvent" msprop:Generator_RowClassName="BG0011Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AGEN_NO" msprop:Generator_ColumnVarNameInTable="columnAGEN_NO" msprop:Generator_ColumnPropNameInRow="AGEN_NO" msprop:Generator_ColumnPropNameInTable="AGEN_NOColumn" msprop:Generator_UserColumnName="AGEN_NO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AGEN_NAMEC" msprop:Generator_ColumnVarNameInTable="columnAGEN_NAMEC" msprop:Generator_ColumnPropNameInRow="AGEN_NAMEC" msprop:Generator_ColumnPropNameInTable="AGEN_NAMECColumn" msprop:Generator_UserColumnName="AGEN_NAMEC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="400" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="INVOICE" msprop:Generator_ColumnVarNameInTable="columnINVOICE" msprop:Generator_ColumnPropNameInRow="INVOICE" msprop:Generator_ColumnPropNameInTable="INVOICEColumn" msprop:Generator_UserColumnName="INVOICE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UNI_NO" msprop:Generator_ColumnVarNameInTable="columnUNI_NO" msprop:Generator_ColumnPropNameInRow="UNI_NO" msprop:Generator_ColumnPropNameInTable="UNI_NOColumn" msprop:Generator_UserColumnName="UNI_NO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="36" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MONEY_1" msprop:Generator_ColumnVarNameInTable="columnMONEY_1" msprop:Generator_ColumnPropNameInRow="MONEY_1" msprop:Generator_ColumnPropNameInTable="MONEY_1Column" msprop:Generator_UserColumnName="MONEY_1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MONEY_2" msprop:Generator_ColumnVarNameInTable="columnMONEY_2" msprop:Generator_ColumnPropNameInRow="MONEY_2" msprop:Generator_ColumnPropNameInTable="MONEY_2Column" msprop:Generator_UserColumnName="MONEY_2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MONEY_3" msprop:Generator_ColumnVarNameInTable="columnMONEY_3" msprop:Generator_ColumnPropNameInRow="MONEY_3" msprop:Generator_ColumnPropNameInTable="MONEY_3Column" msprop:Generator_UserColumnName="MONEY_3" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

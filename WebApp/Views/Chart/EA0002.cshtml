@@ -1,0 +1,310 @@
+﻿
+@{
+    ViewBag.Title = "預估庫存消耗量";
+    Layout = "~/Views/Shared/_ChartLayout.cshtml";
+}
+
+@section styles
+{
+    <style>
+        .DashboardCategory {
+            padding: 0;
+        }
+
+        .DashboardFrame {
+            padding: 0.5em;
+        }
+
+            .DashboardFrame .DashboardWordWrapper, .DashboardFrame .DashboardGraphWrapper {
+                padding: 0em;
+                height: 30em;
+            }
+
+                .DashboardFrame .DashboardWordWrapper .DashboardWordName {
+                    padding-top: 0.75em;
+                    text-align: center;
+                    font-size: 1.5em;
+                }
+
+                .DashboardFrame .DashboardWordWrapper .DashboardWordValue {
+                    padding-bottom: 0.5em;
+                    text-align: center;
+                    font-size: 3em;
+                    font-weight: bold;
+                }
+
+            .DashboardFrame .DashboardGraphWrapper {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+                .DashboardFrame .DashboardGraphWrapper > div.StatsGraph {
+                    /*height: 20em;*/
+                    height: 100%;
+                }
+    </style>
+}
+
+
+@section components
+{
+    <div class="container-fluid">
+        <div class="row" style="padding-left:2em;padding-right:1em;">
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-inline" }))
+            {
+                @Html.AntiForgeryToken()
+                <label class="sr-only" for="inlineFormInputName2">Name</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">庫房名稱</div>
+                    </div>
+                    <select class="form-control" id="ddlWhno" onchange="ddlWhnoChange();">
+                        @*<option value="560000" selected>中央庫房衛材庫</option>
+                        <option value='PH1S'>藥庫</option>
+                        <option value='PH1C'>內湖門診藥局</option>
+                        <option value='PH1R'>內湖急診藥局</option>
+                        <option value='PH1A'>內湖住院藥局</option>
+                        <option value='CHEMO'>內湖化療調配室</option>
+                        <option value='CHEMOT'>汀州化療調配室</option>
+                        <option value='PHMC'>汀州藥局</option>
+                        <option value='TPN'>製劑室</option>*@
+
+                    </select>
+                </div>
+
+                <label class="sr-only" for="inlineFormInputGroupUsername2">請輸入院內碼</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">院內碼</div>
+                    </div>
+                    <input type="text" class="form-control" id="txtMmCode" placeholder="請輸入院內碼">
+                </div>
+
+                <button type="button" class="btn btn-primary mb-2" onclick="ddlWhnoChange();">查詢</button>
+            }
+        </div>
+
+        <div class="row" style="padding-left:1em;padding-right:1em;">
+            <div class="DashboardFrame col-md-12">
+                <div class="DashboardGraphWrapper">
+                    <div id="sg11" class="StatsGraph"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        Highcharts.setOptions({
+            lang: {
+                thousandsSep: ','
+            }
+        });
+
+        const pergG = '22EE33'; //perg_type: 0
+        const pergY = 'FFFF33'; //perg_type: 1
+        const pergR = 'FF2233'; //perg_type: 2
+
+        var wh_noParam = '';
+        var mmCodeParam = '';
+
+        var xdata = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+        var y1data = [290, 297, 310, 321, 309, 315, 332, 354, 297, 310, 321, 309];
+        var y2data = [278, 281, 311, 323, 292, 316];
+        var mergeset = [
+            { name: '過去三年平均消耗量', data: y1data, type: "column", color: 'rgba(95, 183, 223, 1)', yAxis: 1, groupPadding: 0.1 },
+            { name: '今年消耗量', data: y2data, type: "spline", color: 'rgba(255, 140, 0, 1)' },
+        ];
+
+        function ddlWhnoChange(wh_no, wh_name) {
+            debugger
+            wh_noParam = $('#ddlWhno').val();
+            mmCodeParam = $('#txtMmCode').val();
+            $('#ddlWhnoText').text(wh_name);
+            getChartData();
+        }
+
+        function getWhnos() {
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: '/api/EA0002/GetWhnos',
+                timeout: 10000,
+                dataType: "json",
+            })
+                .done(function (data, textStatus) {
+                    //alert(data);
+                    debugger
+                    if (data.success) {
+                        $('#ddlWhno').empty();
+                        if (data.etts) {
+                            data.etts.map((item) => {
+                                debugger
+                                var temp = "";
+                                if (item.EXTRA1 == "1") {
+                                    temp = " selected ";
+                                    wh_noParam = item.VALUE;
+                                }
+                                var row = $("<option value=\"" + item.VALUE + "\"" + temp + ">" + item.TEXT + "</option>");
+                                $("#ddlWhno").append(row);
+                            });
+                        }
+                    }
+                    else {
+                        alert("錯誤:" + data.msg);
+                    }
+
+                    $.unblockUI();
+                    getChartData();
+                })
+                .fail(function (data, textStatus) {
+                    alert("錯誤:" + data);
+                });
+        }
+
+        function getChartData() {
+            //$("#sg11.StatsGraph").highcharts(getChartSettings());
+            //return;
+            $.blockUI({ message: '<div style="font-size:14pt;">資料讀取中，請稍候!</div>' });
+            //alert('getChartData:inid=' + inidParam + ';perg=' + pergParam);
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: '/api/EA0002/GetSeriesData',
+                timeout: 60000,
+                dataType: "json",
+                data: {
+                    WH_NO: wh_noParam,
+                    MMCODE: mmCodeParam
+                }
+            })
+                .done(function (data, textStatus) {
+                    //alert(data);
+                    if (data.success) {
+                        var sd = [];
+                        var title = '';
+                        data.etts.map((item) => {
+                            debugger
+                            title = $('#ddlWhno option:selected').text() + ((item.MMNAME == null) ? '' : ' - ' + item.MMNAME);
+                            sd[0] = [
+                                item.AVG[0]['M01'],
+                                item.AVG[0]['M02'],
+                                item.AVG[0]['M03'],
+                                item.AVG[0]['M04'],
+                                item.AVG[0]['M05'],
+                                item.AVG[0]['M06'],
+                                item.AVG[0]['M07'],
+                                item.AVG[0]['M08'],
+                                item.AVG[0]['M09'],
+                                item.AVG[0]['M10'],
+                                item.AVG[0]['M11'],
+                                item.AVG[0]['M12']
+                            ];
+                            sd[1] = [
+                                item.CUR[0]['M01'],
+                                item.CUR[0]['M02'],
+                                item.CUR[0]['M03'],
+                                item.CUR[0]['M04'],
+                                item.CUR[0]['M05'],
+                                item.CUR[0]['M06'],
+                                item.CUR[0]['M07'],
+                                item.CUR[0]['M08'],
+                                item.CUR[0]['M09'],
+                                item.CUR[0]['M10'],
+                                item.CUR[0]['M11'],
+                                item.CUR[0]['M12']
+                            ];
+                        });
+                        $("#sg11.StatsGraph").highcharts(getChartSettings(title, sd[0], sd[1]));
+                        $.unblockUI();
+                    }
+                    else {
+                        alert("錯誤:" + data.msg);
+                    }
+                })
+                .fail(function (data, textStatus) {
+                    alert("錯誤:" + data);
+                });
+        }
+
+        $(init);
+
+        function init() {
+            getWhnos();
+        }
+
+        function getChartSettings(title, avg, cur) {
+            return {
+                chart: {
+                    spacingBottom: 5,
+                    spacingTop: 5,
+                    spacingLeft: 10,
+                    spacingRight: 10
+                },
+                credits: { enabled: false },
+                title: { text: title + " 庫存消耗數量", y: 25 },
+                xAxis: { categories: xdata },
+                yAxis: [{
+                    title: { text: '' },
+                    alignTicks: false
+                }, {
+                    title: { text: '' },
+                    opposite: true,
+                    gridLineColor: 'transparent'
+                }],
+                legend: { enabled: true },
+                tooltip: {
+                    shared: true,
+                    crosshairs: true
+                },
+                series: [
+                    { name: '過去三年平均消耗量', data: avg, type: "column", color: 'rgba(95, 183, 223, 1)', yAxis: 1, groupPadding: 0.1 },
+                    { name: '今年消耗量', data: cur, type: "spline", color: 'rgba(255, 140, 0, 1)' },
+                ]
+            };
+        }
+
+        function getSeriesData(invKind, invKindName, seriesData) {
+            if (seriesData == null) seriesData = [0, 0, 0];
+            var sum = seriesData[0] + seriesData[1] + seriesData[2];
+            var rates = seriesData.map(x => (sum == 0) ? 0 : (x * 100 / sum).toFixed(1));
+            sum = Highcharts.numberFormat(sum, 0, "", ",");
+            return {
+                name: invKindName + '庫存分析', colorByPoint: true, data: [
+                    { name: rates[0] + '%', desc: '高於安全存量' + pergParam + '%', color: '#22EE33', s: sum, r: rates[0], y: seriesData[0], pt: 0, mc: invKind },
+                    { name: rates[1] + '%', desc: '接近安全存量', color: '#FFFF33', s: sum, r: rates[1], y: seriesData[1], pt: 1, mc: invKind },
+                    { name: rates[2] + '%', desc: '低於安全存量', color: '#FF2233', s: sum, r: rates[2], y: seriesData[2], pt: 2, mc: invKind }
+                ], type: 'pie', innerSize: '60%'
+            };
+        }
+
+        function getInvKindName(invKind) {
+            switch (invKind) {
+                case 1:
+                    return '藥品';
+                    break;
+                case 2:
+                    return '衛材';
+                    break;
+                case 3:
+                    return '一般物品';
+                    break;
+            }
+            return '';
+        }
+
+        function getPergColor(perg_type) {
+            switch (perg_type) {
+                case 0:
+                    return pergG;
+                    break;
+                case 1:
+                    return pergY;
+                    break;
+                case 2:
+                    return pergR;
+                    break;
+            }
+            return '000000';
+        }
+    </script>
+}

@@ -1,0 +1,973 @@
+﻿@using WebApp.Models;
+@{
+    Layout = null;
+}
+@model IEnumerable<NestMenuView>
+
+@helper RecursiveMenuItem(NestMenuView menuItem)
+{
+var item = menuItem.item;
+var child = menuItem.child;
+if (item.leaf)
+{
+    if (item.url.StartsWith("/Form/Index"))
+    {
+            <li class="nav-item nav-cursor">
+                <div id="mn_@item.FG" class="nav-link rounded" onclick="javascript:link2('@item.url', '@item.text', null, 'mn_@item.FG')">
+                    <i class="fas fa-file-alt fa-1x" style="color:#DC3545"></i>&nbsp;@item.text
+                </div>
+            </li>
+    }
+    else if (item.url.StartsWith("/Form/Mobile"))
+    {
+            <li class="nav-item nav-cursor">
+                <div id="mn_@item.FG" class="nav-link rounded" onclick="javascript:link2('@item.url', '@item.text', null, 'mn_@item.FG')">
+                    <i class="fas fa-mobile-alt fa-1x" style="color:#DC3545"></i>&nbsp;@item.text
+                </div>
+            </li>
+    }
+    else if (item.url.StartsWith("/Chart"))
+    {
+            <li class="nav-item nav-cursor">
+                <div id="mn_@item.FG" class="nav-link rounded" onclick="javascript:link2('@item.url', '@item.text', null, 'mn_@item.FG')">
+                    <i class="fas fa-chart-line fa-1x" style="color:#28A745"></i>&nbsp;@item.text
+                </div>
+            </li>
+    }
+}
+else
+{
+        <li class="nav-item">
+            <div id="mn_@item.FG" class="nav-link nav-cursor rounded collapsed" onclick="#submenu_@item.FG" data-toggle="collapse" data-target="#submenu_@item.FG">
+                <i class="fa fa-folder fa-1x" style="color:#f7e1a1	"></i>&nbsp;@item.text
+            </div>
+            <div class="collapse" id="submenu_@item.FG" aria-expanded="false">
+                <ul class="flex-column pl-3 nav">
+                    @foreach (var childItem in child)
+                    {
+                        @RecursiveMenuItem(childItem);
+                    }
+                </ul>
+            </div>
+        </li>
+}
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-STORE">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>藥品及衛材供應管理系統</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/fontawesome/css/all.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/Scripts/bootstrap-4.6.2-dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/simple-sidebar.css" />
+    @Scripts.Render("~/bundles/rwd")
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: azure;
+            border-radius: 10px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: white;
+            }
+
+        input[type="search"]::-webkit-search-cancel-button {
+            -webkit-appearance: searchfield-cancel-button;
+        }
+
+        .pw {
+            text-security: disc; /* IE/Safari */
+            -moz-text-security: disc; /* FireFox */
+            -webkit-text-security: disc; /* Chrome/Safari  */
+        }
+
+        .highlight-menuitem {
+            color: red;
+        }
+    </style>
+
+    <style>
+        #page-navbar {
+            background: rgba(255,255,255,0.1);
+            /*background-image: linear-gradient(120deg, rgba(0,0,0,0.2) 75%, transparent 0), linear-gradient(120deg, rgba(255,255,255,0.1) 100%, transparent 0);
+               */
+            background-image: linear-gradient(120deg, rgba(255,255,255,0.2) 75%, transparent 0);
+            position: absolute;
+            width: 100%;
+            /*box-shadow: 0 5px 5px rgba(0,0,0,0.2);*/
+            border-radius: 0
+        }
+
+        #main-menu .nav-item:hover {
+            /*color: yellow;*/
+        }
+
+        #main-menu .nav-link {
+            /*color: white;
+            color: #373F51*/
+        }
+
+        #menu-tab .nav-link {
+            color: #434343;
+        }
+
+        #menu-tab .active {
+            color: black;
+            background-color: #f7e1a1
+        }
+        /*menu項目 hover*/
+        #main-menu .nav-link:hover {
+            background-color: white;
+            color: black;
+        }
+
+        #main-menu .nav-link[data-toggle].collapsed:after {
+            content: "+";
+        }
+
+        #main-menu .nav-link[data-toggle]:not(.collapsed):after {
+            color: orangered;
+            content: "-";
+        }
+    </style>
+
+    <style>
+        @@media screen and (max-width:768px) {
+            span#title-user-name {
+                display: none;
+            }
+
+            a#page-title-dbconn {
+                display: none;
+            }
+        }
+
+        @@media screen and (min-width:768px) {
+            span#title-user-name {
+                display: inline;
+            }
+
+            a#page-title-dbconn {
+                display: inline;
+            }
+        }
+    </style>
+
+    <style>
+        .nav-cursor {
+            cursor: pointer
+        }
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            border-color: #f7e1a1 #f7e1a1 #f7e1a1;
+        }
+
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs a:hover {
+            border-color: #f7e1a1 #f7e1a1 #f7e1a1;
+        }
+    </style>
+
+    <script type="text/javascript">
+        //防止回到上一頁
+        $(document).ready(function () {
+            history.pushState({ page: 1 }, "nbb", "#nbb");
+            window.onhashchange = function (event) {
+                window.location.hash = "nbb";
+            };
+        });
+
+        let clickedItemID = '';
+        function link2(url, text, noToggle, id) {
+            $("iframe#page-content").attr("src", url);
+            $("#page-title").text("載入中...");
+            $("#page-title-pre").text(text);
+            $("#msglabel").text('');
+            if (noToggle)
+                $("#toggle-after-load").text('N');
+
+            if (clickedItemID != "") {
+                $('#' + clickedItemID).removeClass('highlight-menuitem');
+            }
+            clickedItemID = id;
+            $('#' + id).addClass('highlight-menuitem')
+            
+        }
+
+
+    </script>
+</head>
+<body>
+    <div id="wrapper" style="height:100%;">
+        <!--正是區#64B2D8 測試區 #F769B3-->
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <div class="sidebar-brand" style="padding: 0.5em;">
+                <div style="font-size:1.2em;font-weight:bold">
+                    @if (ViewBag.DbConnType == "TEST")
+                    {
+                        <img src="~/Images/logo_test_p.png" style="height:2.5em;" />
+                    }
+                    else
+                    {
+                        <img src="~/Images/TSGH_logo_S.png" style="height:2.5em;" />
+                    }
+                    &nbsp;藥品及衛材供應管理系統
+                </div>
+            </div>
+            <ul id="menu-tab" class="nav nav-tabs" role="tablist" style="border-bottom:1px solid #f7e1a1">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#menu-list" role="tab" data-toggle="tab">
+                        <i class="fas fa-th-list"></i>&nbsp;系統選單
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#menu-query-panel" role="tab" data-toggle="tab" id="menu-query-tab">
+                        <i class="fas fa-search"></i>&nbsp;輸入查詢
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="menu-list">
+                    <ul id="main-menu" class="nav flex-column flex-nowrap">
+                        @foreach (var menuItem in Model)
+                        {
+                            @RecursiveMenuItem(menuItem)
+                        }
+                    </ul>
+                    <br />
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="menu-query-panel">
+                    <div class="input-group mb-3" style="width:95%;padding:1em 0 0 0.5em;">
+                        <input type="search" id="menu-query-field" class="form-control" placeholder="功能名稱或程式編碼" aria-label="功能名稱或程式編碼" aria-describedby="button-addon2" spellcheck="false" style="text-transform:uppercase">
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="button" id="menu-query-btn">查詢</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="width:95%;padding:0.5em 0 0 0.5em;">
+                            <div class="list-group" id="menu-query-list" role="tablist">
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper" style="height:100%">
+            <nav id="page-navbar" style="z-index:2;padding:0 0.5em 0 0.5em;">
+                <button class="navbar-toggler" type="button" id="menu-toggle">
+                    <span>
+                        <i class="fas fa-bars fa-1x" style="color:#DC3545"></i>
+                    </span>
+                </button>
+                <div id="toggle-after-load" style="display:none;">Y</div>
+                <div id="page-title-pre" style="display:none;"></div>
+                <a id="page-title" class="navbar-brand" href="#" style="color:black;overflow-x:visible;width:80px;">首頁</a>
+                <!--
+                    <a href="#menu-toggle" class="navbar-brand glyphicon glyphicon-menu-hamburger" id="menu-toggle" style="color:white"></a>
+                <a id="page-title" class="navbar-brand" href="#" style="color:white"></a>
+                    -->
+
+                <span class="fa-pull-right">
+                    <button class="navbar-toggler" type="button" id="menu-toggle" style="display:none;">
+                        <span style="color:#FFC312">
+                            <i class="fas fa-power-off fa-1x" onclick="askLogout();"></i>
+                        </span>
+                    </button>
+                    @if (ViewBag.DbConnType == "TEST")
+                    {
+                        <img src="~/Images/logo_test_p.png" style="height:2.5em;" />
+
+                    }
+                    else
+                    {
+                        <img src="~/Images/TSGH_logo_S.png" style="height:2.5em;" />
+                    }
+                </span>
+                <span class="nav-item dropdown fa-pull-right">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" style="color:#000000;">
+                        <i class="fas fa-user-check fa-1x" style="color:#FFC312;"></i>
+                        <span id="title-user-name">&nbsp;@ViewBag.UNA</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                        <div class="dropdown-item">
+                            <i class="fas fa-id-card-alt fa-1x" style="color:deepskyblue;"></i>&nbsp;<b>@ViewBag.UNA</b><br />
+                            @if (ViewBag.AuthType == JCLib.Mvc.AuthType.AD)
+                            {
+                                <span style="padding-left:1.5em;"><small>AD登入</small></span>
+                            }
+                            else if (ViewBag.AuthType == JCLib.Mvc.AuthType.DB)
+                            {
+                                <span style="padding-left:1.5em;"><small>一般登入</small></span>
+                            }
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        @if (ViewBag.AuthType == JCLib.Mvc.AuthType.DB)
+                        {
+                            <a class="dropdown-item" href="javascript:changePassword();">
+                                <i class="fas fa-unlock fa-1x" style="color:green;"></i>&nbsp;變更密碼
+                            </a>
+                        }
+                        <a class="dropdown-item" href="javascript:askLogout();">
+                            <i class="fas fa-power-off fa-1x" style="color:red;"></i>&nbsp;登出系統
+                        </a>
+                    </div>
+                </span>
+                @if (ViewBag.DbConnType == "TEST")
+                {
+                    <a id="page-title-dbconn" class="fa-pull-right" style="color:#DC3545;overflow-x:visible;padding:0.5em 0.5em 0 0.5em;font-weight:bold; font-size:18px; background-color:yellow">
+                        測試機&nbsp;
+                    </a>
+                }
+            </nav>
+            <div class="container-fluid" style="padding:0; margin:0; height:95%; padding-top:40px">
+                <div style="overflow:auto; -webkit-overflow-scrolling:touch; height:100%; position:relative">
+                    <iframe id="page-content" src="" style="width:100%; height:99%; border:none"></iframe>
+                    <div class="overlay"></div>
+                </div>
+            </div>
+            <div style="padding-left:10px; margin:0; height:5%;">
+                系統訊息：<span id="msglabel"></span>
+                @if (ViewBag.DbConnType == "TEST")
+                {
+                    <a id="page-title-dbconn1" class="fa-pull-right" style="color:#DC3545;overflow-x:visible;font-weight:bold; font-size:18px; background-color:yellow">
+                        測試機&nbsp;測試機&nbsp;測試機&nbsp;
+                    </a>
+                }
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <div id="changePasswordModal" class="modal fade col-xs-3">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="vertical-align:middle;">
+                    <i class="fas fa-exclamation-circle fa-1x" style="color:gold;padding-top:0.5em;display:inline;">
+                        <span style="color:#000;">變更密碼</span>
+                    </i>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-row">
+                            <div class="form-group col-md-6 col-xs-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-user-lock fa-1x"></i></div>
+                                    </div>
+                                    <input type="text" id="old-pwd" name="old-pwd" class="form-control pw" placeholder="請輸入舊密碼" autocomplete="off">
+                                    <div class="invalid-feedback" id="old-pwd-if">必須輸入舊密碼</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 col-xs-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-user-shield fa-1x"></i></div>
+                                    </div>
+                                    <input type="text" id="new-pwd" name="new-pwd" class="form-control pw" placeholder="請輸入新密碼" autocomplete="off">
+                                    <div class="invalid-feedback" id="new-pwd-if">必須輸入新密碼</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 col-xs-6">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fas fa-user-shield fa-1x"></i></div>
+                                    </div>
+                                    <input type="text" id="new-pwd-chk" name="new-pwd-chk" class="form-control pw" placeholder="請確認新密碼" autocomplete="off">
+                                    <div class="invalid-feedback" id="new-pwd-chk-if">必須輸入確認新密碼</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="card">
+                        <h5 class="card-header"><span style="color:#f00">新密碼</span>輸入說明: </h5>
+                        <div class="card-body">
+                            <span style="color:#00f">密碼長度</span>須介於<span style="color:#f00">8-12</span>碼 <br />
+                            只能輸入<span style="color:#00f">英文字母</span>和<span style="color:#00f">數字</span> <br />
+                            <span style="color:#00f">英文字母</span>和<span style="color:#00f">數字</span>皆至少輸入<span style="color:#f00">1</span>碼
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span id="pwd-msg" class="left" style="color:darkorange;width:100%;"></span>
+                    <button type="button" class="btn btn-success" onclick="doChangePassword();">變更</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="logoutModal" class="modal fade col-xs-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="vertical-align:middle;">
+                    <i class="fas fa-exclamation-circle fa-1x" style="color:gold;padding-top:0.5em;display:inline;">
+
+                        <span style="color:#000;">即將登出藥品及衛材供應管理系統</span>
+
+                    </i>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body" style="text-align:center;">
+                    <h4 class="modal-title">確認登出？</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="doLogout();">登出</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="session-expire-warning-modal" aria-hidden="true" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><i class="fas fa-exclamation-triangle fa-1x" style="color:gold;"></i> 連線逾期提醒</h4>
+                </div>
+
+                <div class="modal-body" style="color:darkblue;">
+                    您的連線將於 <span id="seconds-timer" style="color:darkred;"></span> 秒後逾期，屆時將自動登出<br />
+                    目前仍要繼續使用？
+                </div>
+
+                <div class="modal-footer">
+                    <button id="btnOk" type="button" class="btn btn-success" style="padding: 6px 12px; margin-bottom: 0; font-size: 14px; font-weight: normal; border: 1px solid transparent; border-radius: 4px; color: #FFF;"><i class="fas fa-play-circle fa-1x"></i>&nbsp;繼續使用</button>
+                    <button id="btnSessionExpiredCancelled" type="button" class="btn btn-default" data-dismiss="modal" style="padding: 6px 12px; margin-bottom: 0; font-size: 14px; font-weight: normal; border: 1px solid transparent; border-radius: 4px; background-color: #428bca; color: #FFF; display:none;">Cancel</button>
+                    <button id="btnLogoutNow" type="button" class="btn btn-danger" style="padding: 6px 12px; margin-bottom: 0; font-size: 14px; font-weight: normal; border: 1px solid transparent; border-radius: 4px; color: #FFF;"><i class="fas fa-power-off fa-1x"></i>&nbsp;立即登出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="session-expired-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><i class="fas fa-exclamation-circle fa-1x" style="color:red;"></i> 登出</h4>
+                </div>
+                <div class="modal-body" style="color:darkblue;text-align:center;">
+                    您的連線已逾期或未授權，請重新登入。
+                </div>
+                <div class="modal-footer">
+                    <button id="btnExpiredOk" onclick="sessionExpiredRedirect()" type="button" class="btn btn-primary" data-dismiss="modal" style="padding: 6px 12px; margin-bottom: 0; font-size: 14px; font-weight: normal; border: 1px solid transparent; border-radius: 4px; background-color: #428bca; color: #FFF;"><i class="fas fa-redo fa-1x"></i> 重新登入</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="urMsgModal" class="modal fade col-xs-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="vertical-align:middle;">
+                    <i class="fas fa-exclamation-circle fa-1x" style="color:gold;padding-top:0.5em;display:inline;">
+                        <span style="color:#000;">個人訊息管理</span>
+                    </i>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body" style="text-align:center;">
+                    <h5 class="modal-title"><span id="urmsg-cnt" style="color:darkred;"></span></h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(init);
+        function init() {
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper, .overlay").toggleClass("toggled");
+            });
+            $("#page-menu a").click(function () {
+                $("iframe#page-content").attr("src", $(this).attr("value"));
+                $("#page-title").text("LOADING...");
+            });
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                document.getElementById("menu-query-field").focus();
+            });
+            $("#menu-query-field").on('keyup', function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    queryMenu();
+                }
+            });
+            $("#menu-query-btn").on('click', function (e) {
+                e.preventDefault();
+                queryMenu();
+            });
+
+            var firstLoad = true;
+            var ur1013 = $('#mn_UR1013');
+            $("iframe#page-content").on("load", function () {
+                //$("#page-title").text($("#page-title-pre").text());
+                var pTitle = $("#page-title-pre").text();
+                pTitle = pTitle.substring(0, pTitle.lastIndexOf('('));
+                $("#page-title").text(pTitle);
+                if ($("#toggle-after-load").text() == 'Y') {
+                    if (!firstLoad || ur1013.length == 0)
+                        $("#wrapper, .overlay").toggleClass("toggled");
+                }
+                else {
+                    $("#toggle-after-load").text('Y');
+                }
+                firstLoad = false;
+            });
+
+            $('#mn_MMSMS').click();
+
+            if (ur1013.length > 0)
+                ur1013[0].click();
+
+            //IsSafari();
+        }
+        function IsSafari() {
+            var is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+            if (is_safari) {
+                $("#page-content").css("height", "99vh");
+            }
+        }
+        function queryMenu() {
+            $('#menu-query-list a').remove();
+            var p = $("#menu-query-field").val().toUpperCase();
+
+            $.post("/api/Menu/Query",
+                { MenuName: p },
+                function (data) {
+                    var etts = data.etts;
+                    var len = etts.length;
+                    for (_i = 0; _i < len; _i++) {
+                        var _id = etts[_i].id;
+                        var _url = etts[_i].url;
+                        var _text = etts[_i].text;
+                        var _ic = "far fa-file-alt fa-1x";
+                        if (_url.indexOf('/Form/Mobile') > -1)
+                            _ic = "fas fa-mobile-alt fa-1x";
+                        var _js = "javascript:link2('" + _url + "','" + _text + "', null, 'smn_" + _id + "')"
+                        $('#menu-query-list').append(
+                            $('<a>').attr('href', _js)
+                                .attr('id', 'smn_' + _id)
+                                .attr("class", "list-group-item")
+                                .attr("role", "tab")
+                                .append('<i class="' + _ic + '" style="color:black"></i>&nbsp;')
+                                .append(_text));
+                    }
+                }
+            );
+        }
+
+        function changePassword() {
+            $(document).ready(function () {
+                $("#old-pwd").val('');
+                $("#new-pwd").val('');
+                $("#new-pwd-chk").val('');
+                $('#pwd-msg').html('');
+                $("#changePasswordModal").modal('show');
+            });
+        }
+
+        function doChangePassword() {
+            var oldPwd = $("#old-pwd");
+            var newPwd = $("#new-pwd");
+            var newPwdIf = $('#new-pwd-if');
+            var newPwdChk = $("#new-pwd-chk");
+            var newPwdChkIf = $('#new-pwd-chk-if');
+
+            var isValid = true;
+
+            if (oldPwd.val() == '') {
+                oldPwd.addClass('is-invalid');
+                isValid = false;
+            }
+            else {
+                oldPwd.removeClass('is-invalid');
+            }
+
+            if (newPwd.val() == '') {
+                newPwdIf.html('必須輸入新密碼');
+                newPwd.addClass('is-invalid');
+                isValid = false;
+            }
+            else {
+                var reg = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/;
+                if (!reg.test(newPwd.val())) {
+                    newPwdIf.html('新密碼必須符合輸入規則');
+                    newPwd.addClass('is-invalid');
+                    isValid = false;
+                }
+                else {
+                    newPwd.removeClass('is-invalid');
+                }
+            }
+
+            if (newPwdChk.val() == '') {
+                newPwdChkIf.html('必須輸入確認新密碼');
+                newPwdChk.addClass('is-invalid');
+                isValid = false;
+            }
+            else {
+                if (newPwdChk.val() != newPwd.val()) {
+                    newPwdChkIf.html('確認新密碼必須與新密碼相同');
+                    newPwdChk.addClass('is-invalid');
+                    isValid = false;
+                }
+                else {
+                    newPwdChk.removeClass('is-invalid');
+                }
+            }
+
+            if (isValid) {
+                $('#pwd-msg').html('密碼變更中...');
+                var ajaxRequest = $.ajax({
+                    type: "POST",
+                    url: '../../../api/UR1002/Change',
+                    dataType: "json",
+                    data: {
+                        OLD_PWD: $('#old-pwd').val(),
+                        NEW_PWD: $('#new-pwd').val()
+                    }
+                })
+                    .done(function (data, textStatus) {
+                        if (data.success) {
+                            $('#old-pwd').val('');
+                            $('#new-pwd').val('');
+                            $('#new-pwd-chk').val('');
+                            $('#pwd-msg').html('密碼變更完成，請使用新的密碼重新登入。');
+                        }
+                        else
+                            $('#pwd-msg').html('密碼變更失敗，請檢查輸入欄位。');
+                    })
+                    .fail(function (data, textStatus) {
+                        $('#pwd-msg').html('密碼變更失敗，請稍後再試。');
+                    });
+            }
+        }
+
+        function askLogout() {
+            $(document).ready(function () {
+                $("#logoutModal").modal('show');
+            });
+        }
+
+        function doLogout() {
+            var UrlLogoff = '../Account/LogOff';
+            var form = document.createElement("form");
+            form.setAttribute("action", UrlLogoff);
+            form.setAttribute("method", 'POST');
+            document.body.appendChild(form);
+            form.submit().remove();
+        }
+    </script>
+
+    <script type="text/javascript">
+        var sessServerAliveTime = 10 * 60 * 2;
+        var sessionTimeout = 30 * 60000; //30分鐘顯示提示
+        var sessLastActivity;
+        var idleTimer, remainingTimer;
+        var isTimout = false;
+
+        var sess_intervalID, idleIntervalID;
+        var sess_lastActivity;
+        var timer;
+        var isIdleTimerOn = false;
+        localStorage.setItem('sessionSlide', 'isStarted');
+        initSessionMonitor();
+
+        // 檢查是否有需要進行提醒的新訊息
+        function chkUrMsg(varIsFirstChk) {
+            $.ajax({
+                type: "POST",
+                url: '/api/UR1027/GetChkUrMsg',
+                dataType: "json",
+                data: {
+                    IS_FIRST_CHK: varIsFirstChk
+                }
+            })
+            .done(function (data, textStatus) {
+                var rtnMsg = data.msg.split('^');
+
+                if (rtnMsg[1] > 0) {
+                    var alertMsg = '';
+                    if (rtnMsg[0] == 'O')
+                        alertMsg = '您有 ' + rtnMsg[1] + ' 項訊息尚未讀取,請至個人訊息管理查詢.';
+                    else if (rtnMsg[0] == 'N')
+                        alertMsg = '您有 ' + rtnMsg[1] + ' 項新訊息,可在個人訊息管理查詢.';
+                    $('#urmsg-cnt').html(alertMsg);
+                    $("#urMsgModal").modal('show');
+                }
+            })
+            .fail(function (data, textStatus) {
+
+            });
+        }
+        chkUrMsg('Y');
+
+        //每三分鐘檢查一次是否有新的個人訊息
+        setInterval(function () {
+            chkUrMsg('N');
+        }, 180000);
+
+        function sessPingServer() {
+            if (!isTimout) {
+                //$.ajax({
+                //    url: '/Admin/SessionTimeout',
+                //    dataType: "json",
+                //    async: false,
+                //    type: "POST"
+                //});
+
+                return true;
+            }
+        }
+
+        function sessServerAlive() {
+            sess_intervalID = setInterval('sessPingServer()', sessServerAliveTime);
+        }
+
+        function initSessionMonitor() {
+            $(document).bind('keypress.session', function (ed, e) {
+                sessKeyPressed(ed, e);
+            });
+            $(document).bind('mousedown keydown', function (ed, e) {
+
+                sessKeyPressed(ed, e);
+            });
+            //sessServerAlive();
+            startIdleTime();
+        }
+
+        $(window).scroll(function (e) {
+            localStorage.setItem('sessionSlide', 'isStarted');
+            startIdleTime();
+        });
+
+        function sessKeyPressed(ed, e) {
+            var target = ed ? ed.target : window.event.srcElement;
+            var sessionTarget = $(target).parents("#session-expire-warning-modal").length;
+
+            if (sessionTarget != null && sessionTarget != undefined) {
+                if (ed.target.id != "btnSessionExpiredCancelled" && ed.target.id != "btnSessionModal" && ed.currentTarget.activeElement.id != "session-expire-warning-modal" && ed.target.id != "btnExpiredOk"
+                    && ed.currentTarget.activeElement.className != "modal fade modal-overflow in" && ed.currentTarget.activeElement.className != 'modal-header'
+                    && sessionTarget != 1 && ed.target.id != "session-expire-warning-modal") {
+                    localStorage.setItem('sessionSlide', 'isStarted');
+                    startIdleTime();
+                }
+            }
+        }
+
+        function startIdleTime() {
+            stopIdleTime();
+            localStorage.setItem("sessIdleTimeCounter", $.now());
+            idleIntervalID = setInterval('checkIdleTimeout()', 1000);
+            isIdleTimerOn = false;
+        }
+
+        var sessionExpired = document.getElementById("session-expired-modal");
+        function sessionExpiredClicked(evt) {
+            doLogout();
+        }
+
+        sessionExpired.addEventListener("click", sessionExpiredClicked, false);
+        function stopIdleTime() {
+            clearInterval(idleIntervalID);
+            clearInterval(remainingTimer);
+        }
+
+        function checkIdleTimeout() {
+            // $('#sessionValue').val() * 60000;
+            var idleTime = (parseInt(localStorage.getItem('sessIdleTimeCounter')) + (sessionTimeout));
+            if ($.now() > idleTime + 60000) {
+                $("#session-expire-warning-modal").modal('hide');
+                $("#session-expired-modal").modal('show');
+                clearInterval(sess_intervalID);
+                clearInterval(idleIntervalID);
+
+                $('.modal-backdrop').css("z-index", parseInt($('.modal-backdrop').css('z-index')) + 100);
+                $("#session-expired-modal").css('z-index', 2000);
+                $('#btnExpiredOk').css('background-color', '#428bca');
+                $('#btnExpiredOk').css('color', '#fff');
+
+                isTimout = true;
+
+                sessLogOut();
+
+            }
+            else if ($.now() > idleTime) {
+                ////var isDialogOpen = $("#session-expire-warning-modal").is(":visible");
+                if (!isIdleTimerOn) {
+                    ////alert('Reached idle');
+                    localStorage.setItem('sessionSlide', false);
+                    countdownDisplay();
+
+                    $('.modal-backdrop').css("z-index", parseInt($('.modal-backdrop').css('z-index')) + 500);
+                    $('#session-expire-warning-modal').css('z-index', 1500);
+                    /*
+                    $('#btnOk').css('background-color', '#428bca');
+                    $('#btnOk').css('color', '#fff');
+                    $('#btnSessionExpiredCancelled').css('background-color', '#428bca');
+                    $('#btnSessionExpiredCancelled').css('color', '#fff');
+                    $('#btnLogoutNow').css('background-color', '#428bca');
+                    $('#btnLogoutNow').css('color', '#fff');
+                    */
+
+                    $("#seconds-timer").empty();
+                    $("#session-expire-warning-modal").modal('show');
+
+                    isIdleTimerOn = true;
+                }
+            }
+        }
+
+        $("#btnSessionExpiredCancelled").click(function () {
+            $('.modal-backdrop').css("z-index", parseInt($('.modal-backdrop').css('z-index')) - 500);
+        });
+
+        $("#btnOk").click(function () {
+            $("#session-expire-warning-modal").modal('hide');
+            $('.modal-backdrop').css("z-index", parseInt($('.modal-backdrop').css('z-index')) - 500);
+            startIdleTime();
+            clearInterval(remainingTimer);
+            localStorage.setItem('sessionSlide', 'isStarted');
+
+            $.ajax({
+                url: '/api/Acct/Slide',
+                dataType: "json",
+                async: false,
+                type: "POST"
+            });
+        });
+
+        $("#btnLogoutNow").click(function () {
+            localStorage.setItem('sessionSlide', 'loggedOut');
+            //window.location = "Logout.html";
+            //sessLogOut();
+            //$("#session-expired-modal").modal('hide');
+
+            doLogout();
+        });
+        $('#session-expired-modal').on('shown.bs.modal', function () {
+            $("#session-expire-warning-modal").modal('hide');
+            $(this).before($('.modal-backdrop'));
+            $(this).css("z-index", parseInt($('.modal-backdrop').css('z-index')) + 1);
+        });
+
+        $("#session-expired-modal").on("hidden.bs.modal", function () {
+            //window.location = "Logout.html";
+
+            doLogout();
+        });
+        $('#session-expire-warning-modal').on('shown.bs.modal', function () {
+            $("#session-expire-warning-modal").modal('show');
+            $(this).before($('.modal-backdrop'));
+            $(this).css("z-index", parseInt($('.modal-backdrop').css('z-index')) + 1);
+        });
+
+        function countdownDisplay() {
+
+            var dialogDisplaySeconds = 60;
+
+            remainingTimer = setInterval(function () {
+                if (localStorage.getItem('sessionSlide') == "isStarted") {
+                    $("#session-expire-warning-modal").modal('hide');
+                    startIdleTime();
+                    clearInterval(remainingTimer);
+                }
+                else if (localStorage.getItem('sessionSlide') == "loggedOut") {
+                    $("#session-expire-warning-modal").modal('hide');
+                    $("#session-expired-modal").modal('show');
+                }
+                else {
+
+                    $('#seconds-timer').html(dialogDisplaySeconds);
+                    dialogDisplaySeconds -= 1;
+                }
+            }
+                , 1000);
+        };
+
+        function sessLogOut() {
+            //doLogout();
+            $("#session-expired-modal").modal('hide');
+            isIdleTimerOn = false;
+        }
+
+        function isTest() {
+            //if ((window.location.href.includes('192.168.99.52:763') == false && window.location.href.includes('192.168.99.52'))
+            //    || window.location.href.includes('f5-mmsms.ndmctsgh.edu.tw')
+            //    || window.location.href.includes('f5-ommsms.ndmctsgh.edu.tw')
+            //    || window.location.href.includes('10.200.4.31')
+            //    || window.location.href.includes('10.200.4.32')) {
+            //    document.getElementById('wrapper').style.backgroundColor = '#64B2D8';
+            //} else {
+            //    document.getElementById('wrapper').style.backgroundColor = '#F769B3';
+            //}
+
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: '/api/Acct/getDbConnType',
+                dataType: "json"
+            })
+                .done(function (data, textStatus) {
+                    if (data.msg == 'TEST') {
+                        document.getElementById('wrapper').style.backgroundColor = '#F769B3';
+                    }
+                    else {
+                        document.getElementById('wrapper').style.backgroundColor = '#64B2D8';
+                    }
+                })
+                .fail(function (data, textStatus) {
+                    document.getElementById('wrapper').style.backgroundColor = '#F769B3';
+                });
+        }
+        isTest();
+
+
+
+        // iframe事件偵測，有click或鍵盤輸入更新前端sessionTimeout時間
+        $('#page-content').one('load', function () {
+
+            var iframe = $('#page-content').contents();
+
+            iframe.click(function () {
+                startIdleTime();
+            });
+            iframe.keyup(function () {
+                startIdleTime();
+            });
+        });
+
+    </script>
+</body>
+
+</html>

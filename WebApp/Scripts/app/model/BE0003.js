@@ -1,0 +1,30 @@
+﻿Ext.define('WEBAPP.model.BE0003', {
+    extend: 'Ext.data.Model',
+    fields: [
+        { name: 'PO_NO', type: 'string' }, 
+        { name: 'AGEN_NO', type: 'string' }, 
+        { name: 'INVOICE', type: 'string' }, 
+        { name: 'INVOICE_DT', type: 'string' }, 
+        { name: 'MMCODE', type: 'string' }, 
+        { name: 'MMNAME_C', type: 'string' }, 
+        { name: 'MMNAME_E', type: 'string' },
+        { name: 'PO_PRICE', type: 'string' }, 
+        { name: 'DELI_QTY', type: 'string' }, 
+        { name: 'AMOUNT', type: 'string' }, 
+        { name: 'DELI_DT', type: 'string' }, 
+        { name: 'MEMO', type: 'string' }, 
+        { name: 'TRANSNO', type: 'string' }, 
+        { name: 'M_CONTID', type: 'string' }, 
+        { name: 'INVOICE_TOT', type: 'string' }, 
+        { name: 'M_PHCTNCO', type: 'string' }, 
+        { name: 'CKSTATUS', type: 'string' }, 
+        { name: 'CREATE_TIME', type: 'string' }, 
+        { name: 'CREATE_USER', type: 'string' },
+        { name: 'UPDATE_TIME', type: 'string' },
+        { name: 'UPDATE_USER', type: 'string' },
+        { name: 'UPDATE_IP', type: 'string' }, 
+        { name: 'ITEM_STRING', type: 'string' }, 
+        { name: 'CHK_USER', type: 'string' }, 
+        { name: 'CHK_DT', type: 'string' }
+    ]
+});

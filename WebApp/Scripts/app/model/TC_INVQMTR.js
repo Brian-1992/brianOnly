@@ -1,0 +1,35 @@
+﻿Ext.define('WEBAPP.model.TC_INVQMTR', {
+    extend: 'Ext.data.Model',
+    fields: [
+        { name: 'DATA_YM', type: 'string' },
+        { name: 'MMCODE', type: 'string' },
+        { name: 'MMNAME_C', type: 'string' },
+        { name: 'BASE_UNIT', type: 'string' },
+        { name: 'IN_PRICE', type: 'string' },   // 進價
+        { name: 'PMN_INVQTY', type: 'string' },
+        { name: 'MN_INQTY', type: 'string' },
+        { name: 'MN_USEQTY', type: 'string' },
+        { name: 'MN_INVQTY', type: 'string' },
+        { name: 'STORE_LOC', type: 'string' },
+        { name: 'M6AVG_USEQTY', type: 'string' },
+        { name: 'M3AVG_USEQTY', type: 'string' },
+        { name: 'M6MAX_USEQTY', type: 'string' },
+        { name: 'M3MAX_USEQTY', type: 'string' },
+        { name: 'INV_DAY', type: 'string' },
+        { name: 'EXP_PURQTY', type: 'string' },
+        { name: 'AGEN_NAMEC', type: 'string' },
+        { name: 'PUR_UNIT', type: 'string' },
+        { name: 'IN_PURPRICE', type: 'string' }, //進貨單價
+        { name: 'BASEUN_MULTI', type: 'string' },
+        { name: 'PURUN_MULTI', type: 'string' },
+        { name: 'PUR_QTY', type: 'string' },
+        { name: 'PURCH_ST', type: 'string' },
+        { name: 'PURCH_ST_NAME', type: 'string' },
+        { name: 'RCM_PURQTY', type: 'string' },
+        { name: 'EXP_PURDAY', type: 'string' },
+        { name: 'AGEN_COUNT', type: 'string' },
+        { name: 'PUR_SEQ', type: 'string' },
+        { name: 'IS_VALID', type: 'string' },
+        { name: 'PURCH_ST_NAME', type: 'string' },
+    ]
+});

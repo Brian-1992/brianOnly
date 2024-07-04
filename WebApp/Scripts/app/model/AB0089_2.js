@@ -1,0 +1,30 @@
+﻿Ext.define('WEBAPP.model.AB0089_2', {
+    extend: 'Ext.data.Model',
+    fields: [
+        { name: 'OrderCode', type: 'string' }, 
+        { name: 'ProcDateTime', type: 'string' }, 
+        { name: 'ProcOpID', type: 'string' } ,
+        { name: 'BeginDate', type: 'string' } ,
+        { name: 'EndDate', type: 'string' } ,
+        { name: 'StockTransQtyO', type: 'string' } ,
+        { name: 'StockTransQtyI', type: 'string' } ,
+        { name: 'ChangeQtyI', type: 'string' } ,
+        { name: 'ChangeQtyO', type: 'string' } ,
+        { name: 'Price1', type: 'string' } ,
+        { name: 'Price2', type: 'string' } ,
+        { name: 'CostAmount', type: 'string' } ,
+        { name: 'IsDisc', type: 'string' } ,
+        { name: 'DiscPer', type: 'string' } ,
+        { name: 'InsuOrderCode', type: 'string' } ,
+        { name: 'InsuSignI', type: 'string' } ,
+        { name: 'InsuSignO', type: 'string' } ,
+        { name: 'ContractPrice', type: 'string' } ,
+        { name: 'ContracNo', type: 'string' } ,
+        { name: 'SupplyNo', type: 'string' } ,
+        { name: 'CaseFrom', type: 'string' } ,
+        { name: 'OriginalProducer', type: 'string' } ,
+        { name: 'AgentName', type: 'string' } ,
+        { name: 'CreateDateTime', type: 'string' } ,
+        { name: 'CreateOpID', type: 'string' } 
+    ]
+});

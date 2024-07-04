@@ -1,0 +1,439 @@
+﻿
+@{
+    ViewBag.Title = "庫存量監控總覽";
+    Layout = "~/Views/Shared/_ChartLayout.cshtml";
+}
+
+@section styles
+{
+<style>
+    #Main {
+    }
+
+        #Main .MachineInfo {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+
+        #Main .MachineName {
+            font-weight: bold;
+        }
+
+    /*.AllStatsGraph {
+            height: 20em;
+        }
+
+        .StatsGraph {
+            height: 20em;
+        }*/
+
+    .DashboardCategory {
+        padding: 0;
+    }
+
+    .DashboardFrame {
+        padding: 0.5em;
+    }
+
+        .DashboardFrame .DashboardWordWrapper, .DashboardFrame .DashboardGraphWrapper {
+            padding: 1em;
+            height: 20em;
+        }
+
+            .DashboardFrame .DashboardWordWrapper .DashboardWordName {
+                padding-top: 0.75em;
+                text-align: center;
+                font-size: 1.5em;
+            }
+
+            .DashboardFrame .DashboardWordWrapper .DashboardWordValue {
+                padding-bottom: 0.5em;
+                text-align: center;
+                font-size: 3em;
+                font-weight: bold;
+            }
+
+        .DashboardFrame .DashboardGraphWrapper {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+            .DashboardFrame .DashboardGraphWrapper > div.StatsGraph {
+                /*height: 20em;*/
+                height: 100%;
+            }
+</style>
+}
+
+
+@section components
+{
+    <div class="container-fluid">
+        <div class="row">
+
+                    <div class="DashboardFrame col-xs-12 col-md-6 col-lg-3">
+                        <div class="DashboardGraphWrapper">
+                            <div id="sg11" class="StatsGraph"></div>
+                        </div>
+                    </div>
+                    <div class="DashboardFrame col-xs-12 col-md-6 col-lg-3">
+                        <div class="DashboardGraphWrapper">
+                            <div id="sg12" class="StatsGraph"></div>
+                        </div>
+                    </div>
+                    <div class="DashboardFrame col-sm-6">
+                        <div class="DashboardGraphWrapper">
+                            <div id="sg13" class="StatsGraph"></div>
+                        </div>
+                    </div>
+                    <div class="DashboardFrame col-sm-9">
+                        <div class="DashboardGraphWrapper">
+                            <div id="sg14" class="StatsGraph"></div>
+                        </div>
+                    </div>
+                    <div class="DashboardFrame col-sm-3">
+                        <div class="DashboardGraphWrapper">
+                            <div id="sg15" class="StatsGraph"></div>
+                        </div>
+                    </div>
+                    <div class="DashboardFrame col-sm-6">
+                        <div class="DashboardGraphWrapper">
+                            <div id="sg16" class="StatsGraph"></div>
+                        </div>
+                    </div>
+                    <div class="DashboardFrame col-sm-3">
+                        <div class="DashboardGraphWrapper">
+                            <div id="sg17" class="StatsGraph"></div>
+                        </div>
+                    </div>
+                    <div class="DashboardFrame col-sm-3">
+                        <div class="DashboardGraphWrapper">
+                            <div id="sg18" class="StatsGraph"></div>
+                        </div>
+                    </div>
+
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        $(init);
+
+        function init() {
+            var data = {
+                Success: true,
+                ErrorMsg: "",
+                Dashboard: [{
+                    RegionId: 0,
+                    RegionName: "ALL",
+                    Value: [290, 297, 310, 321, 309, 315, 332, 354]
+                }, {
+                    RegionId: 1,
+                    RegionName: "一廠",
+                    Value: [120, 124, 136, 127, 119, 130, 141, 148]
+                }, {
+                    RegionId: 2,
+                    RegionName: "二廠",
+                    Value: [75, 73, 81, 85, 84, 89, 87, 91]
+                }, {
+                    RegionId: 3,
+                    RegionName: "三廠",
+                    Value: [95, 100, 93, 109, 106, 96, 104, 115]
+                }]
+            };
+
+            $("#sg11.StatsGraph").highcharts({
+                chart: {
+                    spacingBottom: 0,
+                    spacingTop: 0,
+                    spacingLeft: 0,
+                    spacingRight: 0
+                },
+                credits: { enabled: false },
+                title: null,
+                pane: {
+                    size: '100%',
+                    startAngle: -90,
+                    endAngle: 270,
+                    background: {
+                        backgroundColor: '#666',
+                        innerRadius: '60%',
+                        outerRadius: '100%',
+                        //shape: 'circle',
+                        borderWidth: 0
+                    }
+                },
+                yAxis: {
+                    stops: [
+                        [1, 'rgba(95, 183, 223, 1)']
+                    ],
+                    showFirstLabel: false,
+                    showLastLabel: false,
+                    lineWidth: 0,
+                    minorTicks: false,
+                    minorTickInterval: null,
+                    tickAmount: 2,
+                    labels: {
+                        y: 16
+                    },
+                    min: 0,
+                    max: 500
+                },
+                series: [{
+                    type: 'solidgauge',
+                    name: '近日產量',
+                    data: [354],
+                    dataLabels: {
+                        y: -40,
+                        borderWidth: 0,
+                        useHTML: true,
+                        format:
+                        '<div style="text-align:center;color:white">' +
+                        '<span style="font-size:1.5em;font-weight:normal">近日產量</span><br />' +
+                        '<span style="font-size:2.5em">{y}M</span>' +
+                        '</div>'
+                    }
+                }]
+            });
+
+            $("#sg12.StatsGraph").highcharts({
+                chart: {
+                    spacingBottom: 0,
+                    spacingTop: 0,
+                    spacingLeft: 0,
+                    spacingRight: 0
+                },
+                credits: { enabled: false },
+                title: null,
+                pane: {
+                    size: '100%',
+                    startAngle: -90,
+                    endAngle: 270,
+                    background: {
+                        backgroundColor: '#666',
+                        innerRadius: '60%',
+                        outerRadius: '100%',
+                        borderWidth: 0
+                    }
+                },
+                yAxis: {
+                    stops: [
+                        [1, 'rgba(255, 140, 0, 1)']
+                    ],
+                    showFirstLabel: false,
+                    showLastLabel: false,
+                    lineWidth: 0,
+                    minorTicks: false,
+                    minorTickInterval: null,
+                    tickAmount: 2,
+                    labels: {
+                        y: 16
+                    },
+                    min: 0,
+                    max: 10
+                },
+                series: [{
+                    type: 'solidgauge',
+                    name: '日增率',
+                    data: [6.6],
+                    dataLabels: {
+                        y: -40,
+                        borderWidth: 0,
+                        useHTML: true,
+                        format:
+                        '<div style="text-align:center;color:white">' +
+                        '<span style="font-size:1.5em;font-weight:normal">日增率</span><br />' +
+                        '<span style="font-size:2.5em">{y}%</span>' +
+                        '</div>'
+                    }
+                }]
+            });
+
+            var xdata = ['D-7', 'D-6', 'D-5', 'D-4', 'D-3', 'D-2', 'D-1', 'D'];
+            var y1data = data.Dashboard[0].Value;
+            var y2data = [0, (297 - 290) / 290 * 100, (310 - 297) / 297 * 100, (321 - 310) / 310 * 100, (309 - 321) / 321 * 100, (315 - 309) / 309 * 100, (332 - 315) / 315 * 100, (354 - 332) / 332 * 100];
+            var mergeset = [
+                { name: '產量(M)', data: y1data, type: "column", color: 'rgba(95, 183, 223, 1)', yAxis: 1, groupPadding: 0.1 },
+                { name: '日增率(%)', data: y2data, type: "spline", color: 'rgba(255, 140, 0, 1)' },
+            ];
+            $("#sg13.StatsGraph").highcharts({
+                chart: {
+                    spacingBottom: 5,
+                    spacingTop: 5,
+                    spacingLeft: 0,
+                    spacingRight: 0
+                },
+                credits: { enabled: false },
+                title: { text: "產量 & 日增率" },
+                xAxis: { categories: xdata },
+                yAxis: [{
+                    title: { text: '' },
+                    tickInterval: 50,
+                    max: 100,
+                    min: -100,
+                    alignTicks: false
+                }, {
+                    title: { text: '' },
+                    opposite: true,
+                    gridLineColor: 'transparent'
+                }],
+                legend: { enabled: false },
+                series: mergeset
+            });
+
+            var mergeset = [
+                { name: data.Dashboard[1].RegionName, data: data.Dashboard[1].Value, type: "column", stacking: 'percent', groupPadding: 0.1 },
+                { name: data.Dashboard[2].RegionName, data: data.Dashboard[2].Value, type: "column", stacking: 'percent', groupPadding: 0.1 },
+                { name: data.Dashboard[3].RegionName, data: data.Dashboard[3].Value, type: "column", stacking: 'percent', groupPadding: 0.1 }
+            ];
+            $("#sg14.StatsGraph").highcharts({
+                chart: {
+                    spacingBottom: 5,
+                    spacingTop: 5,
+                    spacingLeft: 0,
+                    spacingRight: 0
+                },
+                credits: { enabled: false },
+                title: { text: "廠區產能比較" },
+                xAxis: { categories: xdata },
+                yAxis: [{
+                    title: null,
+                    min: 0
+                }],
+                //legend: { enabled: false },
+                series: mergeset
+            });
+
+            var mergedata = [
+                { name: data.Dashboard[1].RegionName, y: data.Dashboard[1].Value[data.Dashboard[1].Value.length - 1] },
+                { name: data.Dashboard[2].RegionName, y: data.Dashboard[2].Value[data.Dashboard[2].Value.length - 1] },
+                { name: data.Dashboard[3].RegionName, y: data.Dashboard[3].Value[data.Dashboard[3].Value.length - 1] }
+            ];
+            var mergeset = [{
+                name: '近日廠區產能', colorByPoint: true, data: mergedata, type: 'pie', innerSize: '60%',
+            }];
+            $("#sg15.StatsGraph").highcharts({
+                chart: {
+                    spacingBottom: 5,
+                    spacingTop: 5,
+                    spacingLeft: 0,
+                    spacingRight: 0
+                },
+                plotOptions: {
+                    pie: {
+                        dataLabels: {
+                            enabled: true,
+                            distance: -20,
+                            style: {
+                                fontSize: '1.25em',
+                                fontWeight: 'bold',
+                                color: 'white'
+                            }
+                        },
+                        startAngle: 0,
+                        endAngle: 360,
+                        size: '100%'
+                    }
+                },
+                credits: { enabled: false },
+                title: {
+                    text: "近日廠區產能",
+                    align: 'center',
+                    verticalAlign: 'middle',
+                    y: 10,
+                    style: {
+                        fontSize: '1.5em'
+                    }
+                },
+                //legend: { enabled: false },
+                series: mergeset
+            });
+
+            var y1data = data.Dashboard[0].Value;
+            var y2data = [0, (297 - 290) / 290 * 100, (310 - 297) / 297 * 100, (321 - 310) / 310 * 100, (309 - 321) / 321 * 100, (315 - 309) / 309 * 100, (332 - 315) / 315 * 100, (354 - 332) / 332 * 100];
+            var mergeset = [
+                { name: data.Dashboard[0].RegionName, data: data.Dashboard[0].Value, type: "area" },
+                { name: data.Dashboard[1].RegionName, data: data.Dashboard[1].Value, type: "spline" },
+                { name: data.Dashboard[2].RegionName, data: data.Dashboard[2].Value, type: "spline" },
+                { name: data.Dashboard[3].RegionName, data: data.Dashboard[3].Value, type: "spline" },
+            ];
+            $("#sg16.StatsGraph").highcharts({
+                chart: {
+                    spacingBottom: 5,
+                    spacingTop: 5,
+                    spacingLeft: 0,
+                    spacingRight: 0
+                },
+                credits: { enabled: false },
+                title: { text: "產量比較" },
+                xAxis: {
+                    categories: xdata
+                },
+                yAxis: [{
+                    title: { text: '' }
+                }],
+                //legend: { enabled: false },
+                series: mergeset
+            });
+
+            var xdata = ['CH06', 'CH01', 'CH43', 'CH21', 'CH42'];
+            var ydata = [42149, 41208, 34919, 31206, 30087];
+            var mergeset = [{
+                name: '產量',
+                data: ydata,
+                type: 'bar',
+                color: 'rgba(0, 255, 0, 1)',
+                lineWidth: 0
+            }];
+            $("#sg17.StatsGraph").highcharts({
+                chart: {
+                    spacingBottom: 5,
+                    spacingTop: 5,
+                    spacingLeft: 0,
+                    spacingRight: 0
+                },
+                credits: { enabled: false },
+                title: { text: "產量TOP機台" },
+                xAxis: {
+                    categories: xdata
+                },
+                yAxis: [{
+                    title: { text: '' },
+                    min: 0
+                }],
+                legend: { enabled: false },
+                series: mergeset
+            });
+
+            var xdata = ['CH04', 'CH19', 'CH41', 'CH22', 'CH03'];
+            var ydata = [787, 906, 919, 1208, 2149];
+            var mergeset = [{
+                name: '產量',
+                data: ydata,
+                type: 'bar',
+                color: 'rgba(255, 30, 30, 1)',
+                lineWidth: 0
+            }];
+            $("#sg18.StatsGraph").highcharts({
+                chart: {
+                    spacingBottom: 5,
+                    spacingTop: 5,
+                    spacingLeft: 0,
+                    spacingRight: 0
+                },
+                credits: { enabled: false },
+                title: { text: "產量BOTTOM機台" },
+                xAxis: {
+                    categories: xdata
+                },
+                yAxis: [{
+                    title: { text: '' },
+                    min: 0
+                }],
+                legend: { enabled: false },
+                series: mergeset
+            });
+        }
+    </script>
+    }

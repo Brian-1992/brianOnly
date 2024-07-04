@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AA0138_WH" targetNamespace="http://tempuri.org/AA0138_WH.xsd" xmlns:mstns="http://tempuri.org/AA0138_WH.xsd" xmlns="http://tempuri.org/AA0138_WH.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AA0138_WH" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AA0138_WH" msprop:Generator_UserDSName="AA0138_WH">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="AA0138_WH" msprop:Generator_TableClassName="AA0138_WHDataTable" msprop:Generator_TableVarName="tableAA0138_WH" msprop:Generator_TablePropName="_AA0138_WH" msprop:Generator_RowDeletingName="AA0138_WHRowDeleting" msprop:Generator_RowChangingName="AA0138_WHRowChanging" msprop:Generator_RowEvHandlerName="AA0138_WHRowChangeEventHandler" msprop:Generator_RowDeletedName="AA0138_WHRowDeleted" msprop:Generator_UserTableName="AA0138_WH" msprop:Generator_RowChangedName="AA0138_WHRowChanged" msprop:Generator_RowEvArgName="AA0138_WHRowChangeEvent" msprop:Generator_RowClassName="AA0138_WHRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="WH_NO" msprop:Generator_ColumnVarNameInTable="columnWH_NO" msprop:Generator_ColumnPropNameInRow="WH_NO" msprop:Generator_ColumnPropNameInTable="WH_NOColumn" msprop:Generator_UserColumnName="WH_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_NAME" msprop:Generator_ColumnVarNameInTable="columnWH_NAME" msprop:Generator_ColumnPropNameInRow="WH_NAME" msprop:Generator_ColumnPropNameInTable="WH_NAMEColumn" msprop:Generator_UserColumnName="WH_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="MMCODE_CNT" msprop:Generator_ColumnVarNameInTable="columnMMCODE_CNT" msprop:Generator_ColumnPropNameInRow="MMCODE_CNT" msprop:Generator_ColumnPropNameInTable="MMCODE_CNTColumn" msprop:Generator_UserColumnName="MMCODE_CNT" type="xs:string" minOccurs="0" />
+              <xs:element name="IS_CHK_BATCH" msprop:Generator_ColumnVarNameInTable="columnIS_CHK_BATCH" msprop:Generator_ColumnPropNameInRow="IS_CHK_BATCH" msprop:Generator_ColumnPropNameInTable="IS_CHK_BATCHColumn" msprop:Generator_UserColumnName="IS_CHK_BATCH" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

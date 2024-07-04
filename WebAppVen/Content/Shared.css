@@ -1,0 +1,391 @@
+﻿/* ------------------------------修改注意事項2012/10/24-----------------------------
+
+ 加入的css請考量各瀏覽器相容性問題，加入css的人員請加入註解，例如: 
+/* TP1001.js 引用此段css，加入人員 612764_3410 陳思評 
+    .tra-main-content {
+        background: url("../Images/accent.png") no-repeat;
+        padding-left: 10px;
+        padding-top: 30px;
+    }
+*/
+/*895039 楊英獻add for採購歷史及耗用統計grid換底色*/
+.T4 .x-grid-cell {
+    font: normal 13px tahoma, arial, verdana, sans-serif;
+    background-color: yellow;
+}
+
+.R_required {
+    background-color: pink;
+    text-align: right;
+    background-image: none;
+}
+
+.fieldset-title-red {
+}
+
+    .fieldset-title-red .x-fieldset-header-text {
+        padding: 3px;
+        font-size: 14px;
+        font-weight: bold;
+        color: red;
+    }
+
+.fieldset-title-bigsize {
+}
+
+    .fieldset-title-bigsize .x-fieldset-header-text {
+        padding: 3px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+.fieldset-title-blue {
+}
+
+    .fieldset-title-blue .x-fieldset-header-text {
+        padding: 3px;
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+    }
+
+.x-toolbar .funBtn {
+    border-color: #6262e5 !important;
+}
+
+.link_1 {
+    color: blue;
+    text-decoration: underline;
+}
+/*楊英獻end */
+
+/* 895036 江吉威 */
+/* MM1242 change cell style */
+.row3 .cell3 {
+    color: red;
+}
+/* 江吉威 end */
+/* 508893_2716 郭筱民 */
+.x-grid-row-summary {
+    font: bold;
+    color: blue;
+}
+
+.x-tab-active button {
+    color: blue;
+}
+/* TabPanel active Tab header*/
+.wpComboDisabled {
+    color: black;
+}
+/* 郭筱民 end */
+
+
+/* 612764_3410 陳思評 */
+.cust-combobox {
+    border: none;
+    background-color: #FFFFFF;
+    background-image: none;
+}
+
+.x-grid-cell.newdata {
+    background-color: #AFFFD8;
+}
+
+.x-grid-cell.olddata {
+    background-color: #FFD8AF;
+}
+
+.x-grid-cell.keydata {
+    background-color: #FFFF99;
+}
+
+.x-grid-cell.statusA {
+    background-color: #FA8000;
+}
+
+.x-grid-cell.statusB {
+    background-color: #00BE02;
+}
+
+.x-grid-cell.statusC {
+    background-color: #0300FA;
+    color: #FFFFFF;
+}
+
+.x-grid-cell.statusD {
+    background-color: #FA007A;
+}
+
+.x-grid-cell.statusE {
+    background-color: #FA0300;
+}
+
+.my-disabled-panel { /*disabledCls: 'my-disabled-panel',*/
+    opacity: .99;
+    -moz-opacity: .35;
+    filter: alpha(opacity=35);
+}
+
+/* 陳思評 end */
+
+/* 加入人員 2013-05-29 Chilun */
+.x-border-box TEXTAREA.required {
+    height: auto;
+    background-color: pink;
+    background-image: none;
+}
+
+.x-border-box TEXTAREA.readOnly {
+    height: auto;
+    background-color: transparent;
+    background-image: none;
+}
+/* Chilun end */
+/* 加入人員 2013-07-16 Chilun */
+/* 修改人員 2013-10-18 Chilun */
+.readOnlyNoBorder {
+    /* background-color:lightgray;*/
+    background-color: transparent;
+    background-image: none;
+    border-style: none;
+}
+/* Chilun end */
+
+/* 895002_2780 林詩音 */
+/* MM1008 input cell style */
+.x-grid-cell.input {
+    border: 1px solid #c0c0c0;
+    border-top: 0px solid #c0c0c0;
+    /*border-bottom:1px solid #c0c0c0;
+    border-left:2px solid #c0c0c0;
+    border-right:2px solid #c0c0c0;*/
+}
+/* 林詩音 end */
+
+/* ------------------------------以下為系統用css請勿修改 ------------------------------*/
+A:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+A:active {
+    color: blue;
+    text-decoration: none;
+}
+
+A:hover {
+    color: red;
+    text-decoration: none;
+}
+
+A:link {
+    color: blue;
+    text-decoration: none;
+}
+
+#body {
+}
+
+.home {
+    background-image: url(../Images/TRA/home.gif) !important;
+    line-height: 30px;
+}
+
+.sysmenu {
+    background-image: url(../Images/TRA/sysmenu.gif) !important;
+    line-height: 30px;
+}
+
+.refresh {
+    background-image: url(../Content/resources/images/grid/refresh.gif) !important;
+    line-height: 30px;
+}
+/*buttons*/
+.x-btn {
+    margin-left: 2px;
+}
+/*button default scale:'small' 畫面button的圖案，加入人員 2012/12/25 思評*/
+.x-btn-default-small .TRASearch {
+    background-image: url(../Images/TRA/TRASearch.gif) !important;
+}
+
+.x-btn-default-small .BtnAdd {
+    background-image: url(../Images/add.ico) !important;
+}
+
+.x-btn-default-small .BtnDel {
+    background-image: url(../Images/delete.ico) !important;
+}
+
+.x-btn-default-small .TRAClear {
+    background-image: url(../Images/TRA/TRAClear.gif) !important;
+}
+
+.x-btn-default-small .TRASave {
+    background-image: url(../Images/TRA/save.gif) !important;
+}
+/* 事件訊息，加入人員 2012/12/26 思評 */
+.TRAmsg-box {
+    background: repeat-x 0 -16px;
+    font-size: 16px;
+    padding: 4px 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B28F00;
+    height: 30px;
+    background-image: url('resources/images/box/tb-y.gif');
+}
+/* combobox預設空白高度，加入人員 2012/12/26 思評 */
+.x-boundlist-item {
+    height: 21px;
+}
+
+/* 加入人員 2012-10-22 Byron */
+.T1 .x-grid-row-selected .x-grid-cell {
+    background-color: #FDFF55 !important;
+    border-bottom-color: #999;
+    border-bottom-style: solid;
+    border-top-color: #999;
+    border-top-style: solid;
+}
+
+.T1b {
+    border: 3px solid #FDFF55;
+}
+
+.T2 .x-grid-row-selected .x-grid-cell {
+    background-color: #55FFAC !important;
+    border-bottom-color: #999;
+    border-bottom-style: solid;
+    border-top-color: #999;
+    border-top-style: solid;
+}
+
+.T2b {
+    border: 3px solid #55FFAC;
+}
+
+.T3 .x-grid-row-selected .x-grid-cell {
+    background-color: #FFCDE5 !important;
+    border-bottom-color: #999;
+    border-bottom-style: solid;
+    border-top-color: #999;
+    border-top-style: solid;
+}
+
+.T3b {
+    border: 3px solid #FFCDE5;
+}
+
+.required {
+    background-color: pink;
+    background-image: none;
+}
+
+.readOnly {
+    background-color: lightgray;
+    background-image: none;
+}
+
+/*grid 換行 ex: tdCls:'wrap-text' */
+td.wrap-text div {
+    white-space: normal;
+}
+
+/* ------------------------------以上為系統用css請勿修改 ------------------------------*/
+
+/* MMIS.component.Tag css，加入人員 2014/06/20 宗霖 */
+
+.mmis-component-tag {
+    box-shadow: 0 1px 2px #aaa;
+    background: white;
+    margin: 0 1rem 1rem;
+    border-radius: 3px;
+    user-select: none;
+    animation: fly-in-from-left .5s 1s ease both;
+    transform-origin: top left;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    float: left;
+    cursor: pointer;
+}
+
+    .mmis-component-tag:hover {
+        background-color: #99C5F2;
+    }
+
+/* DS1003綠色按鈕 加入人員 2015/03/31 宗霖 */
+.green-btn {
+    background: rgb(28, 184, 65) !important; /* this is a green */
+    border: none;
+}
+
+    .green-btn-hover,
+    .green-btn:hover,
+    .green-btn:focus {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000',GradientType=0);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(40%, rgba(0,0,0, 0.05)), to(rgba(0,0,0, 0.10)));
+        background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+        background-image: -moz-linear-gradient(top, rgba(0,0,0, 0.05) 0%, rgba(0,0,0, 0.10));
+        background-image: -o-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+        background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    }
+
+    .green-btn span {
+        color: white !important;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        font-size: small !important;
+    }
+
+.multiline-row .x-grid-cell-inner {
+    overflow: auto !important;
+    white-space: normal !important;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.rowRedText .x-grid-cell {
+    color: red;
+}
+
+.myfileset {
+    font-size: 100px;
+    color: red;
+}
+
+.warnMsg .x-window-text .x-form-display-field {
+    font-size: 18px !important;
+    color: blue;
+}
+.qform {
+    background-color: yellowgreen;
+    background-image: none;
+}
+
+.mousepointer {
+    cursor: pointer;
+}
+
+/* 已授權 - 可使用的按鈕 */
+.auth-btn {
+    border: 1px solid blue;
+}
+
+.auth-btn-disabled {
+    color: gray;
+    border: 1px solid blue;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+    opacity: 0.3;
+}
+
+/* 未授權 - 不可使用的按鈕 */
+.nonauth-btn {
+    color: gray;
+    border: 1px solid red;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+    opacity: 0.3;
+    cursor: not-allowed;
+}

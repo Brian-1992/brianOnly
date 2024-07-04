@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CD0009" targetNamespace="http://tempuri.org/CD0009.xsd" xmlns:mstns="http://tempuri.org/CD0009.xsd" xmlns="http://tempuri.org/CD0009.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CD0009" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CD0009" msprop:Generator_UserDSName="CD0009">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="CD0009" msprop:Generator_TableClassName="CD0009DataTable" msprop:Generator_TableVarName="tableCD0009" msprop:Generator_TablePropName="_CD0009" msprop:Generator_RowDeletingName="CD0009RowDeleting" msprop:Generator_RowChangingName="CD0009RowChanging" msprop:Generator_RowEvHandlerName="CD0009RowChangeEventHandler" msprop:Generator_RowDeletedName="CD0009RowDeleted" msprop:Generator_UserTableName="CD0009" msprop:Generator_RowChangedName="CD0009RowChanged" msprop:Generator_RowEvArgName="CD0009RowChangeEvent" msprop:Generator_RowClassName="CD0009Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DOCNO" msprop:Generator_ColumnVarNameInTable="columnDOCNO" msprop:Generator_ColumnPropNameInRow="DOCNO" msprop:Generator_ColumnPropNameInTable="DOCNOColumn" msprop:Generator_UserColumnName="DOCNO" type="xs:string" minOccurs="0" />
+              <xs:element name="SEQ" msprop:Generator_ColumnVarNameInTable="columnSEQ" msprop:Generator_ColumnPropNameInRow="SEQ" msprop:Generator_ColumnPropNameInTable="SEQColumn" msprop:Generator_UserColumnName="SEQ" type="xs:string" minOccurs="0" />
+              <xs:element name="MMCODE" msprop:Generator_ColumnVarNameInTable="columnMMCODE" msprop:Generator_ColumnPropNameInRow="MMCODE" msprop:Generator_ColumnPropNameInTable="MMCODEColumn" msprop:Generator_UserColumnName="MMCODE" type="xs:string" minOccurs="0" />
+              <xs:element name="MMNAME_C" msprop:Generator_ColumnVarNameInTable="columnMMNAME_C" msprop:Generator_ColumnPropNameInRow="MMNAME_C" msprop:Generator_ColumnPropNameInTable="MMNAME_CColumn" msprop:Generator_UserColumnName="MMNAME_C" type="xs:string" minOccurs="0" />
+              <xs:element name="MMNAME_E" msprop:Generator_ColumnVarNameInTable="columnMMNAME_E" msprop:Generator_ColumnPropNameInRow="MMNAME_E" msprop:Generator_ColumnPropNameInTable="MMNAME_EColumn" msprop:Generator_UserColumnName="MMNAME_E" type="xs:string" minOccurs="0" />
+              <xs:element name="APPQTY" msprop:Generator_ColumnVarNameInTable="columnAPPQTY" msprop:Generator_ColumnPropNameInRow="APPQTY" msprop:Generator_ColumnPropNameInTable="APPQTYColumn" msprop:Generator_UserColumnName="APPQTY" type="xs:string" minOccurs="0" />
+              <xs:element name="BASE_UNIT" msprop:Generator_ColumnVarNameInTable="columnBASE_UNIT" msprop:Generator_ColumnPropNameInRow="BASE_UNIT" msprop:Generator_ColumnPropNameInTable="BASE_UNITColumn" msprop:Generator_UserColumnName="BASE_UNIT" type="xs:string" minOccurs="0" />
+              <xs:element name="STORE_LOC" msprop:Generator_ColumnVarNameInTable="columnSTORE_LOC" msprop:Generator_ColumnPropNameInRow="STORE_LOC" msprop:Generator_ColumnPropNameInTable="STORE_LOCColumn" msprop:Generator_UserColumnName="STORE_LOC" type="xs:string" minOccurs="0" />
+              <xs:element name="PICK_USERMAME" msprop:Generator_ColumnVarNameInTable="columnPICK_USERMAME" msprop:Generator_ColumnPropNameInRow="PICK_USERMAME" msprop:Generator_ColumnPropNameInTable="PICK_USERMAMEColumn" msprop:Generator_UserColumnName="PICK_USERMAME" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_NO" msprop:Generator_ColumnVarNameInTable="columnWH_NO" msprop:Generator_ColumnPropNameInRow="WH_NO" msprop:Generator_ColumnPropNameInTable="WH_NOColumn" msprop:Generator_UserColumnName="WH_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="PICK_DATE" msprop:Generator_ColumnVarNameInTable="columnPICK_DATE" msprop:Generator_ColumnPropNameInRow="PICK_DATE" msprop:Generator_ColumnPropNameInTable="PICK_DATEColumn" msprop:Generator_UserColumnName="PICK_DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="LOT_NO" msprop:Generator_ColumnVarNameInTable="columnLOT_NO" msprop:Generator_ColumnPropNameInRow="LOT_NO" msprop:Generator_ColumnPropNameInTable="LOT_NOColumn" msprop:Generator_UserColumnName="LOT_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="SAFE_QTY" msprop:Generator_ColumnVarNameInTable="columnSAFE_QTY" msprop:Generator_ColumnPropNameInRow="SAFE_QTY" msprop:Generator_ColumnPropNameInTable="SAFE_QTYColumn" msprop:Generator_UserColumnName="SAFE_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="OPER_QTY" msprop:Generator_ColumnVarNameInTable="columnOPER_QTY" msprop:Generator_ColumnPropNameInRow="OPER_QTY" msprop:Generator_ColumnPropNameInTable="OPER_QTYColumn" msprop:Generator_UserColumnName="OPER_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="INV_QTY" msprop:Generator_ColumnVarNameInTable="columnINV_QTY" msprop:Generator_ColumnPropNameInRow="INV_QTY" msprop:Generator_ColumnPropNameInTable="INV_QTYColumn" msprop:Generator_UserColumnName="INV_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="M_INV_QTY" msprop:Generator_ColumnVarNameInTable="columnM_INV_QTY" msprop:Generator_ColumnPropNameInRow="M_INV_QTY" msprop:Generator_ColumnPropNameInTable="M_INV_QTYColumn" msprop:Generator_UserColumnName="M_INV_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="ALL_INV_QTY" msprop:Generator_ColumnVarNameInTable="columnALL_INV_QTY" msprop:Generator_ColumnPropNameInRow="ALL_INV_QTY" msprop:Generator_ColumnPropNameInTable="ALL_INV_QTYColumn" msprop:Generator_UserColumnName="ALL_INV_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="APPDEPTNAME" msprop:Generator_ColumnVarNameInTable="columnAPPDEPTNAME" msprop:Generator_ColumnPropNameInRow="APPDEPTNAME" msprop:Generator_ColumnPropNameInTable="APPDEPTNAMEColumn" msprop:Generator_UserColumnName="APPDEPTNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_NAME" msprop:Generator_ColumnVarNameInTable="columnWH_NAME" msprop:Generator_ColumnPropNameInRow="WH_NAME" msprop:Generator_ColumnPropNameInTable="WH_NAMEColumn" msprop:Generator_UserColumnName="WH_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="APPTIME" msprop:Generator_ColumnVarNameInTable="columnAPPTIME" msprop:Generator_ColumnPropNameInRow="APPTIME" msprop:Generator_ColumnPropNameInTable="APPTIMEColumn" msprop:Generator_UserColumnName="APPTIME" type="xs:string" minOccurs="0" />
+              <xs:element name="Barcode" msprop:Generator_ColumnVarNameInTable="columnBarcode" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" msprop:Generator_UserColumnName="Barcode" type="xs:string" minOccurs="0" />
+              <xs:element name="APLYITEM_NOTE" msprop:Generator_ColumnVarNameInTable="columnAPLYITEM_NOTE" msprop:Generator_ColumnPropNameInRow="APLYITEM_NOTE" msprop:Generator_ColumnPropNameInTable="APLYITEM_NOTEColumn" msprop:Generator_UserColumnName="APLYITEM_NOTE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

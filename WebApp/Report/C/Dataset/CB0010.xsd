@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CB0010" targetNamespace="http://tempuri.org/CB0010.xsd" xmlns:mstns="http://tempuri.org/CB0010.xsd" xmlns="http://tempuri.org/CB0010.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CB0010" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CB0010" msprop:Generator_UserDSName="CB0010">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="CB0010" msprop:Generator_TableClassName="CB0010DataTable" msprop:Generator_TableVarName="tableCB0010" msprop:Generator_TablePropName="_CB0010" msprop:Generator_RowDeletingName="CB0010RowDeleting" msprop:Generator_RowChangingName="CB0010RowChanging" msprop:Generator_RowEvHandlerName="CB0010RowChangeEventHandler" msprop:Generator_RowDeletedName="CB0010RowDeleted" msprop:Generator_UserTableName="CB0010" msprop:Generator_RowChangedName="CB0010RowChanged" msprop:Generator_RowEvArgName="CB0010RowChangeEvent" msprop:Generator_RowClassName="CB0010Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="WH_NO" msprop:Generator_ColumnVarNameInTable="columnWH_NO" msprop:Generator_ColumnPropNameInRow="WH_NO" msprop:Generator_ColumnPropNameInTable="WH_NOColumn" msprop:Generator_UserColumnName="WH_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="STORE_LOC" msprop:Generator_ColumnVarNameInTable="columnSTORE_LOC" msprop:Generator_ColumnPropNameInRow="STORE_LOC" msprop:Generator_ColumnPropNameInTable="STORE_LOCColumn" msprop:Generator_UserColumnName="STORE_LOC" type="xs:string" minOccurs="0" />
+              <xs:element name="BARCODE" msprop:Generator_ColumnVarNameInTable="columnBARCODE" msprop:Generator_ColumnPropNameInRow="BARCODE" msprop:Generator_ColumnPropNameInTable="BARCODEColumn" msprop:Generator_UserColumnName="BARCODE" type="xs:string" minOccurs="0" />
+              <xs:element name="XCATEGORY" msprop:Generator_ColumnVarNameInTable="columnXCATEGORY" msprop:Generator_ColumnPropNameInRow="XCATEGORY" msprop:Generator_ColumnPropNameInTable="XCATEGORYColumn" msprop:Generator_UserColumnName="XCATEGORY" type="xs:string" minOccurs="0" />
+              <xs:element name="FLAG" msprop:Generator_ColumnVarNameInTable="columnFLAG" msprop:Generator_ColumnPropNameInRow="FLAG" msprop:Generator_ColumnPropNameInTable="FLAGColumn" msprop:Generator_UserColumnName="FLAG" type="xs:string" minOccurs="0" />
+              <xs:element name="BARCODE_IMAGE_STR" msprop:Generator_ColumnVarNameInTable="columnBARCODE_IMAGE_STR" msprop:Generator_ColumnPropNameInRow="BARCODE_IMAGE_STR" msprop:Generator_ColumnPropNameInTable="BARCODE_IMAGE_STRColumn" msprop:Generator_UserColumnName="BARCODE_IMAGE_STR" type="xs:string" minOccurs="0" />
+              <xs:element name="MEMO" msprop:Generator_ColumnVarNameInTable="columnMEMO" msprop:Generator_ColumnPropNameInRow="MEMO" msprop:Generator_ColumnPropNameInTable="MEMOColumn" msprop:Generator_UserColumnName="MEMO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4CCEF959-6011-414F-AE8D-EA23C4EA9737}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DataTransfer14</RootNamespace>
+    <AssemblyName>DataTransfer14</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Extension\ObjectExtentions.cs" />
+    <Compile Include="Models\PH_BANK_AF.cs" />
+    <Compile Include="Models\MI_WINVMON.cs" />
+    <Compile Include="Models\MI_WEXPINV.cs" />
+    <Compile Include="Models\MI_WHCOST.cs" />
+    <Compile Include="Models\MI_WINVCTL.cs" />
+    <Compile Include="Models\BC_BARCODE.cs" />
+    <Compile Include="Models\MI_WHMAST.cs" />
+    <Compile Include="Models\MI_WHINV.cs" />
+    <Compile Include="Models\BASEUNITCNV.cs" />
+    <Compile Include="Models\ME_FLOW.cs" />
+    <Compile Include="Models\MI_DOCTYPE.cs" />
+    <Compile Include="Models\MI_MAST.cs" />
+    <Compile Include="Models\MI_MATCLASS.cs" />
+    <Compile Include="Models\MI_MCODE.cs" />
+    <Compile Include="Models\MI_MNSET.cs" />
+    <Compile Include="Models\MI_UNITCODE.cs" />
+    <Compile Include="Models\MI_UNITEXCH.cs" />
+    <Compile Include="Models\MI_WLOCINV.cs" />
+    <Compile Include="Models\SEC_CALLOC.cs" />
+    <Compile Include="Models\RCRATE.cs" />
+    <Compile Include="Models\PARAM_D.cs" />
+    <Compile Include="Models\PARAM_M.cs" />
+    <Compile Include="Models\PH_VENDER.cs" />
+    <Compile Include="Models\XFCHEMIS.cs" />
+    <Compile Include="Models\XFDAYRO.cs" />
+    <Compile Include="Models\XFBASERO_MIS.cs" />
+    <Compile Include="Models\MI_BASERO_14.cs" />
+    <Compile Include="Models\XFOPTION.cs" />
+    <Compile Include="Models\XFBASERO.cs" />
+    <Compile Include="Models\SEC_USEMM.cs" />
+    <Compile Include="Models\SEC_MAST.cs" />
+    <Compile Include="Models\UR_INID.cs" />
+    <Compile Include="OracleDB.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\DataTransferBasero14Repository.cs" />
+    <Compile Include="Repository\DataTransfer14Repository.cs" />
+    <Compile Include="Service.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="configs\connection.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="configs\envSettings.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\JCLib\JCLib.csproj">
+      <Project>{541442e0-c8a4-4ff5-8f5f-2c818e324f98}</Project>
+      <Name>JCLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

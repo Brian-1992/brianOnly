@@ -1,0 +1,32 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AA0095.aspx.cs" Inherits="WebApp.Report.A.AA0095" %>
+
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+        .center {
+            margin: auto;
+            width: 95%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <form id="form1" runat="server">        
+        <asp:HiddenField ID="_token" runat="server"/>
+        <div class="center">
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <rsweb:ReportViewer ID="ReportViewer1" name="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" waitmessagefont-names="Verdana" waitmessagefont-size="14pt" Height="100%" Width="100%" SizeToReportContent="True">
+                <LocalReport ReportPath="Report\A\AA0095.rdlc"></LocalReport>
+            </rsweb:ReportViewer>
+        </div>
+    </form>
+</body>
+</html>

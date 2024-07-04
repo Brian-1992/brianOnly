@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = ViewBag.Script;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title - Tra</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="max-age=-1441" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv='Expires' content='-1441' />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/resources_ext-4.2.5/css/ext-all.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Shared.css" />
+
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/extjs/ext-all-debug_4.2.5.js"></script>
+    <script type="text/javascript" src="~/Scripts/extjs/ext-lang-zh_TW.js" charset="utf-8"></script>
+    <script src="~/Scripts/TRAUtility.js"></script>
+
+    <script type="text/javascript" src="@Url.Content(string.Format("~/Scripts/{0}", ViewBag.Script))"></script>
+
+    <style>
+        .x-grid-row-summary {
+            color: green;
+        }
+
+        .eye-catching-button .x-btn-inner {
+            color: #FB1111;
+        }
+
+        .x-grid-cell a {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="body">
+
+    </div>
+</body>
+</html>
