@@ -164,8 +164,10 @@ Ext.onReady(function () {
                     itemId: 'genPo',
                     disabled: true,
                     handler: function () {
+                        T1Query.down('#genPo').setDisabled(true);
                         if (T1Query.getForm().findField('P4').getValue() == "" || T1Query.getForm().findField('P4').getValue() == null) {
                             Ext.Msg.alert('訊息', '[庫房別]欄不可空白!');
+                            T1Query.down('#genPo').setDisabled(false);
                         }
                         else {
                             Ext.Ajax.request({
@@ -191,11 +193,12 @@ Ext.onReady(function () {
                                             r.commit();
                                             T1Grid.getView().refresh();
                                             msglabel('產生訂單成功');
-                                            T1Query.down('#genPo').setDisabled(true);
                                         }
                                     }
-                                    else
+                                    else {
                                         Ext.MessageBox.alert('錯誤', data.msg);
+                                        T1Query.down('#genPo').setDisabled(false);
+                                    }
                                 },
                                 failure: function (response) {
                                     Ext.MessageBox.alert('錯誤', '發生例外錯誤');
@@ -276,7 +279,7 @@ Ext.onReady(function () {
                     popRejectReason();
                 }
             }, {
-                itemId: 't1approve', text: '核可', disabled: true, id:'t1approve', handler: function () {
+                itemId: 't1approve', text: '核可', disabled: true, id: 't1approve', handler: function () {
                     msglabel('訊息區:');
                     var rtnChk = chkFormEmpty();
                     if (rtnChk == true) {
@@ -294,7 +297,7 @@ Ext.onReady(function () {
                         Ext.Msg.alert('訊息', rtnChk);
                 }
             }, {
-            itemId: 't1print', text: '列印', disabled: true, id: 't1print', handler: function () {
+                itemId: 't1print', text: '列印', disabled: true, id: 't1print', handler: function () {
                     if (T11Store.getCount() > 0)
                         showReport();
                     else
@@ -364,18 +367,18 @@ Ext.onReady(function () {
         plain: true,
         buttons: [
             {
-                itemId: 't11add', id:'t11add', text: '新增', disabled: true, handler: function () {
+                itemId: 't11add', id: 't11add', text: '新增', disabled: true, handler: function () {
                     T11Set = '/api/BC0002/DetailCreate';
                     setFormT11('I', '新增');
                 }
             },
             {
-                itemId: 't11edit', id:'t11edit', text: '修改', disabled: true, handler: function () {
+                itemId: 't11edit', id: 't11edit', text: '修改', disabled: true, handler: function () {
                     T11Set = '/api/BC0002/DetailUpdate';
                     setFormT11("U", '修改');
                 }
             }, {
-                itemId: 't11delete', id:'t11delete', text: '刪除', disabled: true,
+                itemId: 't11delete', id: 't11delete', text: '刪除', disabled: true,
                 handler: function () {
                     Ext.MessageBox.confirm('刪除', '是否確定刪除？', function (btn, text) {
                         if (btn === 'yes') {
@@ -577,19 +580,18 @@ Ext.onReady(function () {
                 }
             },
             selectionchange: function (model, records) {
-                
+
                 T1Rec = records.length;
                 T1LastRec = records[0];
                 if (T1LastRec != null) {
                     if (T1LastRec.data.IS_CR == 'Y') {
-                        
                         Ext.getCmp('t11add').disable();
                         Ext.getCmp('t11edit').disable();
                         Ext.getCmp('t11delete').disable();
                         Ext.getCmp('t1reject').disable();
                         Ext.getCmp('t1edit').disable();
                     }
-                    
+
                 }
 
                 Ext.ComponentQuery.query('panel[itemId=form]')[0].expand();
@@ -626,7 +628,6 @@ Ext.onReady(function () {
             T1Grid.down('#t1print').setDisabled(false);
 
             if (T1LastRec.data.IS_CR == 'Y') {
-                
                 Ext.getCmp('t11add').disable();
                 Ext.getCmp('t11edit').disable();
                 Ext.getCmp('t11delete').disable();
@@ -1300,7 +1301,7 @@ Ext.onReady(function () {
             fieldCls: 'required',
             validator: function (value) {
                 if (value == 0 && (T11Form.getForm().findField('MMCODE').getValue() == null || T11Form.getForm().findField('MMCODE').getValue() == "")) {
-                   return '單價不可為0';
+                    return '單價不可為0';
                 }
                 return true;
             }
@@ -1345,7 +1346,7 @@ Ext.onReady(function () {
     });
     function T11Submit() {
         var f = T11Form.getForm();
-        if (f.isValid() ) {
+        if (f.isValid()) {
             var myMask = new Ext.LoadMask(viewport, { msg: '處理中...' });
             myMask.show();
             f.submit({

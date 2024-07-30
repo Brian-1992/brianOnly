@@ -13,7 +13,7 @@ namespace WebApp.Repository.AA
     {
         public AA0130Repository(IUnitOfWork unitOfWork) : base(unitOfWork) { }
 
-        public IEnumerable<MI_MNSET> GetAll( int page_index, int page_size, string sorters)
+        public IEnumerable<MI_MNSET> GetAll(int page_index, int page_size, string sorters)
         {
             var p = new DynamicParameters();
             StringBuilder sql = new StringBuilder();
@@ -31,6 +31,18 @@ namespace WebApp.Repository.AA
         {
             string sql = "UPDATE MI_MNSET SET SET_CTIME=TO_DATE(:SET_CTIME||' 235900','YYYYMMDD HH24:MI:SS') WHERE SET_YM=:SET_YM";
             return DBWork.Connection.Execute(sql, m, DBWork.Transaction);
+        }
+        public int Create(UR_BULLETIN bulletin)
+        {
+            string id_sql = "SELECT NVL(MAX(ID+1), 0) NEW_ID FROM UR_BULLETIN";
+            var objID = DBWork.Connection.ExecuteScalar(id_sql, null, DBWork.Transaction);
+            bulletin.ID = objID.ToString();
+
+            string sql = @"INSERT INTO UR_BULLETIN (ID, TITLE, CONTENT, TARGET, 
+                           ON_DATE, VALID, UPLOAD_KEY, CREATE_BY, CREATE_DT)  
+                           VALUES (:ID, :TITLE, :CONTENT, :TARGET, 
+                           :ON_DATE, :VALID, :UPLOAD_KEY, :CREATE_BY, SYSDATE)";
+            return DBWork.Connection.Execute(sql, bulletin, DBWork.Transaction);
         }
     }
 }
