@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CE0016" targetNamespace="http://tempuri.org/CE0016.xsd" xmlns:mstns="http://tempuri.org/CE0016.xsd" xmlns="http://tempuri.org/CE0016.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CE0016" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CE0016" msprop:Generator_UserDSName="CE0016">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="CE0016" msprop:Generator_TableClassName="CE0016DataTable" msprop:Generator_TableVarName="tableCE0016" msprop:Generator_TablePropName="_CE0016" msprop:Generator_RowDeletingName="CE0016RowDeleting" msprop:Generator_RowChangingName="CE0016RowChanging" msprop:Generator_RowEvHandlerName="CE0016RowChangeEventHandler" msprop:Generator_RowDeletedName="CE0016RowDeleted" msprop:Generator_UserTableName="CE0016" msprop:Generator_RowChangedName="CE0016RowChanged" msprop:Generator_RowEvArgName="CE0016RowChangeEvent" msprop:Generator_RowClassName="CE0016Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SEQ" msprop:Generator_ColumnVarNameInTable="columnSEQ" msprop:Generator_ColumnPropNameInRow="SEQ" msprop:Generator_ColumnPropNameInTable="SEQColumn" msprop:Generator_UserColumnName="SEQ" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_TYPE" msprop:Generator_ColumnVarNameInTable="columnCHK_TYPE" msprop:Generator_ColumnPropNameInRow="CHK_TYPE" msprop:Generator_ColumnPropNameInTable="CHK_TYPEColumn" msprop:Generator_UserColumnName="CHK_TYPE" type="xs:string" minOccurs="0" />
+              <xs:element name="MMCODE" msprop:Generator_ColumnVarNameInTable="columnMMCODE" msprop:Generator_ColumnPropNameInRow="MMCODE" msprop:Generator_ColumnPropNameInTable="MMCODEColumn" msprop:Generator_UserColumnName="MMCODE" type="xs:string" minOccurs="0" />
+              <xs:element name="MMNAME_C" msprop:Generator_ColumnVarNameInTable="columnMMNAME_C" msprop:Generator_ColumnPropNameInRow="MMNAME_C" msprop:Generator_ColumnPropNameInTable="MMNAME_CColumn" msprop:Generator_UserColumnName="MMNAME_C" type="xs:string" minOccurs="0" />
+              <xs:element name="MMNAME_E" msprop:Generator_ColumnVarNameInTable="columnMMNAME_E" msprop:Generator_ColumnPropNameInRow="MMNAME_E" msprop:Generator_ColumnPropNameInTable="MMNAME_EColumn" msprop:Generator_UserColumnName="MMNAME_E" type="xs:string" minOccurs="0" />
+              <xs:element name="STORE_LOC" msprop:Generator_ColumnVarNameInTable="columnSTORE_LOC" msprop:Generator_ColumnPropNameInRow="STORE_LOC" msprop:Generator_ColumnPropNameInTable="STORE_LOCColumn" msprop:Generator_UserColumnName="STORE_LOC" type="xs:string" minOccurs="0" />
+              <xs:element name="LOCNAME" msprop:Generator_ColumnVarNameInTable="columnLOCNAME" msprop:Generator_ColumnPropNameInRow="LOCNAME" msprop:Generator_ColumnPropNameInTable="LOCNAMEColumn" msprop:Generator_UserColumnName="LOCNAME" type="xs:string" minOccurs="0" />
+              <xs:element name="BASE_UNIT" msprop:Generator_ColumnVarNameInTable="columnBASE_UNIT" msprop:Generator_ColumnPropNameInRow="BASE_UNIT" msprop:Generator_ColumnPropNameInTable="BASE_UNITColumn" msprop:Generator_UserColumnName="BASE_UNIT" type="xs:string" minOccurs="0" />
+              <xs:element name="STORE_QTYC" msprop:Generator_ColumnVarNameInTable="columnSTORE_QTYC" msprop:Generator_ColumnPropNameInRow="STORE_QTYC" msprop:Generator_ColumnPropNameInTable="STORE_QTYCColumn" msprop:Generator_UserColumnName="STORE_QTYC" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_QTY" msprop:Generator_ColumnVarNameInTable="columnCHK_QTY" msprop:Generator_ColumnPropNameInRow="CHK_QTY" msprop:Generator_ColumnPropNameInTable="CHK_QTYColumn" msprop:Generator_UserColumnName="CHK_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_REMARK" msprop:Generator_ColumnVarNameInTable="columnCHK_REMARK" msprop:Generator_ColumnPropNameInRow="CHK_REMARK" msprop:Generator_ColumnPropNameInTable="CHK_REMARKColumn" msprop:Generator_UserColumnName="CHK_REMARK" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_TIME" msprop:Generator_ColumnVarNameInTable="columnCHK_TIME" msprop:Generator_ColumnPropNameInRow="CHK_TIME" msprop:Generator_ColumnPropNameInTable="CHK_TIMEColumn" msprop:Generator_UserColumnName="CHK_TIME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_NO" msprop:Generator_ColumnVarNameInTable="columnCHK_NO" msprop:Generator_ColumnPropNameInRow="CHK_NO" msprop:Generator_ColumnPropNameInTable="CHK_NOColumn" msprop:Generator_UserColumnName="CHK_NO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

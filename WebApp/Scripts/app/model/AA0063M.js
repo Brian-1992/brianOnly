@@ -1,0 +1,30 @@
+﻿Ext.define('WEBAPP.model.AA0063M', {
+    extend: 'Ext.data.Model',
+    fields: [
+        { name: 'DOCNO', type: 'string' },
+        { name: 'SEQ', type: 'string' },
+        { name: 'FLOWID', type: 'string' },
+        { name: 'MAT_CLASS', type: 'string' },
+        { name: 'M_STOREID', type: 'string' },
+        { name: 'WH_NO', type: 'string' },
+        { name: 'WH_NAME', type: 'string' },
+        { name: 'FRWH', type: 'string' },
+        { name: 'APPTIME', type: 'string' },
+        { name: 'APPLY_NOTE', type: 'string' },
+        { name: 'APPQTY', type: 'string' },
+        { name: 'BASE_UNIT', type: 'string' },
+        { name: 'M_CONTPRICE', type: 'string' },
+        { name: 'FLOW_ID', type: 'string' },
+        { name: 'MMCODE', type: 'string' },
+        { name: 'MMNAME_C', type: 'string' },
+        { name: 'MMNAME_E', type: 'string' },
+        //{ name: 'BARCODE', type: 'string' },
+        { name: 'USERID', type: 'string' },
+        { name: 'CREATE_DATE', type: 'string' },
+        { name: 'CREATE_USER', type: 'string' },
+        { name: 'UPDATE_DATE', type: 'string' },
+        { name: 'UPDATE_USER', type: 'string' },
+        { name: 'UPDATE_IP', type: 'string' },
+        { name: 'INID_NAME', type: 'string' }
+    ]
+});

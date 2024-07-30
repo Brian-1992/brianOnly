@@ -1,0 +1,197 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+
+
+/* LINK */
+
+.black A 
+{
+	COLOR: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 22px;
+
+}
+
+
+.menu_green A {
+	color: #7DA844;
+}
+
+.menu_green2 A {
+	color: #009999;
+}
+
+
+.content {
+		/*background-image: url(../Images/TRA/content_bg.jpg);*/
+    background-image: url(../Images/TRA/content_right.jpg);
+	background-repeat: no-repeat;
+}
+
+.content2 {
+	background-image: url(../Images/TRA/content_bg2.jpg);
+	background-repeat: no-repeat;
+}
+
+
+/* MENU */
+
+.button01 A:link 
+{
+display:block;
+width: 230px;
+height: 25px;
+color:#333333;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:25px;
+padding-left:23px;
+text-decoration:none;
+background-image:url(../Images/TRA/menu_bg3.jpg);
+background-repeat:no-repeat;
+text-decoration:none;
+}
+.button01 A:visited 
+{
+display:block;
+width: 230px;
+height: 25px;
+color:#333333;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:25px;
+padding-left:23px;
+text-decoration:none;
+background-image:url(../Images/TRA/menu_bg2.jpg);
+background-repeat:no-repeat;
+text-decoration:none;
+}
+.button01 A:hover
+{
+display:block;
+width: 230px;
+height: 25px;
+color:#fff;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:25px;
+padding-left:23px;
+text-decoration:none;
+background-image:url(../Images/TRA/menu_bg2.jpg);
+text-decoration:none;
+}
+
+
+
+.button02 A:link 
+{
+display:block;
+width: 230px;
+height: 25px;
+color:#fff;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:25px;
+padding-left:23px;
+text-decoration:none;
+background-image:url(../Images/TRA/menu_bg2.jpg);
+background-repeat:no-repeat;
+text-decoration:none;
+}
+.button02 A:visited 
+{
+display:block;
+width: 230px;
+height: 25px;
+color:#fff;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:25px;
+padding-left:23px;
+text-decoration:none;
+background-image:url(../Images/TRA/menu_bg2.jpg);
+background-repeat:no-repeat;
+text-decoration:none;
+}
+.button02 A:hover
+{
+display:block;
+width: 230px;
+height: 25px;
+color:#fff;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:25px;
+padding-left:23px;
+text-decoration:none;
+background-image:url(../Images/TRA/menu_bg2.jpg);
+text-decoration:none;
+}
+
+
+
+.title_01 A:link 
+{
+display:block;
+width: 185px;
+height: 40px;
+color:#fff;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:30px;
+padding-left:23px;
+text-decoration:none;
+background-image:url(../Images/TRA/title_bg.gif);
+background-repeat:no-repeat;
+text-decoration:none;
+}
+.title_01 A:visited 
+{
+display:block;
+width: 185px;
+height: 40px;
+color:#fff;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:30px;
+padding-left:23px;
+text-decoration:none;
+background-image:url(../Images/TRA/title_bg.gif);
+background-repeat:no-repeat;
+text-decoration:none;
+}
+.title_01 A:hover
+{
+display:block;
+width: 185px;
+height: 40px;
+color:#fff;
+font-family:Arial, Helvetica, sans-serif;
+font-size:13px;
+line-height:30px;
+padding-left:23px;
+text-decoration:none;
+background-image:url(../Images/TRA/title_bg.gif);
+text-decoration:none;
+}

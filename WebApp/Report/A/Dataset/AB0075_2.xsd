@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AB0075_2" targetNamespace="http://tempuri.org/AB0075_2.xsd" xmlns:mstns="http://tempuri.org/AB0075_2.xsd" xmlns="http://tempuri.org/AB0075_2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AB0075_2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AB0075_2" msprop:Generator_UserDSName="AB0075_2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="AB0075_2" msprop:Generator_TableClassName="AB0075_2DataTable" msprop:Generator_TableVarName="tableAB0075_2" msprop:Generator_TablePropName="_AB0075_2" msprop:Generator_RowDeletingName="AB0075_2RowDeleting" msprop:Generator_RowChangingName="AB0075_2RowChanging" msprop:Generator_RowEvHandlerName="AB0075_2RowChangeEventHandler" msprop:Generator_RowDeletedName="AB0075_2RowDeleted" msprop:Generator_UserTableName="AB0075_2" msprop:Generator_RowChangedName="AB0075_2RowChanged" msprop:Generator_RowEvArgName="AB0075_2RowChangeEvent" msprop:Generator_RowClassName="AB0075_2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PORC_DATE" msprop:Generator_ColumnVarNameInTable="columnPORC_DATE" msprop:Generator_ColumnPropNameInRow="PORC_DATE" msprop:Generator_ColumnPropNameInTable="PORC_DATEColumn" msprop:Generator_UserColumnName="PORC_DATE" type="xs:string" minOccurs="0" />
+              <xs:element name="PAT_CNT" msprop:Generator_ColumnVarNameInTable="columnPAT_CNT" msprop:Generator_ColumnPropNameInRow="PAT_CNT" msprop:Generator_ColumnPropNameInTable="PAT_CNTColumn" msprop:Generator_UserColumnName="PAT_CNT" type="xs:string" minOccurs="0" />
+              <xs:element name="TOT_CNT" msprop:Generator_ColumnVarNameInTable="columnTOT_CNT" msprop:Generator_ColumnPropNameInRow="TOT_CNT" msprop:Generator_ColumnPropNameInTable="TOT_CNTColumn" msprop:Generator_UserColumnName="TOT_CNT" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AB0075_3" targetNamespace="http://tempuri.org/AB0075_3.xsd" xmlns:mstns="http://tempuri.org/AB0075_3.xsd" xmlns="http://tempuri.org/AB0075_3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AB0075_3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AB0075_3" msprop:Generator_UserDSName="AB0075_3">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="AB0075_3" msprop:Generator_TableClassName="AB0075_3DataTable" msprop:Generator_TableVarName="tableAB0075_3" msprop:Generator_TablePropName="_AB0075_3" msprop:Generator_RowDeletingName="AB0075_3RowDeleting" msprop:Generator_RowChangingName="AB0075_3RowChanging" msprop:Generator_RowEvHandlerName="AB0075_3RowChangeEventHandler" msprop:Generator_RowDeletedName="AB0075_3RowDeleted" msprop:Generator_UserTableName="AB0075_3" msprop:Generator_RowChangedName="AB0075_3RowChanged" msprop:Generator_RowEvArgName="AB0075_3RowChangeEvent" msprop:Generator_RowClassName="AB0075_3Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SDATE" msprop:Generator_ColumnVarNameInTable="columnSDATE" msprop:Generator_ColumnPropNameInRow="SDATE" msprop:Generator_ColumnPropNameInTable="SDATEColumn" msprop:Generator_UserColumnName="SDATE" type="xs:string" minOccurs="0" />
+              <xs:element name="CNT" msprop:Generator_ColumnVarNameInTable="columnCNT" msprop:Generator_ColumnPropNameInRow="CNT" msprop:Generator_ColumnPropNameInTable="CNTColumn" msprop:Generator_UserColumnName="CNT" type="xs:string" minOccurs="0" />
+              <xs:element name="ORDERCODE" msprop:Generator_ColumnVarNameInTable="columnORDERCODE" msprop:Generator_ColumnPropNameInRow="ORDERCODE" msprop:Generator_ColumnPropNameInTable="ORDERCODEColumn" msprop:Generator_UserColumnName="ORDERCODE" type="xs:string" minOccurs="0" />
+              <xs:element name="SUMQTY" msprop:Generator_ColumnVarNameInTable="columnSUMQTY" msprop:Generator_ColumnPropNameInRow="SUMQTY" msprop:Generator_ColumnPropNameInTable="SUMQTYColumn" msprop:Generator_UserColumnName="SUMQTY" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

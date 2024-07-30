@@ -1,0 +1,179 @@
+﻿@{
+    ViewBag.Title = ViewBag.Script;
+}
+@section styles
+{
+    <link rel="stylesheet" type="text/css" href="~/Content/Shared.css" />
+}
+@section scripts
+{
+    @functions{
+        public string TokenHeaderValue()
+        {
+            string cookieToken, formToken;
+            AntiForgery.GetTokens(null, out cookieToken, out formToken);
+            return cookieToken + ":" + formToken;
+        }
+
+        public string getP_Value()
+        {
+            return "POST";
+        }
+
+        public string getG_Value()
+        {
+            return "GET";
+        }
+    }
+
+
+    @if (ViewBag.Auth == null)
+    {
+        <script type="text/javascript" src="/Scripts/AccessDenied.js"></script>
+    }
+    else
+    {
+        <script type="text/javascript">
+
+        // create csrf_token for ajax
+        var csrf_token = '@TokenHeaderValue()';
+        var reqVal_p = '@getP_Value()';
+        var reqVal_g = '@getG_Value()';
+
+        //var auth = { R: true, U: true, P: false }
+        var auth = Ext.decode('@Html.Raw(ViewBag.Auth)');
+            Ext.onReady(function () {
+                Ext.override(Ext.grid.column.Column, { menuDisabled: true });
+
+                Ext.override(Ext.button.Button, {
+                    checkAuth: function (btnText) {
+                        switch (this.text) {
+                            case '查詢':
+                            case '清除':
+                            case '瀏覽':
+                            case '關閉':
+                                return auth.R;
+                                break;
+                            case '列印':
+                            case '匯出':
+                                return auth.P;
+                                break;
+                            case '':
+                            case null:
+                                return null;
+                                break;
+                            default:
+                                return auth.U;
+                        }
+                    },
+                    listeners: {
+                        beforerender: function (b) {
+                            if (b.xtype == 'tab') return;
+                            var is_auth = this.checkAuth(this.text);
+                            if (is_auth != null) {
+                                if (is_auth) {
+                                    this.addCls('auth-btn');
+                                    this._disabledCls = 'auth-btn-disabled';
+                                }
+                                else {
+                                    this._disabledCls = 'nonauth-btn';
+                                    this.setDisabled(true);
+                                }
+                            }
+                        },
+                        enable: function (btn) {
+                            var is_auth = this.checkAuth(this.text);
+                            if (is_auth != null) {
+                                if (!is_auth) { btn.setDisabled(true); }
+                            }
+                        }
+                    }
+                });
+
+                /*
+                Ext.override(Ext.form.field.File, {
+                    buttonConfig: {
+                        checkAuth: function (btnText) {
+                            return auth.U;
+                        },
+                        listeners: {
+                            beforerender: function (b) {
+                                var is_auth = this.checkAuth(this.text);
+                                if (is_auth != null) {
+                                    if (is_auth) {
+                                        this.addCls('auth-file-btn');
+                                        this._disabledCls = 'auth-file-btn-disabled';
+                                    }
+                                    else {
+                                        this._disabledCls = 'nonauth-file-btn';
+                                        this.setDisabled(true);
+                                    }
+                                }
+                            },
+                            enable: function (btn) {
+                                var is_auth = this.checkAuth(this.text);
+                                if (is_auth != null) {
+                                    if (!is_auth) { btn.setDisabled(true); }
+                                }
+                            }
+                        }
+                    }
+                });
+                */
+
+                if (!auth.R) {
+                    Ext.override(Ext.Component, {
+                        listeners: {
+                            beforerender: function () {
+                                this._disabledCls = 'nonauth-btn';
+                                this.setDisabled(true);
+                            },
+                            enable: function (c) {
+                                c.setDisabled(true);
+                            }
+                        }
+                    });
+                }
+
+                if (!auth.U) {
+                    Ext.override(Ext.grid.plugin.Editing, {
+                        listeners: {
+                            beforeedit: function (c) {
+                                return false;
+                            }
+                        }
+                    });
+                }
+
+                if (auth.U) {
+                    Ext.override(Ext.form.field.File, {
+                        buttonConfig: {
+                            cls: 'auth-file-btn',
+                            _disabledCls: 'auth-file-btn-disabled'
+                        }
+                    });
+                }
+                else {
+                    Ext.override(Ext.form.field.File, {
+                        buttonConfig: {
+                            disabled: true,
+                            _disabledCls: 'nonauth-file-btn',
+                            listeners: {
+                                enable: function (btn) {
+                                    var is_auth = this.checkAuth(this.text);
+                                    if (is_auth != null) {
+                                        if (!is_auth) { btn.setDisabled(true); }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+        </script>
+        var ss = (((FormsIdentity)User.Identity).Ticket.UserData);
+        <script type="text/javascript">var session = Ext.decode('@Html.Raw(ss)');</script>
+        var s = string.Format("/Scripts/{0}", ViewBag.Script);
+        <script type="text/javascript" src="@Html.Raw(s)"></script>
+    }
+}

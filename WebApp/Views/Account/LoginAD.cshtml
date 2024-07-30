@@ -1,0 +1,138 @@
+﻿@model WebBase040100.Models.LoginModel
+
+@{
+    Layout = null;
+}
+
+<section id="loginForm">
+
+
+    @using (Html.BeginForm("LoginAD", "Account", FormMethod.Post, new { id = "myform" }))
+    {
+
+        <title></title>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8;IE=EmulateIE9" />
+        <script src="~/Scripts/jquery-1.7.1.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/Content/_link.css" />
+        <link rel="stylesheet" type="text/css" href="~/Content/_font.css" />
+        <style type="text/css">
+            body {
+                background-image: url(../Images/TRA/login_bg.jpg);
+            }
+        </style>
+
+    <script type="text/javascript">
+
+    $(function () {
+        $('#button_loginG').click(function () {
+            document.location.href = "http://" + document.location.hostname + "/Account/Login";
+        });
+    })
+
+
+    </script>
+        
+        <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+                <td valign="top">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="1000" height="60">
+                        <param name="movie" value="~/Content/swf/topmenu.swf" />
+                        <param name="quality" value="high" />
+                        <embed src="~/Content/swf/topmenu.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="1000" height="60"></embed>
+                    </object>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="1000" height="230">
+                        <param name="movie" value="~/Content/swf/main.swf" />
+                        <param name="quality" value="high" />
+                        <embed src="~/Content/swf/main.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="1000" height="230"></embed>
+                    </object>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <table width="935" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <td width="570"><img src="~/Images/TRA/login_left.jpg" width="570" height="249" /></td>
+                            <td width="365" valign="top">
+                                <table width="355" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td width="355"><img src="~/Images/TRA/login_1.jpg" width="355" height="105" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top">
+                                            <table width="347" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="290" valign="top">
+                                                        <table width="290" border="0" cellspacing="0" cellpadding="0">
+                                                            <tr>
+                                                                <td width="114" height="25" class="grey">帳號 ( Id Number ):</td>
+                                                                <td width="176" height="25">@Html.TextBoxFor(m => m.UserName)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="25" class="grey">密碼 ( Password ):</td>
+                                                                <td height="25">@Html.PasswordFor(m => m.Password)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="25" class="grey" style="color:#f00;">
+                                                                    <span style="width:200px">本系統密碼區分大小寫</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td height="25">
+                                                                    <a href="#" style="text-decoration: underline;font-size:13px" onclick="alert('建置中!');">忘記密碼</a>&nbsp;&nbsp;
+                                                                    <a href="#" id="button_loginG" style="text-decoration: underline;font-size:13px">一般登入</a>
+                                                                </td>
+                                                                <td height="25">
+                                                                @Html.HiddenFor(m => m.Flag, new { @Value = "0" })
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="25" style="color:#f00;font-size:13px">
+                                                                <a href="#" style="text-decoration: underline" onclick="window.open('../Download/Index/0cf327d8-5f0e-489f-abe2-e8d2b5094883');">Office相容性套件</a>
+                                                            </td>
+                                                            <td height="25" style="color:#f00;font-size:13px">
+                                                                <a href="#" style="text-decoration: underline" onclick="window.open('../Download/Index/73E86E8E-2DA6-4894-BB1D-A5C60565F51D');">Chrome</a>
+                                                            </td>
+                                                            @*<td height="25" style="color:#f00;font-size:15px">資料庫重置時間:</td>
+                                                                <td height="25" style="color:#f00;font-size:15px">2014/08/18</td>*@
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td width="290"><input name="Submit" type="submit" id="button_loginAD" value="AD登入" /></td>
+                                            </tr>
+
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td height="40" align="center" background="~/Images/TRA/foot_bg.jpg" bgcolor="#F8DA00">
+                    <table width="1000" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td align="center" class="black">您的螢幕解析度是1024*768，符合本站最佳瀏覽環境。</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    }
+
+</section>
+
+<script type="text/javascript">
+    var txtBox = document.getElementById("UserName");
+    if (txtBox != null) txtBox.focus();//test
+</script>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="HA0001" targetNamespace="http://tempuri.org/HA0001.xsd" xmlns:mstns="http://tempuri.org/HA0001.xsd" xmlns="http://tempuri.org/HA0001.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="HA0001" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="HA0001" msprop:Generator_UserDSName="HA0001">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="HA0001" msprop:Generator_TableClassName="HA0001DataTable" msprop:Generator_TableVarName="tableHA0001" msprop:Generator_TablePropName="_HA0001" msprop:Generator_RowDeletingName="HA0001RowDeleting" msprop:Generator_RowChangingName="HA0001RowChanging" msprop:Generator_RowEvHandlerName="HA0001RowChangeEventHandler" msprop:Generator_RowDeletedName="HA0001RowDeleted" msprop:Generator_UserTableName="HA0001" msprop:Generator_RowChangedName="HA0001RowChanged" msprop:Generator_RowEvArgName="HA0001RowChangeEvent" msprop:Generator_RowClassName="HA0001Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AGEN_NO" msprop:Generator_ColumnVarNameInTable="columnAGEN_NO" msprop:Generator_ColumnPropNameInRow="AGEN_NO" msprop:Generator_ColumnPropNameInTable="AGEN_NOColumn" msprop:Generator_UserColumnName="AGEN_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="AGEN_NAME" msprop:Generator_ColumnVarNameInTable="columnAGEN_NAME" msprop:Generator_ColumnPropNameInRow="AGEN_NAME" msprop:Generator_ColumnPropNameInTable="AGEN_NAMEColumn" msprop:Generator_UserColumnName="AGEN_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="AGEN_BANK_14" msprop:Generator_ColumnVarNameInTable="columnAGEN_BANK_14" msprop:Generator_ColumnPropNameInRow="AGEN_BANK_14" msprop:Generator_ColumnPropNameInTable="AGEN_BANK_14Column" msprop:Generator_UserColumnName="AGEN_BANK_14" type="xs:string" minOccurs="0" />
+              <xs:element name="AGEN_ACC" msprop:Generator_ColumnVarNameInTable="columnAGEN_ACC" msprop:Generator_ColumnPropNameInRow="AGEN_ACC" msprop:Generator_ColumnPropNameInTable="AGEN_ACCColumn" msprop:Generator_UserColumnName="AGEN_ACC" type="xs:string" minOccurs="0" />
+              <xs:element name="AMTPAYABLE" msprop:Generator_ColumnVarNameInTable="columnAMTPAYABLE" msprop:Generator_ColumnPropNameInRow="AMTPAYABLE" msprop:Generator_ColumnPropNameInTable="AMTPAYABLEColumn" msprop:Generator_UserColumnName="AMTPAYABLE" type="xs:string" minOccurs="0" />
+              <xs:element name="MGTFEE" msprop:Generator_ColumnVarNameInTable="columnMGTFEE" msprop:Generator_ColumnPropNameInRow="MGTFEE" msprop:Generator_ColumnPropNameInTable="MGTFEEColumn" msprop:Generator_UserColumnName="MGTFEE" type="xs:string" minOccurs="0" />
+              <xs:element name="PROCFEE" msprop:Generator_ColumnVarNameInTable="columnPROCFEE" msprop:Generator_ColumnPropNameInRow="PROCFEE" msprop:Generator_ColumnPropNameInTable="PROCFEEColumn" msprop:Generator_UserColumnName="PROCFEE" type="xs:string" minOccurs="0" />
+              <xs:element name="REMIT" msprop:Generator_ColumnVarNameInTable="columnREMIT" msprop:Generator_ColumnPropNameInRow="REMIT" msprop:Generator_ColumnPropNameInTable="REMITColumn" msprop:Generator_UserColumnName="REMIT" type="xs:string" minOccurs="0" />
+              <xs:element name="XFRMEMO" msprop:Generator_ColumnVarNameInTable="columnXFRMEMO" msprop:Generator_ColumnPropNameInRow="XFRMEMO" msprop:Generator_ColumnPropNameInTable="XFRMEMOColumn" msprop:Generator_UserColumnName="XFRMEMO" type="xs:string" minOccurs="0" />
+              <xs:element name="REMITNO" msprop:Generator_ColumnVarNameInTable="columnREMITNO" msprop:Generator_ColumnPropNameInRow="REMITNO" msprop:Generator_ColumnPropNameInTable="REMITNOColumn" msprop:Generator_UserColumnName="REMITNO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

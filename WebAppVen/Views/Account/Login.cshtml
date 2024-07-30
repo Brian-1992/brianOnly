@@ -1,0 +1,356 @@
+﻿@using System.Net;
+@model WebAppVen.Models.LoginModel
+@using BotDetect.Web.Mvc;
+
+@{
+    Layout = null;
+}
+<title>藥(衛)材系統</title>
+<section id="loginForm">
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "myform" }))
+    {
+        <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        @*<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-store">*@
+        <link rel="stylesheet" href="~/Content/fontawesome/css/all.min.css" />
+        <link rel="stylesheet" type="text/css" href="~/Content/_link.css" />
+        <link rel="stylesheet" type="text/css" href="~/Content/_font.css" />
+        <link rel="stylesheet" type="text/css" href="~/Content/Login.css" />
+        <link rel="stylesheet" type="text/css" href="~/Scripts/bootstrap-4.6.2-dist/css/bootstrap.min.css" />
+        <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+        <script src="~/Scripts/bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+        <style type="text/css">
+            html, body {
+                background-image: url('../../Images/computer-1920.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                height: 100%;
+            }
+
+            .container {
+                height: 100%;
+                align-content: center;
+            }
+
+            .card {
+                height: 380px;
+                margin-top: auto;
+                margin-bottom: auto;
+                width: 400px;
+                background-color: rgba(0,0,0,0.5) !important;
+            }
+
+            .card-header h3 {
+                color: white;
+                text-align: center;
+                font-weight: 700;
+                letter-spacing: 0.155em;
+            }
+
+            .card-header h4 {
+                color: #CEDCDB;
+                text-align: center;
+                font-size: 0.7rem;
+                letter-spacing: 0.12em;
+            }
+
+            .tsgh_icon {
+                position: absolute;
+                right: 20px;
+                top: -90px;
+            }
+
+            .input-group-prepend span {
+                width: 50px;
+                background-color: #FFC312;
+                color: black;
+                border: 0 !important;
+            }
+
+            input:focus {
+                outline: 0 0 0 0 !important;
+                box-shadow: 0 0 0 0 !important;
+            }
+
+            .remember {
+                color: white;
+            }
+
+                .remember input {
+                    width: 20px;
+                    height: 20px;
+                    margin-left: 15px;
+                    margin-right: 5px;
+                }
+
+            .login_btn {
+                color: black;
+                background-color: #FFC312;
+                width: 100px;
+            }
+
+                .login_btn:hover {
+                    color: black;
+                    background-color: white;
+                }
+
+            .links {
+                color: white;
+            }
+
+                .links a {
+                    margin-left: 4px;
+                }
+
+            .validation-summary-errors ul li {
+                padding: 10px 36px 10px 12px;
+                list-style: none;
+                font-weight: bold;
+                color: red;
+            }
+        </style>
+        <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+              rel="stylesheet" type="text/css" />
+        <script type="text/javascript">
+            $(function () {
+                $('#loginAD').click(function () {
+                    $('#Flag').val('1');
+                });
+                $('#button_login2').click(function () {
+                    $('#Flag').val('0');
+                });
+
+                //$("#loginAD").click(function () {
+                //    $("#myform").attr("action", "/Account/LoginAD");
+                //    $("#myform").submit();
+                //})
+            })
+
+
+        </script>
+        //------------------
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-6">
+                    <span id="isTest" style="float:left; color:red; font-size:40px; font-weight:bolder; display:none; background-color:yellow">這裡是測試區</span>
+                    <div class="card">
+                        <div class="card-header">
+                            <span></span>
+                            <h3>廠商作業管理系統</h3>
+                            <h4>Vendor Work Management System</h4>
+                            <div class="d-flex justify-content-end tsgh_icon">
+                                <span><img width="105" height="105" src="~/Images/TSGH_logo_S.png" /> </span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    </div>
+                                    @*<input type="text" class="form-control" placeholder="username">*@
+                                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "使用者代號", @spellcheck = "false" })
+
+                                </div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.Drowssap, new { @class = "form-control", @placeholder = "密碼", @type = "password", @autocomplete = "off" })
+                                </div>
+                                MvcCaptcha validbox = new MvcCaptcha("WebAppVenCaptcha");  //需跟controller設定一致
+                                validbox.UserInputID = "CaptchaCode";
+                                validbox.HelpLinkMode = BotDetect.HelpLinkMode.Image;
+                                validbox.HelpLinkEnabled = false;
+                                validbox.SoundEnabled = false;
+                                <div>@Html.Captcha(validbox)</div>
+                                <div class="input-group form-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-user-shield"></i></span>
+                                    </div>
+                                    @Html.TextBoxFor(m => m.CaptchaCode, new { @class = "form-control", @placeholder = "請輸入驗證碼", @autocomplete = "off" })
+                                </div>
+                                <div class="form-group" style="vertical-align: middle;">
+                                    @*<input type="submit" value="Login" class="btn float-right login_btn">*@
+                                    <input name="Submit" type="submit" value="登入" class="btn float-right login_btn" id="button_login2" />
+                                </div>
+                            }
+                            </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-center">
+                                @Html.ValidationSummary(true)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        //------------------
+        <script type="text/javascript">
+            function getDbConnType() {
+                var ajaxRequest = $.ajax({
+                    type: "POST",
+                    url: '/api/Acct/getDbConnType',
+                    dataType: "json"
+                })
+                    .done(function (data, textStatus) {
+                        if (data.msg == 'TEST') {
+                            document.getElementById('isTest').style.display = 'inline-block';
+                        }
+                        else {
+                            document.getElementById('isTest').style.display = 'none';
+                        }
+                    })
+                    .fail(function (data, textStatus) {
+                        document.getElementById('isTest').style.display = 'none';
+                    });
+
+            }
+            getDbConnType();
+        </script>
+    }
+
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">忘記密碼？</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fas fa-user"></span></span>
+                                    <input type="text" id="uid" class="form-control" placeholder="使用者帳號">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" id="btnNewPwd" class="btn btn-primary" onclick="GetPassword();">取得新密碼</button>
+                            </div>
+                        </div>
+                    }
+                        <p>請輸入使用者帳號，並取得新密碼；</p>
+                        <p>您將會在系統註冊的電子信箱中收到您的新密碼。</p>
+                        <p class="text-warning"><div id="pwdMsg" style="color:darkorange"></div></p>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="myModalEn" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Forget password ?</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="fas fa-user"></span></span>
+                                    <input type="text" id="uidEn" class="form-control" placeholder="Account">
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" id="btnNewPwdEn" class="btn btn-primary" onclick="GetPasswordEn();">Submit</button>
+                            </div>
+                        </div>
+                    }
+                        <p>Please enter your account, and submit.</p>
+                        <p>Check your inbox for a password reset email.</p>
+                        <p class="text-warning"><div id="pwdMsgEn" style="color:darkorange"></div></p>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    var txtBox = document.getElementById("UserName");
+    if (txtBox !== null) txtBox.focus();//test
+
+     $(function () {
+            var errmsg = '@ViewBag.Timeout'
+            console.log(errmsg);
+            if (errmsg!=="") {
+                alert(errmsg);
+            }
+        })
+
+    function NewMember() {
+        var w = window.open('../Form/Show/NM/NM01', '_blank');
+        w.onload = function () { w.document.title = '新會員申請'; };
+    }
+
+    function NewMemberEn() {
+        return false;
+    }
+
+    function ForgetPassword() {
+        $(document).ready(function () {
+            $("#myModal").modal('show');
+        });
+    }
+
+    function ForgetPasswordEn() {
+        $(document).ready(function () {
+            $("#myModalEn").modal('show');
+        });
+    }
+
+    function GetPassword()
+    {
+        $('#pwdMsg').html('密碼重置中...');
+        var ajaxRequest = $.ajax({
+            type: "POST",
+            url: '../../../api/Acct/Reset',
+            dataType: "json",
+            data: { UID: $('#uid').val() }
+        })
+            .done(function (data, textStatus) {
+                $('#pwdMsg').html('已寄送密碼函，請檢查您的郵件並重新登入。');
+                $('#btnNewPwd')[0].disabled = true;
+            })
+            .fail(function (data, textStatus) {
+                $('#pwdMsg').html('已寄送密碼函，請檢查您的郵件並重新登入。');
+                $('#btnNewPwd')[0].disabled = true;
+            });
+    }
+
+    function GetPasswordEn() {
+        $('#pwdMsgEn').html('resetting...');
+        var ajaxRequest = $.ajax({
+            type: "POST",
+            url: '../../../api/Acct/Reset',
+            dataType: "json",
+            data: { UID: $('#uidEn').val() }
+        })
+            .done(function (data, textStatus) {
+                $('#pwdMsgEn').html('Your password has been reset! Please check your inbox and loggin in again.');
+                $('#btnNewPwdEn')[0].disabled = true;
+            })
+            .fail(function (data, textStatus) {
+                $('#pwdMsgEn').html('Your password has been reset! Please check your inbox and loggin in again.');
+                $('#btnNewPwdEn')[0].disabled = true;
+            });
+    }
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

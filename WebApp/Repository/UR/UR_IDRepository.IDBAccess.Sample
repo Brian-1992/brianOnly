@@ -1,0 +1,276 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Web;
+using JCLib.DB;
+using Dapper;
+using YSEP.Models;
+
+namespace YSEP.Repository.UR
+{
+    public class UR_IDRepository : BaseRepository
+    {
+        public UR_IDRepository(ApiResponse ar) : base(ar) { }
+
+        public ApiResponse Create(FormDataCollection f)
+        {
+            using (db)
+            {
+                string sql = @"INSERT INTO UR_ID (TUSER,DEPT_NO,MMIS_DEPT_NO,UNA,IDDESC,WKORG,EMAIL,TEL,EXT,TITLE,FAX,FL,DEPT_NO1)  
+                                VALUES (@TUSER,@DEPT_NO,@MMIS_DEPT_NO,@UNA,@IDDESC,@WKORG,@EMAIL,@TEL,@EXT,@TITLE,@FAX,@FL,@DEPT_NO1)";
+                CommandParam cp = new CommandParam(sql);
+                cp.AddParam("@TUSER", f.Get("TUSER"));
+                cp.AddParam("@DEPT_NO", f.Get("DEPT_NO"));
+                cp.AddParam("@MMIS_DEPT_NO", f.Get("MMIS_DEPT_NO"));
+                cp.AddParam("@UNA", f.Get("UNA"));
+                cp.AddParam("@IDDESC", f.Get("IDDESC"));
+                cp.AddParam("@WKORG", f.Get("WKORG"));
+                cp.AddParam("@EMAIL", f.Get("EMAIL"));
+                cp.AddParam("@TEL", f.Get("TEL"));
+                cp.AddParam("@EXT", f.Get("EXT"));
+                cp.AddParam("@TITLE", f.Get("TITLE"));
+                cp.AddParam("@FAX", f.Get("FAX"));
+                cp.AddParam("@FL", f.Get("FL"));
+                cp.AddParam("@DEPT_NO1", f.Get("DEPT_NO1"));
+                db.TryExecNonQuery(cp, ar);
+
+                sql = @"INSERT INTO UR_UIR (TUSER,RLNO) VALUES (@TUSER,'Admin')";
+                CommandParam cp2 = new CommandParam(sql);
+                cp2.AddParam("@TUSER", f.Get("TUSER"));
+                db.TryExecNonQuery(cp2, ar);
+            }
+
+            return ar;
+        }
+
+        public ApiResponse CreateD(UR_ID ur_id)
+        {
+            using (var conn = db.GetConnection())
+            {
+                string sql = @"INSERT INTO UR_ID (TUSER,DEPT_NO,MMIS_DEPT_NO,UNA,IDDESC,WKORG,EMAIL,TEL,EXT,TITLE,FAX,FL,DEPT_NO1)  
+                                VALUES (@TUSER,@DEPT_NO,@MMIS_DEPT_NO,@UNA,@IDDESC,@WKORG,@EMAIL,@TEL,@EXT,@TITLE,@FAX,@FL,@DEPT_NO1)";
+                ar.afrs = conn.Execute(sql, ur_id);
+            }
+            
+            return ar;
+        }
+
+        public ApiResponse Update(FormDataCollection f)
+        {
+            using (db)
+            {
+                string sql = @"UPDATE UR_ID 
+                            SET DEPT_NO = @DEPT_NO,
+                            MMIS_DEPT_NO = @MMIS_DEPT_NO,
+                            UNA = @UNA,
+                            IDDESC =@IDDESC,
+                            WKORG = @WKORG,
+                            EMAIL = @EMAIL,
+                            TEL = @TEL,
+                            EXT =@EXT,
+                            TITLE = @TITLE,
+                            FAX = @FAX,
+                            FL=@FL,
+                            DEPT_NO1=@DEPT_NO1
+                            WHERE TUSER=@TUSER";
+                CommandParam cp = new CommandParam(sql);
+                cp.AddParam("@DEPT_NO", f.Get("DEPT_NO"));
+                cp.AddParam("@MMIS_DEPT_NO", f.Get("MMIS_DEPT_NO"));
+                cp.AddParam("@UNA", f.Get("UNA"));
+                cp.AddParam("@IDDESC", f.Get("IDDESC"));
+                cp.AddParam("@WKORG", f.Get("WKORG"));
+                cp.AddParam("@EMAIL", f.Get("EMAIL"));
+                cp.AddParam("@TEL", f.Get("TEL"));
+                cp.AddParam("@EXT", f.Get("EXT"));
+                cp.AddParam("@TITLE", f.Get("TITLE"));
+                cp.AddParam("@FAX", f.Get("FAX"));
+                cp.AddParam("@FL", f.Get("FL"));
+                cp.AddParam("@DEPT_NO1", f.Get("DEPT_NO1"));
+                cp.AddParam("@TUSER", f.Get("TUSER"));
+                db.TryExecNonQuery(cp, ar);
+
+                if (f.Get("PWD") != "")
+                {
+                    sql = @"UPDATE UR_ID SET PA=@PWD WHERE TUSER=@TUSER";
+                    CommandParam cp2 = new CommandParam(sql);
+                    cp2.AddParam("@PWD", f.Get("PWD"));
+                    cp2.AddParam("@TUSER", f.Get("TUSER"));
+                    db.TryExecNonQuery(cp2, ar);
+                }
+            }
+
+            return ar;
+        }
+
+        public ApiResponse UpdateD(UR_ID ur_id)
+        {
+            using (var conn = db.GetConnection())
+            {
+                string sql = @"UPDATE UR_ID 
+                            SET DEPT_NO = @DEPT_NO,
+                            MMIS_DEPT_NO = @MMIS_DEPT_NO,
+                            UNA = @UNA,
+                            IDDESC =@IDDESC,
+                            WKORG = @WKORG,
+                            EMAIL = @EMAIL,
+                            TEL = @TEL,
+                            EXT =@EXT,
+                            TITLE = @TITLE,
+                            FAX = @FAX,
+                            FL=@FL,
+                            DEPT_NO1=@DEPT_NO1
+                            WHERE TUSER=@TUSER";
+                ar.afrs = conn.Execute(sql, ur_id);
+
+                if (ur_id.PWD != null)
+                {
+                    sql = @"UPDATE UR_ID SET PA=@PWD WHERE TUSER=@TUSER";
+                    ar.afrs = conn.Execute(sql, new { PWD = ur_id.PWD, TUSER = ur_id.TUSER });
+                }
+            }
+
+            return ar;
+        }
+
+        public ApiResponse Delete(FormDataCollection f)
+        {
+            using (db)
+            {
+                string sql = @"DELETE FROM UR_ID WHERE TUSER =@TUSER";
+                CommandParam cp4 = new CommandParam(sql);
+                cp4.AddParam("@TUSER", f.Get("TUSER"));
+                db.TryExecNonQuery(cp4, ar);
+            }
+
+            return ar;
+        }
+
+        public ApiResponse DeleteD(string id)
+        {
+            using (var conn = db.GetConnection())
+            {
+                string sql = @"DELETE FROM UR_ID WHERE TUSER =@TUSER";
+                ar.afrs = conn.Execute(sql, new { TUSER = id });
+            }
+
+            return ar;
+        }
+
+        public ApiResponse Get(FormDataCollection f)
+        {
+            using (db)
+            {
+                string sql = @"SELECT TUSER,DEPT_NO,MMIS_DEPT_NO,UNA,IDDESC,WKORG,EMAIL,TEL,EXT,TITLE,FAX,FL,DEPT_NO1,'' AS PWD 
+                            from UR_ID where TUSER=@TUSER";
+                CommandParam cp5 = new CommandParam(sql);
+                cp5.AddParam("@TUSER", f.Get("TUSER"));
+                cp5.TableName = "T1";
+                db.GetPagedRows(cp5, 1, 10, "1 ASC", ar);
+            }
+
+            return ar;
+        }
+
+        public ApiResponse GetD(string id)
+        {
+            using (var conn = db.GetConnection())
+            {
+                string sql = @"SELECT TUSER,DEPT_NO,MMIS_DEPT_NO,UNA,IDDESC,WKORG,EMAIL,TEL,EXT,TITLE,FAX,FL,DEPT_NO1,'' AS PWD 
+                            from UR_ID where TUSER=@TUSER";
+                ar.etts = conn.Query<UR_ID>(sql, new { TUSER = id });
+            }
+
+            return ar;
+        }
+
+        public ApiResponse GetAll(FormDataCollection f)
+        {
+            using (db)
+            {
+                string sql = @"SELECT TUSER,DEPT_NO,MMIS_DEPT_NO,UNA,IDDESC,WKORG,EMAIL,TEL,EXT,TITLE,FAX,FL,DEPT_NO1,'' AS PWD from UR_ID";
+                CommandParam cp = new CommandParam(sql);
+                cp.TableName = "T1";
+                db.GetPagedRows(cp, 1, 10, "1 ASC", ar);
+            }
+
+            return ar;
+        }
+
+        public ApiResponse GetAllD(int page_index, int page_size, string sorters)
+        {
+            using (var conn = db.GetConnection())
+            {
+                string sql = GetPagingStatement("SELECT TUSER,DEPT_NO,MMIS_DEPT_NO,UNA,IDDESC,WKORG,EMAIL,TEL,EXT,TITLE,FAX,FL,DEPT_NO1 FROM UR_ID", sorters);
+                ar.etts = conn.Query<UR_ID>(sql, new { OFFSET = (page_index - 1) * page_size, PAGE_SIZE = page_size });
+            }
+
+            return ar;
+        }
+
+        public ApiResponse GetMenuView(string tuser)
+        {
+            ar.etts = GetChildNode(null, tuser);
+            return ar;
+        }
+
+        public ApiResponse GetMenuView(string parent, string tuser, bool rec)
+        {
+            ar.etts = GetChildNode(parent, tuser, rec);
+            return ar;
+        }
+
+        public IEnumerable<MenuView> GetChildNode(string parent, string tuser, bool rec = true)
+        {
+            IEnumerable<MenuView> result;
+            using (var conn = db.GetConnection())
+            {
+                string sql = @"SELECT FG, PG, FS, FG AS id,
+                            CASE WHEN (FT = 'F') THEN F1 ELSE F1 + '(' + F0 + ')' END AS text,
+                            CASE WHEN (FT = 'F') THEN 'task-folder' ELSE 'task' END AS iconCls, 
+                            CASE WHEN (FT = 'F') THEN 0 ELSE 1 END AS leaf, 
+                            1 AS expanded
+                            FROM UR_MENU
+                            WHERE (SG = 'YS') {0} AND (FL = 1) AND (FG IN
+                                (SELECT  A.FG
+                                 FROM    UR_TACL AS A INNER JOIN
+                                         UR_UIR AS B ON A.RLNO = B.RLNO
+                                 WHERE  (A.V = 1) AND (B.TUSER = @TUSER)))
+                            ORDER BY FS";
+                if (parent == null || parent == "")
+                {
+                    sql = string.Format(sql, " AND PG IS NULL ");
+                    result = conn.Query<MenuView>(sql, new { TUSER = tuser });
+                }
+                else
+                {
+                    sql = string.Format(sql, " AND PG = @PG ");
+                    result = conn.Query<MenuView>(sql, new { PG = parent, TUSER = tuser });
+                }
+                if (rec)
+                    foreach (MenuView mv in result)
+                    {
+                        if(!mv.leaf)
+                            mv.children = GetChildNode(mv.FG, tuser);
+                    }
+            }
+            return result;
+        }
+
+        public bool CheckAccess(string fg, string tuser)
+        {
+            var result = false;
+            using (var conn = db.GetConnection())
+            {
+                string sql = @"SELECT COUNT(1) FROM UR_TACL WHERE FG=@FG AND RLNO IN (SELECT RLNO FROM UR_UIR WHERE TUSER=@TUSER)";
+                var obj = conn.ExecuteScalar(sql, new { FG = fg, TUSER = tuser });
+                if (obj != null)
+                    if (obj.ToString() != "0")
+                        result = true;
+            }
+
+            return result;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AB0075_4" targetNamespace="http://tempuri.org/AB0075_4.xsd" xmlns:mstns="http://tempuri.org/AB0075_4.xsd" xmlns="http://tempuri.org/AB0075_4.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AB0075_4" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AB0075_4" msprop:Generator_UserDSName="AB0075_4">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="AB0075_4" msprop:Generator_TableClassName="AB0075_4DataTable" msprop:Generator_TableVarName="tableAB0075_4" msprop:Generator_TablePropName="_AB0075_4" msprop:Generator_RowDeletingName="AB0075_4RowDeleting" msprop:Generator_RowChangingName="AB0075_4RowChanging" msprop:Generator_RowEvHandlerName="AB0075_4RowChangeEventHandler" msprop:Generator_RowDeletedName="AB0075_4RowDeleted" msprop:Generator_UserTableName="AB0075_4" msprop:Generator_RowChangedName="AB0075_4RowChanged" msprop:Generator_RowEvArgName="AB0075_4RowChangeEvent" msprop:Generator_RowClassName="AB0075_4Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VISITDATE" msprop:Generator_ColumnVarNameInTable="columnVISITDATE" msprop:Generator_ColumnPropNameInRow="VISITDATE" msprop:Generator_ColumnPropNameInTable="VISITDATEColumn" msprop:Generator_UserColumnName="VISITDATE" type="xs:string" minOccurs="0" />
+              <xs:element name="CNTVISITSEQ" msprop:Generator_ColumnVarNameInTable="columnCNTVISITSEQ" msprop:Generator_ColumnPropNameInRow="CNTVISITSEQ" msprop:Generator_ColumnPropNameInTable="CNTVISITSEQColumn" msprop:Generator_UserColumnName="CNTVISITSEQ" type="xs:string" minOccurs="0" />
+              <xs:element name="CNTORDERNO" msprop:Generator_ColumnVarNameInTable="columnCNTORDERNO" msprop:Generator_ColumnPropNameInRow="CNTORDERNO" msprop:Generator_ColumnPropNameInTable="CNTORDERNOColumn" msprop:Generator_UserColumnName="CNTORDERNO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

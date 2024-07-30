@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = ViewBag.Script;
+}
+@section scripts
+{
+    @{ var s=string.Format("~/Scripts/{0}", ViewBag.Script); }
+    <script type="text/javascript" src="@Url.Content(s)"></script>
+}

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CE0011" targetNamespace="http://tempuri.org/CE0011.xsd" xmlns:mstns="http://tempuri.org/CE0011.xsd" xmlns="http://tempuri.org/CE0011.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CE0011" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CE0011" msprop:Generator_UserDSName="CE0011">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="CE0011" msprop:Generator_TableClassName="CE0011DataTable" msprop:Generator_TableVarName="tableCE0011" msprop:Generator_RowChangedName="CE0011RowChanged" msprop:Generator_TablePropName="_CE0011" msprop:Generator_RowDeletingName="CE0011RowDeleting" msprop:Generator_RowChangingName="CE0011RowChanging" msprop:Generator_RowEvHandlerName="CE0011RowChangeEventHandler" msprop:Generator_RowDeletedName="CE0011RowDeleted" msprop:Generator_RowClassName="CE0011Row" msprop:Generator_UserTableName="CE0011" msprop:Generator_RowEvArgName="CE0011RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MMCODE" msprop:Generator_ColumnVarNameInTable="columnMMCODE" msprop:Generator_ColumnPropNameInRow="MMCODE" msprop:Generator_ColumnPropNameInTable="MMCODEColumn" msprop:Generator_UserColumnName="MMCODE" type="xs:string" minOccurs="0" />
+              <xs:element name="MMNAME_C" msprop:Generator_ColumnVarNameInTable="columnMMNAME_C" msprop:Generator_ColumnPropNameInRow="MMNAME_C" msprop:Generator_ColumnPropNameInTable="MMNAME_CColumn" msprop:Generator_UserColumnName="MMNAME_C" type="xs:string" minOccurs="0" />
+              <xs:element name="MNAME_E" msprop:Generator_ColumnVarNameInTable="columnMNAME_E" msprop:Generator_ColumnPropNameInRow="MNAME_E" msprop:Generator_ColumnPropNameInTable="MNAME_EColumn" msprop:Generator_UserColumnName="MNAME_E" type="xs:string" minOccurs="0" />
+              <xs:element name="BASE_UNIT" msprop:Generator_ColumnVarNameInTable="columnBASE_UNIT" msprop:Generator_ColumnPropNameInRow="BASE_UNIT" msprop:Generator_ColumnPropNameInTable="BASE_UNITColumn" msprop:Generator_UserColumnName="BASE_UNIT" type="xs:string" minOccurs="0" />
+              <xs:element name="STORE_QTYC" msprop:Generator_ColumnVarNameInTable="columnSTORE_QTYC" msprop:Generator_ColumnPropNameInRow="STORE_QTYC" msprop:Generator_ColumnPropNameInTable="STORE_QTYCColumn" msprop:Generator_UserColumnName="STORE_QTYC" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_QTY" msprop:Generator_ColumnVarNameInTable="columnCHK_QTY" msprop:Generator_ColumnPropNameInRow="CHK_QTY" msprop:Generator_ColumnPropNameInTable="CHK_QTYColumn" msprop:Generator_UserColumnName="CHK_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="QTY_DIFF" msprop:Generator_ColumnVarNameInTable="columnQTY_DIFF" msprop:Generator_ColumnPropNameInRow="QTY_DIFF" msprop:Generator_ColumnPropNameInTable="QTY_DIFFColumn" msprop:Generator_UserColumnName="QTY_DIFF" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_UID" msprop:Generator_ColumnVarNameInTable="columnCHK_UID" msprop:Generator_ColumnPropNameInRow="CHK_UID" msprop:Generator_ColumnPropNameInTable="CHK_UIDColumn" msprop:Generator_UserColumnName="CHK_UID" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_UID_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_UID_NAME" msprop:Generator_ColumnPropNameInRow="CHK_UID_NAME" msprop:Generator_ColumnPropNameInTable="CHK_UID_NAMEColumn" msprop:Generator_UserColumnName="CHK_UID_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="STORE_LOC_NAMES" msprop:Generator_ColumnVarNameInTable="columnSTORE_LOC_NAMES" msprop:Generator_ColumnPropNameInRow="STORE_LOC_NAMES" msprop:Generator_ColumnPropNameInTable="STORE_LOC_NAMESColumn" msprop:Generator_UserColumnName="STORE_LOC_NAMES" type="xs:string" minOccurs="0" />
+              <xs:element name="CH_WH_NO" msprop:Generator_ColumnVarNameInTable="columnCH_WH_NO" msprop:Generator_ColumnPropNameInRow="CH_WH_NO" msprop:Generator_ColumnPropNameInTable="CH_WH_NOColumn" msprop:Generator_UserColumnName="CH_WH_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_NAME" msprop:Generator_ColumnVarNameInTable="columnWH_NAME" msprop:Generator_ColumnPropNameInRow="WH_NAME" msprop:Generator_ColumnPropNameInTable="WH_NAMEColumn" msprop:Generator_UserColumnName="WH_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_YM" msprop:Generator_ColumnVarNameInTable="columnCHK_YM" msprop:Generator_ColumnPropNameInRow="CHK_YM" msprop:Generator_ColumnPropNameInTable="CHK_YMColumn" msprop:Generator_UserColumnName="CHK_YM" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_LEVEL" msprop:Generator_ColumnVarNameInTable="columnCHK_LEVEL" msprop:Generator_ColumnPropNameInRow="CHK_LEVEL" msprop:Generator_ColumnPropNameInTable="CHK_LEVELColumn" msprop:Generator_UserColumnName="CHK_LEVEL" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_LEVEL_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_LEVEL_NAME" msprop:Generator_ColumnPropNameInRow="CHK_LEVEL_NAME" msprop:Generator_ColumnPropNameInTable="CHK_LEVEL_NAMEColumn" msprop:Generator_UserColumnName="CHK_LEVEL_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_KEEPER" msprop:Generator_ColumnVarNameInTable="columnCHK_KEEPER" msprop:Generator_ColumnPropNameInRow="CHK_KEEPER" msprop:Generator_ColumnPropNameInTable="CHK_KEEPERColumn" msprop:Generator_UserColumnName="CHK_KEEPER" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_KEEPER_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_KEEPER_NAME" msprop:Generator_ColumnPropNameInRow="CHK_KEEPER_NAME" msprop:Generator_ColumnPropNameInTable="CHK_KEEPER_NAMEColumn" msprop:Generator_UserColumnName="CHK_KEEPER_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_PERIOD" msprop:Generator_ColumnVarNameInTable="columnCHK_PERIOD" msprop:Generator_ColumnPropNameInRow="CHK_PERIOD" msprop:Generator_ColumnPropNameInTable="CHK_PERIODColumn" msprop:Generator_UserColumnName="CHK_PERIOD" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_PERIOD_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_PERIOD_NAME" msprop:Generator_ColumnPropNameInRow="CHK_PERIOD_NAME" msprop:Generator_ColumnPropNameInTable="CHK_PERIOD_NAMEColumn" msprop:Generator_UserColumnName="CHK_PERIOD_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_STATUS" msprop:Generator_ColumnVarNameInTable="columnCHK_STATUS" msprop:Generator_ColumnPropNameInRow="CHK_STATUS" msprop:Generator_ColumnPropNameInTable="CHK_STATUSColumn" msprop:Generator_UserColumnName="CHK_STATUS" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_STATUS_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_STATUS_NAME" msprop:Generator_ColumnPropNameInRow="CHK_STATUS_NAME" msprop:Generator_ColumnPropNameInTable="CHK_STATUS_NAMEColumn" msprop:Generator_UserColumnName="CHK_STATUS_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_TYPE" msprop:Generator_ColumnVarNameInTable="columnCHK_TYPE" msprop:Generator_ColumnPropNameInRow="CHK_TYPE" msprop:Generator_ColumnPropNameInTable="CHK_TYPEColumn" msprop:Generator_UserColumnName="CHK_TYPE" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_TYPE_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_TYPE_NAME" msprop:Generator_ColumnPropNameInRow="CHK_TYPE_NAME" msprop:Generator_ColumnPropNameInTable="CHK_TYPE_NAMEColumn" msprop:Generator_UserColumnName="CHK_TYPE_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_WH_GRADE" msprop:Generator_ColumnVarNameInTable="columnCHK_WH_GRADE" msprop:Generator_ColumnPropNameInRow="CHK_WH_GRADE" msprop:Generator_ColumnPropNameInTable="CHK_WH_GRADEColumn" msprop:Generator_UserColumnName="CHK_WH_GRADE" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_KIND" msprop:Generator_ColumnVarNameInTable="columnWH_KIND" msprop:Generator_ColumnPropNameInRow="WH_KIND" msprop:Generator_ColumnPropNameInTable="WH_KINDColumn" msprop:Generator_UserColumnName="WH_KIND" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_KIND_NAME" msprop:Generator_ColumnVarNameInTable="columnWH_KIND_NAME" msprop:Generator_ColumnPropNameInRow="WH_KIND_NAME" msprop:Generator_ColumnPropNameInTable="WH_KIND_NAMEColumn" msprop:Generator_UserColumnName="WH_KIND_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_NO" msprop:Generator_ColumnVarNameInTable="columnCHK_NO" msprop:Generator_ColumnPropNameInRow="CHK_NO" msprop:Generator_ColumnPropNameInTable="CHK_NOColumn" msprop:Generator_UserColumnName="CHK_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_CLASS" msprop:Generator_ColumnVarNameInTable="columnCHK_CLASS" msprop:Generator_ColumnPropNameInRow="CHK_CLASS" msprop:Generator_ColumnPropNameInTable="CHK_CLASSColumn" msprop:Generator_UserColumnName="CHK_CLASS" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_CLASS_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_CLASS_NAME" msprop:Generator_ColumnPropNameInRow="CHK_CLASS_NAME" msprop:Generator_ColumnPropNameInTable="CHK_CLASS_NAMEColumn" msprop:Generator_UserColumnName="CHK_CLASS_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CONSUME_QTY" msprop:Generator_ColumnVarNameInTable="columnCONSUME_QTY" msprop:Generator_ColumnPropNameInRow="CONSUME_QTY" msprop:Generator_ColumnPropNameInTable="CONSUME_QTYColumn" msprop:Generator_UserColumnName="CONSUME_QTY" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b6f0a5d9-bfd0-49e3-994b-3a9b4df08495" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.99.37:8099/FileService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FileService.xsd" MetadataType="Schema" ID="7de479e7-f154-4fdc-bffe-d407f7461ab6" SourceId="1" SourceUrl="http://192.168.99.37:8099/FileService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FileService1.xsd" MetadataType="Schema" ID="679b8cf0-79a8-4720-a76c-b66fc4ffa6ab" SourceId="1" SourceUrl="http://192.168.99.37:8099/FileService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FileService.disco" MetadataType="Disco" ID="ca1305b2-fc52-464e-851b-597912327605" SourceId="1" SourceUrl="http://192.168.99.37:8099/FileService.svc?disco" />
+    <MetadataFile FileName="FileService2.xsd" MetadataType="Schema" ID="1efd103f-228e-448d-8874-3670ea0fe171" SourceId="1" SourceUrl="http://192.168.99.37:8099/FileService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FileService.wsdl" MetadataType="Wsdl" ID="ec70b378-8795-4342-a6e6-1d6e41dc7d71" SourceId="1" SourceUrl="http://192.168.99.37:8099/FileService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

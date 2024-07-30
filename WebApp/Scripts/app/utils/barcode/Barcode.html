@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Barcode reader</title>
+
+  <script src="exif.js"></script>
+  <script src="DecoderWorker.js"></script>
+  <script src="BarcodeReader.js"></script>
+
+  <style>
+    html, body {
+      background: #222;
+      color: #fff;
+      height: 100%;
+      line-height: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      height: 100%;
+      line-height: 1rem;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    #camera {
+      background-size: cover;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+    }
+
+    #image {
+      height: 100%;
+      object-fit: contain;
+      width: 100%;
+      display: none;
+    }
+
+    #container.captured #camera { display: none; }
+    #container.captured #image { display: block; }
+
+    #description {
+      bottom: 6vh;
+      display: block;
+      left: 0;
+      margin: auto;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      font-size: 6vmin;
+      text-shadow: 1px 1px #000;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <video id="camera" autoplay playsinline></video>
+    <img id="image">
+    <p id="description">請先允許網頁使用照相機</p>
+  </div>
+
+  <script>
+      'use strict';
+
+      var camera = document.getElementById('camera');
+      var capturedImage = document.getElementById('image');
+      var container = document.getElementById('container');
+      var description = document.getElementById('description');
+
+      navigator.mediaDevices.getUserMedia({
+          audio: false,
+          video: { facingMode: 'environment' }
+      }).then(function (stream) {
+          var videoTracks = stream.getVideoTracks();
+          var retryCount = 3; // 掃不到時重試三次
+
+          camera.srcObject = stream;
+
+          BarcodeReader.Init();
+          BarcodeReader.DecodeSingleBarcode();
+          BarcodeReader.SetDecodeFormats(['Code128', 'Code39', 'EAN-13']);
+          BarcodeReader.SetImageCallback(function (barcodes) {
+              container.classList.remove('captured');
+
+              if (barcodes.length > 0) {
+                  //description.innerText = barcodes[0].Format + ': ' + barcodes[0].Value;
+                  window.parent.CameraSharedData.selItem = barcodes[0].Value;
+                  description.innerText = window.parent.CameraSharedData.selItem;
+                  window.parent.CameraSharedData.callSubmitBack();
+                  window.parent.winCamera.destroy();
+                  window.parent.winCamera = null;
+              } else {
+                  if (retryCount > 0)
+                  {
+                      retryCount = retryCount - 1;
+                      decodeCameraImage();
+                  }
+                  else
+                    description.innerText = '未偵測到條碼, 請重新嘗試!';
+              }
+          });
+
+          function decodeCameraImage() {
+              container.classList.add('captured');
+              description.innerText = '偵測中...';
+
+              var canvas = document.createElement('canvas');
+              var context = canvas.getContext('2d');
+              var videoWidth = camera.videoWidth,
+                  videoHeight = camera.videoHeight;
+
+              canvas.width = videoWidth;
+              canvas.height = videoHeight;
+              context.drawImage(camera, 0, 0, videoWidth, videoHeight);
+              capturedImage.src = canvas.toDataURL('image/jpeg');
+
+              BarcodeReader.DecodeImage(image);
+          }
+
+          camera.addEventListener('click', function () {
+              decodeCameraImage();
+          });
+
+          description.innerText = '點擊畫面以偵測條碼';
+
+      }).catch(function (error) {
+
+          // description.innerText = error.name;
+          description.innerText = "掃描條碼時發生錯誤";
+          // console.error(error);
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+﻿
+@{
+    ViewBag.Title = "庫存量監控總覽";
+    Layout = "~/Views/Shared/_ChartLayout.cshtml";
+}
+
+@section styles
+{
+    <style>
+        .DashboardCategory {
+            padding: 0;
+        }
+
+        .DashboardFrame {
+            padding: 0.5em;
+        }
+
+            .DashboardFrame .DashboardWordWrapper, .DashboardFrame .DashboardGraphWrapper {
+                padding: 0em;
+                height: 20em;
+            }
+
+                .DashboardFrame .DashboardWordWrapper .DashboardWordName {
+                    padding-top: 0.75em;
+                    text-align: center;
+                    font-size: 1.5em;
+                }
+
+                .DashboardFrame .DashboardWordWrapper .DashboardWordValue {
+                    padding-bottom: 0.5em;
+                    text-align: center;
+                    font-size: 3em;
+                    font-weight: bold;
+                }
+
+            .DashboardFrame .DashboardGraphWrapper {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+                .DashboardFrame .DashboardGraphWrapper > div.StatsGraph {
+                    /*height: 20em;*/
+                    height: 100%;
+                }
+    </style>
+}
+
+
+@section components
+{
+    <div class="container-fluid">
+        <div class="row" style="padding-left:2em;padding-right:1em;">
+            <form class="form-inline">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">庫房名稱</div>
+                    </div>
+                    <select class="form-control" id="ddlWhno" onchange="ddlWhnoChange();">
+                        @*<option value="560000" selected>中央庫房衛材庫</option>
+                        <option value='PH1S'>藥庫</option>
+                        <option value='PH1C'>內湖門診藥局</option>
+                        <option value='PH1R'>內湖急診藥局</option>
+                        <option value='PH1A'>內湖住院藥局</option>
+                        <option value='CHEMO'>內湖化療調配室</option>
+                        <option value='CHEMOT'>汀州化療調配室</option>
+                        <option value='PHMC'>汀州藥局</option>
+                        <option value='TPN'>製劑室</option>*@
+
+                    </select>
+                </div>
+
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">安全存量警示百分比</div>
+                    </div>
+                    <select class="form-control" id="ddlPerg" onchange="ddlPergChange();">
+                        <option value='5' selected>5%</option>
+                        <option value='10'>10%</option>
+                        <option value='15'>15%</option>
+                        <option value='20'>20%</option>
+                        <option value='25'>25%</option>
+                    </select>
+                </div>
+
+                <button type="button" class="btn btn-primary mb-2" onclick="getChartData();">查詢</button>
+            </form>
+        </div>
+
+        <div class="row" style="padding-left:1em;padding-right:1em;">
+            <div class="DashboardFrame col-xs-12 col-md-4">
+                <div class="DashboardGraphWrapper">
+                    <div id="sg11" class="StatsGraph"></div>
+                </div>
+            </div>
+            <div class="DashboardFrame col-xs-12 col-md-4">
+                <div class="DashboardGraphWrapper">
+                    <div id="sg12" class="StatsGraph"></div>
+                </div>
+            </div>
+            <div class="DashboardFrame col-xs-12 col-md-4">
+                <div class="DashboardGraphWrapper">
+                    <div id="sg13" class="StatsGraph"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-left:1em;padding-right:1em;">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Table -->
+                        <table id="table1" class="table" style="background-color:#ffffff">
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>類別</th>
+                                <th>院內碼</th>
+                                <!-- <th>中文品名</th> -->
+                                <th>英文品名</th>
+                                <th style="text-align:right;">庫存量</th>
+                                <th style="text-align:right;">安全量</th>
+                                <th style="text-align:right;">比率</th>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"><i class="fas fa-circle fa-1x" style="color:#FF2233;"></i></td>
+                                <td>衛材</td>
+                                <td>08900448</td>
+                                <!-- <td>皮膜鞘導引器組</td> -->
+                                <td>INTRODUCER SHEATH 8.5FR HSIN-02</td>
+                                <td style="text-align:right;">589 SE</td>
+                                <td style="text-align:right;">1,210 SE</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"><i class="fas fa-circle fa-1x" style="color:#FFFF33;"></i></td>
+                                <td>衛材</td>
+                                <td>08900438</td>
+                                <!-- <td>胃管 10FR</td> -->
+                                <td>STOMACH TUBE 10FR</td>
+                                <td style="text-align:right;">993 EA</td>
+                                <td style="text-align:right;">1,032 EA</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"><i class="fas fa-circle fa-1x" style="color:#22EE33;"></i></td>
+                                <td>衛材</td>
+                                <td>08900449</td>
+                                <!-- <td>1cc塑膠空針</td> -->
+                                <td>1cc SYRINGE PLASTIC(SLIP LOCK)</td>
+                                <td style="text-align:right;">1,160 支</td>
+                                <td style="text-align:right;">950 支</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts
+{
+    <script>
+        Highcharts.setOptions({
+            lang: {
+                thousandsSep: ','
+            }
+        });
+
+        const pergG = '28A745'; //perg_type: 0
+        const pergY = 'FFC312'; //perg_type: 1
+        const pergR = 'DC3545'; //perg_type: 2
+
+        var wh_noParam = '560000';
+        var pergParam = 5;
+
+        function ddlWhnoChange(inid, inidName) {
+            wh_noParam = $('#ddlWhno').val();
+            getChartData();
+        }
+
+        function ddlPergChange(perg) {
+            pergParam = $('#ddlPerg').val();
+            getChartData();
+        }
+
+        function getChartData() {
+            $.blockUI({ message: '<div style="font-size:14pt;">資料讀取中，請稍候!</div>' });
+            //alert('getChartData:inid=' + inidParam + ';perg=' + pergParam);
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: '/api/EA0001/GetChartData',
+                timeout: 10000,
+                dataType: "json",
+                data: {
+                    WH_NO: wh_noParam,
+                    PERG: pergParam
+                }
+            })
+                .done(function (data, textStatus) {
+                    //alert(data);
+                    if (data.success) {
+                        var sd = [];
+                        data.etts.map((item) => {
+                            var idx = item.MAT_CLSID - 1;
+                            var idx2 = item.PERG_TYPE;
+                            if (!sd[idx]) sd[idx] = [0, 0, 0];
+                            sd[idx][idx2] = item.C;
+                        });
+                        $("#sg11.StatsGraph").highcharts(getChartSettings(1, sd[0]));
+                        $("#sg12.StatsGraph").highcharts(getChartSettings(2, sd[1]));
+                        $("#sg13.StatsGraph").highcharts(getChartSettings(3, sd[2]));
+
+                        getTableData(9, 0);
+                    }
+                    else {
+                        alert("錯誤:" + data.msg);
+                    }
+                })
+                .fail(function (data, textStatus) {
+                    alert("錯誤:" + data);
+                });
+        }
+
+        function getWhnos() {
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: '/api/EA0001/GetWhnos',
+                timeout: 10000,
+                dataType: "json",
+            })
+                .done(function (data, textStatus) {
+                    //alert(data);
+                    debugger
+                    if (data.success) {
+                        $('#ddlWhno').empty();
+                        if (data.etts) {
+                            data.etts.map((item) => {
+                                debugger
+                                var temp = "";
+                                if (item.EXTRA1 == "1") {
+                                    temp = " selected ";
+                                    wh_noParam = item.VALUE;
+                                }
+                                var row = $("<option value=\"" + item.VALUE +"\"" +temp +">" + item.TEXT+"</option>");
+                                $("#ddlWhno").append(row);
+                            });
+                        }
+                    }
+                    else {
+                        alert("錯誤:" + data.msg);
+                    }
+
+                    $.unblockUI();
+                    getChartData();
+                })
+                .fail(function (data, textStatus) {
+                    alert("錯誤:" + data);
+                });
+        }
+
+        function getTableData(perg_type, mat_clsid) {
+            $.blockUI({ message: '<div style="font-size:14pt;">資料讀取中，請稍候!</div>' });
+            //alert('getTableData:inid=' + inidParam + ';perg=' + pergParam + ';perg_type=' + perg_type + ';mat_clsid=' + mat_clsid);
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: '/api/EA0001/GetTableData',
+                timeout: 10000,
+                dataType: "json",
+                data: {
+                    WH_NO: wh_noParam,
+                    MAT_CLSID: mat_clsid,
+                    PERG: pergParam,
+                    PERG_TYPE: perg_type
+                }
+            })
+                .done(function (data, textStatus) {
+                    //alert(data);
+                    if (data.success) {
+                        $('#table1').empty();
+                        if (data.etts) {
+                            var row = $("<tr />")
+                            row.append($("<th>&nbsp;</th>"));
+                            row.append($("<th>類別</th>"));
+                            row.append($("<th>院內碼</th>"));
+                            row.append($("<th>英文品名</th>"));
+                            row.append($("<th style=\"text-align:right;\">庫存量</th>"));
+                            row.append($("<th style=\"text-align:right;\">安全量</th>"));
+                            row.append($("<th style=\"text-align:right;\">比率</th>"));
+                            $("#table1").append(row);
+
+                            data.etts.map((item) => {
+                                var row = $("<tr />");
+                                row.append($("<td style=\"text-align:center;\"><i class=\"fas fa-circle fa-1x\" style=\"color:#" + getPergColor(item.PERG_TYPE) + ";\"></td>"));
+                                row.append($("<td>" + getInvKindName(item.MAT_CLSID) + "</td>"));
+                                row.append($("<td>" + item.MMCODE + "</td>"));
+                                row.append($("<td>" + ((item.MMNAME_E == null) ? ' ' : item.MMNAME_E) + "</td>"));
+                                row.append($("<td style=\"text-align:right;\">" + Highcharts.numberFormat(item.INV_QTY, 0, "", ",") + "</td>"));
+                                row.append($("<td style=\"text-align:right;\">" + Highcharts.numberFormat(item.SAFE_QTY, 0, "", ",") + "</td>"));
+                                row.append($("<td style=\"text-align:right;\">" + Highcharts.numberFormat(item.PERG, 0, "", ",") + "%</td>"));
+                                $("#table1").append(row);
+                            });
+                        }
+                    }
+                    else {
+                        alert("錯誤:" + data.msg);
+                    }
+
+                    $.unblockUI();
+                })
+                .fail(function (data, textStatus) {
+                    alert("錯誤:" + data);
+                });
+        }
+
+        $(init);
+
+        function init() {
+            getWhnos();
+            
+            /*
+            $("#sg11.StatsGraph").highcharts(getChartSettings(1, [0, 0, 0]));
+            $("#sg12.StatsGraph").highcharts(getChartSettings(2, [891, 171, 41]));
+            $("#sg13.StatsGraph").highcharts(getChartSettings(3, [900, 181, 23]));
+            */
+        }
+
+        function getChartSettings(invKind, seriesData) {
+            var invKindName = getInvKindName(invKind);
+            var whName = $('#ddlInid option:selected').text();
+            return {
+                chart: {
+                    spacingBottom: 0,
+                    spacingTop: 0,
+                    spacingLeft: 0,
+                    spacingRight: 0
+                },
+                plotOptions: {
+                    pie: {
+                        dataLabels: {
+                            //format: '',
+                            enabled: true,
+                            distance: -20,
+                            style: {
+                                fontSize: '1.25em',
+                                fontWeight: 'bold',
+                                color: 'white'
+                            }
+                        },
+                        point: {
+                            events: {
+                                click: function () {
+                                    getTableData(this.pt, this.mc);
+                                }
+                            }
+                        },
+                        startAngle: 0,
+                        endAngle: 360,
+                        size: '100%',
+                        showInLegend: true
+                    }
+                },
+                credits: { enabled: false },
+                title: {
+                    text: '<span style=\'color:#5D576B;font-weight:bold\'>' + whName + '</span><br/><span style=\'color:#253031;font-weight:bold\'>' + invKindName + '</span><span style=\'color:#297373;font-weight:bold\'>庫存分析</span>',
+                    align: 'center',
+                    verticalAlign: 'middle',
+                    y: -30,
+                    style: {
+                        fontSize: '1.5em'
+                    }
+                },
+                legend: { spacingTop: -10, labelFormat: '{desc}' },
+                series: [getSeriesData(invKind, invKindName, seriesData)],
+                tooltip: {
+                    headerFormat: '',
+                    pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.desc}</b><br/>' +
+                    invKind + '庫存項目比率: <b>{point.r}</b>%<br/>' +
+                    invKind + '庫存項目數量: <b>{point.y}</b> 項<br/>' +
+                    invKind + '庫存項目總數量: <b>{point.s}</b> 項<br/>'
+                },
+            };
+        }
+
+        function getSeriesData(invKind, invKindName, seriesData) {
+            if (seriesData == null) seriesData = [0, 0, 0];
+            var sum = seriesData[0] + seriesData[1] + seriesData[2];
+            var rates = seriesData.map(x => (sum == 0) ? 0 : (x * 100 / sum).toFixed(1));
+            sum = Highcharts.numberFormat(sum, 0, "", ",");
+            return {
+                name: invKindName + '庫存分析', colorByPoint: true, data: [
+                    { name: rates[0] + '%', desc: '高於安全存量' + pergParam + '%', color: ('#' + pergG), s: sum, r: rates[0], y: seriesData[0], pt: 0, mc: invKind },
+                    { name: rates[1] + '%', desc: '接近安全存量', color: ('#' + pergY), s: sum, r: rates[1], y: seriesData[1], pt: 1, mc: invKind },
+                    { name: rates[2] + '%', desc: '低於安全存量', color: ('#' + pergR), s: sum, r: rates[2], y: seriesData[2], pt: 2, mc: invKind }
+                ], type: 'pie', innerSize: '60%'
+            };
+        }
+
+        function getInvKindName(invKind) {
+            switch (invKind) {
+                case 1:
+                    return '藥品';
+                    break;
+                case 2:
+                    return '衛材';
+                    break;
+                case 3:
+                    return '一般物品';
+                    break;
+            }
+            return '';
+        }
+
+        function getPergColor(perg_type) {
+            switch (perg_type) {
+                case 0:
+                    return pergG;
+                    break;
+                case 1:
+                    return pergY;
+                    break;
+                case 2:
+                    return pergR;
+                    break;
+            }
+            return '000000';
+        }
+    </script>
+}

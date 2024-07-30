@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BC0002" targetNamespace="http://tempuri.org/BC0002.xsd" xmlns:mstns="http://tempuri.org/BC0002.xsd" xmlns="http://tempuri.org/BC0002.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BC0002" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BC0002" msprop:Generator_UserDSName="BC0002">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="BC0002" msprop:Generator_TableClassName="BC0002DataTable" msprop:Generator_TableVarName="tableBC0002" msprop:Generator_RowChangedName="BC0002RowChanged" msprop:Generator_TablePropName="_BC0002" msprop:Generator_RowDeletingName="BC0002RowDeleting" msprop:Generator_RowChangingName="BC0002RowChanging" msprop:Generator_RowEvHandlerName="BC0002RowChangeEventHandler" msprop:Generator_RowDeletedName="BC0002RowDeleted" msprop:Generator_RowClassName="BC0002Row" msprop:Generator_UserTableName="BC0002" msprop:Generator_RowEvArgName="BC0002RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SEQ" msprop:Generator_ColumnVarNameInTable="columnSEQ" msprop:Generator_ColumnPropNameInRow="SEQ" msprop:Generator_ColumnPropNameInTable="SEQColumn" msprop:Generator_UserColumnName="SEQ" type="xs:string" minOccurs="0" />
+              <xs:element name="DN" msprop:Generator_ColumnVarNameInTable="columnDN" msprop:Generator_ColumnPropNameInRow="DN" msprop:Generator_ColumnPropNameInTable="DNColumn" msprop:Generator_UserColumnName="DN" type="xs:string" minOccurs="0" />
+              <xs:element name="MEMO" msprop:Generator_ColumnVarNameInTable="columnMEMO" msprop:Generator_ColumnPropNameInRow="MEMO" msprop:Generator_ColumnPropNameInTable="MEMOColumn" msprop:Generator_UserColumnName="MEMO" type="xs:string" minOccurs="0" />
+              <xs:element name="MMCODE" msprop:Generator_ColumnVarNameInTable="columnMMCODE" msprop:Generator_ColumnPropNameInRow="MMCODE" msprop:Generator_ColumnPropNameInTable="MMCODEColumn" msprop:Generator_UserColumnName="MMCODE" type="xs:string" minOccurs="0" />
+              <xs:element name="NMSPEC" msprop:Generator_ColumnVarNameInTable="columnNMSPEC" msprop:Generator_ColumnPropNameInRow="NMSPEC" msprop:Generator_ColumnPropNameInTable="NMSPECColumn" msprop:Generator_UserColumnName="NMSPEC" type="xs:string" minOccurs="0" />
+              <xs:element name="PRICE" msprop:Generator_ColumnVarNameInTable="columnPRICE" msprop:Generator_ColumnPropNameInRow="PRICE" msprop:Generator_ColumnPropNameInTable="PRICEColumn" msprop:Generator_UserColumnName="PRICE" type="xs:string" minOccurs="0" />
+              <xs:element name="QTY" msprop:Generator_ColumnVarNameInTable="columnQTY" msprop:Generator_ColumnPropNameInRow="QTY" msprop:Generator_ColumnPropNameInTable="QTYColumn" msprop:Generator_UserColumnName="QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="UNIT" msprop:Generator_ColumnVarNameInTable="columnUNIT" msprop:Generator_ColumnPropNameInRow="UNIT" msprop:Generator_ColumnPropNameInTable="UNITColumn" msprop:Generator_UserColumnName="UNIT" type="xs:string" minOccurs="0" />
+              <xs:element name="TOTAL_PRICE" msprop:Generator_ColumnVarNameInTable="columnTOTAL_PRICE" msprop:Generator_ColumnPropNameInRow="TOTAL_PRICE" msprop:Generator_ColumnPropNameInTable="TOTAL_PRICEColumn" msprop:Generator_UserColumnName="TOTAL_PRICE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

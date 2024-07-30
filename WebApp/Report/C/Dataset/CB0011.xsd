@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CB0011" targetNamespace="http://tempuri.org/CB0011.xsd" xmlns:mstns="http://tempuri.org/CB0011.xsd" xmlns="http://tempuri.org/CB0011.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CB0011" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CB0011" msprop:Generator_UserDSName="CB0011">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="CB0011" msprop:Generator_TableClassName="CB0011DataTable" msprop:Generator_TableVarName="tableCB0011" msprop:Generator_RowChangedName="CB0011RowChanged" msprop:Generator_TablePropName="_CB0011" msprop:Generator_RowDeletingName="CB0011RowDeleting" msprop:Generator_RowChangingName="CB0011RowChanging" msprop:Generator_RowEvHandlerName="CB0011RowChangeEventHandler" msprop:Generator_RowDeletedName="CB0011RowDeleted" msprop:Generator_RowClassName="CB0011Row" msprop:Generator_UserTableName="CB0011" msprop:Generator_RowEvArgName="CB0011RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NO" msprop:Generator_ColumnVarNameInTable="columnNO" msprop:Generator_ColumnPropNameInRow="NO" msprop:Generator_ColumnPropNameInTable="NOColumn" msprop:Generator_UserColumnName="NO" type="xs:string" minOccurs="0" />
+              <xs:element name="BOXNO" msprop:Generator_ColumnVarNameInTable="columnBOXNO" msprop:Generator_ColumnPropNameInRow="BOXNO" msprop:Generator_ColumnPropNameInTable="BOXNOColumn" msprop:Generator_UserColumnName="BOXNO" type="xs:string" minOccurs="0" />
+              <xs:element name="BARCODE" msprop:Generator_ColumnVarNameInTable="columnBARCODE" msprop:Generator_ColumnPropNameInRow="BARCODE" msprop:Generator_ColumnPropNameInTable="BARCODEColumn" msprop:Generator_UserColumnName="BARCODE" type="xs:string" minOccurs="0" />
+              <xs:element name="XCATEGORY" msprop:Generator_ColumnVarNameInTable="columnXCATEGORY" msprop:Generator_ColumnPropNameInRow="XCATEGORY" msprop:Generator_ColumnPropNameInTable="XCATEGORYColumn" msprop:Generator_UserColumnName="XCATEGORY" type="xs:string" minOccurs="0" />
+              <xs:element name="DESCRIPT" msprop:Generator_ColumnVarNameInTable="columnDESCRIPT" msprop:Generator_ColumnPropNameInRow="DESCRIPT" msprop:Generator_ColumnPropNameInTable="DESCRIPTColumn" msprop:Generator_UserColumnName="DESCRIPT" type="xs:string" minOccurs="0" />
+              <xs:element name="STATUS" msprop:Generator_ColumnVarNameInTable="columnSTATUS" msprop:Generator_ColumnPropNameInRow="STATUS" msprop:Generator_ColumnPropNameInTable="STATUSColumn" msprop:Generator_UserColumnName="STATUS" type="xs:string" minOccurs="0" />
+              <xs:element name="BARCODE_IMAGE_STR" msprop:Generator_ColumnVarNameInTable="columnBARCODE_IMAGE_STR" msprop:Generator_ColumnPropNameInRow="BARCODE_IMAGE_STR" msprop:Generator_ColumnPropNameInTable="BARCODE_IMAGE_STRColumn" msprop:Generator_UserColumnName="BARCODE_IMAGE_STR" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

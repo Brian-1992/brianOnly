@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CE0025" targetNamespace="http://tempuri.org/CE0025.xsd" xmlns:mstns="http://tempuri.org/CE0025.xsd" xmlns="http://tempuri.org/CE0025.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CE0025" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="CE0025" msprop:Generator_UserDSName="CE0025">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="CE0025" msprop:Generator_TableClassName="CE0025DataTable" msprop:Generator_TableVarName="tableCE0025" msprop:Generator_RowChangedName="CE0025RowChanged" msprop:Generator_TablePropName="_CE0025" msprop:Generator_RowDeletingName="CE0025RowDeleting" msprop:Generator_RowChangingName="CE0025RowChanging" msprop:Generator_RowEvHandlerName="CE0025RowChangeEventHandler" msprop:Generator_RowDeletedName="CE0025RowDeleted" msprop:Generator_RowClassName="CE0025Row" msprop:Generator_UserTableName="CE0025" msprop:Generator_RowEvArgName="CE0025RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MMCODE" msprop:Generator_ColumnVarNameInTable="columnMMCODE" msprop:Generator_ColumnPropNameInRow="MMCODE" msprop:Generator_ColumnPropNameInTable="MMCODEColumn" msprop:Generator_UserColumnName="MMCODE" type="xs:string" minOccurs="0" />
+              <xs:element name="MMNAME_C" msprop:Generator_ColumnVarNameInTable="columnMMNAME_C" msprop:Generator_ColumnPropNameInRow="MMNAME_C" msprop:Generator_ColumnPropNameInTable="MMNAME_CColumn" msprop:Generator_UserColumnName="MMNAME_C" type="xs:string" minOccurs="0" />
+              <xs:element name="MMNAME_E" msprop:Generator_ColumnVarNameInTable="columnMMNAME_E" msprop:Generator_ColumnPropNameInRow="MMNAME_E" msprop:Generator_ColumnPropNameInTable="MMNAME_EColumn" msprop:Generator_UserColumnName="MMNAME_E" type="xs:string" minOccurs="0" />
+              <xs:element name="BASE_UNIT" msprop:Generator_ColumnVarNameInTable="columnBASE_UNIT" msprop:Generator_ColumnPropNameInRow="BASE_UNIT" msprop:Generator_ColumnPropNameInTable="BASE_UNITColumn" msprop:Generator_UserColumnName="BASE_UNIT" type="xs:string" minOccurs="0" />
+              <xs:element name="STORE_QTY" msprop:Generator_ColumnVarNameInTable="columnSTORE_QTY" msprop:Generator_ColumnPropNameInRow="STORE_QTY" msprop:Generator_ColumnPropNameInTable="STORE_QTYColumn" msprop:Generator_UserColumnName="STORE_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_QTY" msprop:Generator_ColumnVarNameInTable="columnCHK_QTY" msprop:Generator_ColumnPropNameInRow="CHK_QTY" msprop:Generator_ColumnPropNameInTable="CHK_QTYColumn" msprop:Generator_UserColumnName="CHK_QTY" type="xs:string" minOccurs="0" />
+              <xs:element name="GAP_T" msprop:Generator_ColumnVarNameInTable="columnGAP_T" msprop:Generator_ColumnPropNameInRow="GAP_T" msprop:Generator_ColumnPropNameInTable="GAP_TColumn" msprop:Generator_UserColumnName="GAP_T" type="xs:string" minOccurs="0" />
+              <xs:element name="MEMO" msprop:Generator_ColumnVarNameInTable="columnMEMO" msprop:Generator_ColumnPropNameInRow="MEMO" msprop:Generator_ColumnPropNameInTable="MEMOColumn" msprop:Generator_UserColumnName="MEMO" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

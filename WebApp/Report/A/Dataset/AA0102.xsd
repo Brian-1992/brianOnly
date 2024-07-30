@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AA0102" targetNamespace="http://tempuri.org/AA0102.xsd" xmlns:mstns="http://tempuri.org/AA0102.xsd" xmlns="http://tempuri.org/AA0102.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AA0102" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AA0102" msprop:Generator_UserDSName="AA0102">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="AA0102" msprop:Generator_TableClassName="AA0102DataTable" msprop:Generator_TableVarName="tableAA0102" msprop:Generator_RowChangedName="AA0102RowChanged" msprop:Generator_TablePropName="_AA0102" msprop:Generator_RowDeletingName="AA0102RowDeleting" msprop:Generator_RowChangingName="AA0102RowChanging" msprop:Generator_RowEvHandlerName="AA0102RowChangeEventHandler" msprop:Generator_RowDeletedName="AA0102RowDeleted" msprop:Generator_RowClassName="AA0102Row" msprop:Generator_UserTableName="AA0102" msprop:Generator_RowEvArgName="AA0102RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="INID" msprop:Generator_ColumnVarNameInTable="columnINID" msprop:Generator_ColumnPropNameInRow="INID" msprop:Generator_ColumnPropNameInTable="INIDColumn" msprop:Generator_UserColumnName="INID" type="xs:string" minOccurs="0" />
+              <xs:element name="INID_NAME" msprop:Generator_ColumnVarNameInTable="columnINID_NAME" msprop:Generator_ColumnPropNameInRow="INID_NAME" msprop:Generator_ColumnPropNameInTable="INID_NAMEColumn" msprop:Generator_UserColumnName="INID_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_NO" msprop:Generator_ColumnVarNameInTable="columnWH_NO" msprop:Generator_ColumnPropNameInRow="WH_NO" msprop:Generator_ColumnPropNameInTable="WH_NOColumn" msprop:Generator_UserColumnName="WH_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_NAME" msprop:Generator_ColumnVarNameInTable="columnWH_NAME" msprop:Generator_ColumnPropNameInRow="WH_NAME" msprop:Generator_ColumnPropNameInTable="WH_NAMEColumn" msprop:Generator_UserColumnName="WH_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_KIND" msprop:Generator_ColumnVarNameInTable="columnWH_KIND" msprop:Generator_ColumnPropNameInRow="WH_KIND" msprop:Generator_ColumnPropNameInTable="WH_KINDColumn" msprop:Generator_UserColumnName="WH_KIND" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_TYPE_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_TYPE_NAME" msprop:Generator_ColumnPropNameInRow="CHK_TYPE_NAME" msprop:Generator_ColumnPropNameInTable="CHK_TYPE_NAMEColumn" msprop:Generator_UserColumnName="CHK_TYPE_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_LEVEL_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_LEVEL_NAME" msprop:Generator_ColumnPropNameInRow="CHK_LEVEL_NAME" msprop:Generator_ColumnPropNameInTable="CHK_LEVEL_NAMEColumn" msprop:Generator_UserColumnName="CHK_LEVEL_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_TYPE" msprop:Generator_ColumnVarNameInTable="columnCHK_TYPE" msprop:Generator_ColumnPropNameInRow="CHK_TYPE" msprop:Generator_ColumnPropNameInTable="CHK_TYPEColumn" msprop:Generator_UserColumnName="CHK_TYPE" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_LEVEL" msprop:Generator_ColumnVarNameInTable="columnCHK_LEVEL" msprop:Generator_ColumnPropNameInRow="CHK_LEVEL" msprop:Generator_ColumnPropNameInTable="CHK_LEVELColumn" msprop:Generator_UserColumnName="CHK_LEVEL" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_NO1" msprop:Generator_ColumnVarNameInTable="columnCHK_NO1" msprop:Generator_ColumnPropNameInRow="CHK_NO1" msprop:Generator_ColumnPropNameInTable="CHK_NO1Column" msprop:Generator_UserColumnName="CHK_NO1" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_NO" msprop:Generator_ColumnVarNameInTable="columnCHK_NO" msprop:Generator_ColumnPropNameInRow="CHK_NO" msprop:Generator_ColumnPropNameInTable="CHK_NOColumn" msprop:Generator_UserColumnName="CHK_NO" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_CLASS_NAME" msprop:Generator_ColumnVarNameInTable="columnCHK_CLASS_NAME" msprop:Generator_ColumnPropNameInRow="CHK_CLASS_NAME" msprop:Generator_ColumnPropNameInTable="CHK_CLASS_NAMEColumn" msprop:Generator_UserColumnName="CHK_CLASS_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="WH_KIND_NAME" msprop:Generator_ColumnVarNameInTable="columnWH_KIND_NAME" msprop:Generator_ColumnPropNameInRow="WH_KIND_NAME" msprop:Generator_ColumnPropNameInTable="WH_KIND_NAMEColumn" msprop:Generator_UserColumnName="WH_KIND_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="REPORT_TYPE" msprop:Generator_ColumnVarNameInTable="columnREPORT_TYPE" msprop:Generator_ColumnPropNameInRow="REPORT_TYPE" msprop:Generator_ColumnPropNameInTable="REPORT_TYPEColumn" msprop:Generator_UserColumnName="REPORT_TYPE" type="xs:string" minOccurs="0" />
+              <xs:element name="CHK_YM" msprop:Generator_ColumnVarNameInTable="columnCHK_YM" msprop:Generator_ColumnPropNameInRow="CHK_YM" msprop:Generator_ColumnPropNameInTable="CHK_YMColumn" msprop:Generator_UserColumnName="CHK_YM" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

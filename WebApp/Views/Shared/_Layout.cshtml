@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - MMSMS</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="max-age=-1441" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv='Expires' content='-1441' />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" type="text/css" href="~/Scripts/extjs6/classic/theme-classic/resources/theme-classic-all_1.css" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/extjs6/classic/theme-classic/resources/theme-classic-all_2.css" />
+    @RenderSection("styles", required: false)
+    <style type="text/css">
+        /* line 1, ../../../ext-theme-base/sass/src/grid/column/CheckColumn.scss */
+        .x-grid-cell-inner-checkcolumn {
+            line-height: 0;
+            font-size: 0;
+        }
+
+        /* line 1, ../../../ext-theme-neutral/sass/src/grid/column/CheckColumn.scss */
+        .x-grid-cell-inner-checkcolumn {
+            padding: 4px 6px 3px 6px;
+        }
+        /* line 5, ../../../ext-theme-neutral/sass/src/grid/column/CheckColumn.scss */
+        .x-grid-no-row-lines .x-grid-row-focused .x-grid-cell-inner-checkcolumn {
+            padding-top: 3px;
+            padding-bottom: 2px;
+        }
+
+        /* line 12, ../../../ext-theme-neutral/sass/src/grid/column/CheckColumn.scss */
+        .x-grid-checkcolumn {
+            width: 13px;
+            height: 13px;
+            /* background: url(images/form/checkbox.gif) 0 0 no-repeat; */
+        }
+        /* line 17, ../../../ext-theme-neutral/sass/src/grid/column/CheckColumn.scss */
+        .x-item-disabled .x-grid-checkcolumn {
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+            opacity: 0.3;
+        }
+
+        /* line 22, ../../../ext-theme-neutral/sass/src/grid/column/CheckColumn.scss */
+        .x-grid-checkcolumn-checked {
+            background-position: 0 -13px;
+        }
+    </style>
+    @Scripts.Render("~/bundles/extjs_Layout")
+
+</head>
+<body style="background-color:White; margin:0;overflow:hidden" scroll="no">
+
+    <div id="body">
+        @RenderSection("featured", required: false)
+        @* <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>*@
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>

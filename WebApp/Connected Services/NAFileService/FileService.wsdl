@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FileService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://192.168.99.37:8098/FileService.svc?xsd=xsd1" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://192.168.99.37:8098/FileService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://192.168.99.37:8098/FileService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RemoteFileInfo">
+    <wsdl:part name="parameters" element="tns:RemoteFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="RemoteFileInfo_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="Length" element="tns:Length" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_UploadFile_OutputMessage" />
+  <wsdl:message name="DownloadRequest">
+    <wsdl:part name="parameters" element="tns:DownloadRequest" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_DeleteFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFile" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_DeleteFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_TestService_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestService" />
+  </wsdl:message>
+  <wsdl:message name="IFileService_TestService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestServiceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFileService">
+    <wsdl:operation name="UploadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileService/UploadFile" name="RemoteFileInfo" message="tns:RemoteFileInfo" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileService/UploadFileResponse" message="tns:IFileService_UploadFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileService/DownloadFile" name="DownloadRequest" message="tns:DownloadRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileService/DownloadFileResponse" name="RemoteFileInfo" message="tns:RemoteFileInfo" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileService/DeleteFile" message="tns:IFileService_DeleteFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileService/DeleteFileResponse" message="tns:IFileService_DeleteFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TestService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileService/TestService" message="tns:IFileService_TestService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileService/TestServiceResponse" message="tns:IFileService_TestService_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="myEP" type="tns:IFileService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://tempuri.org/IFileService/UploadFile" style="document" />
+      <wsdl:input name="RemoteFileInfo">
+        <soap:header message="tns:RemoteFileInfo_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteFileInfo_Headers" part="Length" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <soap:operation soapAction="http://tempuri.org/IFileService/DownloadFile" style="document" />
+      <wsdl:input name="DownloadRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RemoteFileInfo">
+        <soap:header message="tns:RemoteFileInfo_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteFileInfo_Headers" part="Length" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap:operation soapAction="http://tempuri.org/IFileService/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestService">
+      <soap:operation soapAction="http://tempuri.org/IFileService/TestService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileService">
+    <wsdl:port name="myEP" binding="tns:myEP">
+      <soap:address location="http://192.168.99.37:8098/FileService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

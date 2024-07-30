@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Unauthorized</title>
+</head>
+<body>
+    <div>
+        您的連線已逾時或未授權，請重新登入。
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "formLogout" }))
+        {
+            @Html.AntiForgeryToken()
+        }
+    </div>
+    <script type="text/javascript">
+
+        if (self == top) document.getElementById('formLogout').submit();
+        else parent.$("#session-expired-modal").modal('show');
+    </script>
+</body>
+</html>

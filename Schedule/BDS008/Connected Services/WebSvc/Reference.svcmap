@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9b911f72-10ea-4527-af85-e3e96c7506b8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.99.52:8081/FileService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FileService.xsd" MetadataType="Schema" ID="4bb3b559-a463-4968-898f-e32ca3244962" SourceId="1" SourceUrl="http://192.168.99.52:8081/FileService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FileService.wsdl" MetadataType="Wsdl" ID="27122f88-696d-46ed-8224-b5359500d315" SourceId="1" SourceUrl="http://192.168.99.52:8081/FileService.svc?wsdl" />
+    <MetadataFile FileName="FileService1.xsd" MetadataType="Schema" ID="3ae934da-a376-4f2f-beb2-3d6582cfecd9" SourceId="1" SourceUrl="http://192.168.99.52:8081/FileService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FileService2.xsd" MetadataType="Schema" ID="48f8c383-bccf-47a3-bab5-976af284c578" SourceId="1" SourceUrl="http://192.168.99.52:8081/FileService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FileService.disco" MetadataType="Disco" ID="391a6d4f-0570-46f0-bee9-e76132dd0c13" SourceId="1" SourceUrl="http://192.168.99.52:8081/FileService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

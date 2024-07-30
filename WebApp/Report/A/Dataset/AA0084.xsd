@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AA0084" targetNamespace="http://tempuri.org/AA0084.xsd" xmlns:mstns="http://tempuri.org/AA0084.xsd" xmlns="http://tempuri.org/AA0084.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AA0084" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="AA0084" msprop:Generator_UserDSName="AA0084">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="100">
+        <xs:element name="AA0084" msprop:Generator_TableClassName="AA0084DataTable" msprop:Generator_TableVarName="tableAA0084" msprop:Generator_RowChangedName="AA0084RowChanged" msprop:Generator_TablePropName="_AA0084" msprop:Generator_RowDeletingName="AA0084RowDeleting" msprop:Generator_RowChangingName="AA0084RowChanging" msprop:Generator_RowEvHandlerName="AA0084RowChangeEventHandler" msprop:Generator_RowDeletedName="AA0084RowDeleted" msprop:Generator_RowClassName="AA0084Row" msprop:Generator_UserTableName="AA0084" msprop:Generator_RowEvArgName="AA0084RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FRWH" msprop:Generator_ColumnVarNameInTable="columnFRWH" msprop:Generator_ColumnPropNameInRow="FRWH" msprop:Generator_ColumnPropNameInTable="FRWHColumn" msprop:Generator_UserColumnName="FRWH" type="xs:string" minOccurs="0" />
+              <xs:element name="MMCODE" msprop:Generator_ColumnVarNameInTable="columnMMCODE" msprop:Generator_ColumnPropNameInRow="MMCODE" msprop:Generator_ColumnPropNameInTable="MMCODEColumn" msprop:Generator_UserColumnName="MMCODE" type="xs:string" minOccurs="0" />
+              <xs:element name="MMNAME_E" msprop:Generator_ColumnVarNameInTable="columnMMNAME_E" msprop:Generator_ColumnPropNameInRow="MMNAME_E" msprop:Generator_ColumnPropNameInTable="MMNAME_EColumn" msprop:Generator_UserColumnName="MMNAME_E" type="xs:string" minOccurs="0" />
+              <xs:element name="APPQTY" msprop:Generator_ColumnVarNameInTable="columnAPPQTY" msprop:Generator_ColumnPropNameInRow="APPQTY" msprop:Generator_ColumnPropNameInTable="APPQTYColumn" msprop:Generator_UserColumnName="APPQTY" type="xs:string" minOccurs="0" />
+              <xs:element name="BASE_UNIT" msprop:Generator_ColumnVarNameInTable="columnBASE_UNIT" msprop:Generator_ColumnPropNameInRow="BASE_UNIT" msprop:Generator_ColumnPropNameInTable="BASE_UNITColumn" msprop:Generator_UserColumnName="BASE_UNIT" type="xs:string" minOccurs="0" />
+              <xs:element name="AD_FLAG" msprop:Generator_ColumnVarNameInTable="columnAD_FLAG" msprop:Generator_ColumnPropNameInRow="AD_FLAG" msprop:Generator_ColumnPropNameInTable="AD_FLAGColumn" msprop:Generator_UserColumnName="AD_FLAG" type="xs:string" minOccurs="0" />
+              <xs:element name="UPDATE_TIME" msprop:Generator_ColumnVarNameInTable="columnUPDATE_TIME" msprop:Generator_ColumnPropNameInRow="UPDATE_TIME" msprop:Generator_ColumnPropNameInTable="UPDATE_TIMEColumn" msprop:Generator_UserColumnName="UPDATE_TIME" type="xs:string" minOccurs="0" />
+              <xs:element name="UPDATE_USER" msprop:Generator_ColumnVarNameInTable="columnUPDATE_USER" msprop:Generator_ColumnPropNameInRow="UPDATE_USER" msprop:Generator_ColumnPropNameInTable="UPDATE_USERColumn" msprop:Generator_UserColumnName="UPDATE_USER" type="xs:string" minOccurs="0" />
+              <xs:element name="軍品調帳" msprop:Generator_ColumnVarNameInTable="column軍品調帳" msprop:Generator_ColumnPropNameInRow="軍品調帳" msprop:Generator_ColumnPropNameInTable="軍品調帳Column" msprop:Generator_UserColumnName="軍品調帳" type="xs:string" minOccurs="0" />
+              <xs:element name="APPLY_NOTE" msprop:Generator_ColumnVarNameInTable="columnAPPLY_NOTE" msprop:Generator_ColumnPropNameInRow="APPLY_NOTE" msprop:Generator_ColumnPropNameInTable="APPLY_NOTEColumn" msprop:Generator_UserColumnName="APPLY_NOTE" type="xs:string" minOccurs="0" />
+              <xs:element name="ADJ_TYPE" msprop:Generator_ColumnVarNameInTable="columnADJ_TYPE" msprop:Generator_ColumnPropNameInRow="ADJ_TYPE" msprop:Generator_ColumnPropNameInTable="ADJ_TYPEColumn" msprop:Generator_UserColumnName="ADJ_TYPE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

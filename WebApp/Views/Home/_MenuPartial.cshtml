@@ -1,0 +1,31 @@
+﻿@using WebApp.Models;
+@model IEnumerable<NestMenuView>
+
+@helper RecursiveMenuItem(NestMenuView menuItem)
+{
+var item = menuItem.item;
+var child = menuItem.child;
+if (item.leaf)
+{
+        <li class="nav-item"><a class="nav-link" href="@item.url">@item.text</a></li>
+}
+else
+{
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#submenu_@item.FG" data-toggle="collapse" data-target="#submenu_@item.FG">@item.text</a>
+            <div class="collapse" id="submenu_@item.FG" aria-expanded="false">
+                <ul class="flex-column pl-2 nav">
+                    @foreach (var childItem in child)
+                    {
+                        RecursiveMenuItem(childItem);
+                    }
+                </ul>
+            </div>
+        </li>
+}
+}
+
+@foreach (var menuItem in Model)
+{
+    @RecursiveMenuItem(menuItem)
+}

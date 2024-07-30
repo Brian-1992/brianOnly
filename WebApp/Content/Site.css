@@ -1,0 +1,44 @@
+﻿* {
+    /* font-family: Consolas,"微軟正黑體", "微軟雅黑", "新細明體", Arial !important; */
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Microsoft JhengHei';
+    font-size: 14px;
+    /*font-size: 13px;
+    line-height: 15px;*/
+}
+
+.fasicon {
+    font-family: "Font Awesome 5 Free" !important;
+}
+.btnActive{
+    color: brown!important;
+}
+/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/* 移除input的設置最大寬度,避免欄位寬度高於設定值時,可輸入區被限制在設定值的情形 */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+/*.x-btn-inner {
+    font-size: 12px !important;
+}*/
+
+
