@@ -1,0 +1,29 @@
+before_script:
+  - chcp 65001
+  - "echo off"
+  - 'call "%VS140COMNTOOLS%\vsvars32.bat"'
+  
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - 'nuget restore -source C:\nuget\LocalServer'
+    - 'msbuild "/p:Configuration=Release;Platform=Any CPU" /consoleloggerparameters:ErrorsOnly /verbosity:minimal'
+
+
+deploy-to-test:
+  stage: deploy
+  script:
+    - 'nuget restore -source C:\nuget\LocalServer'
+    - 'cd WebApp'
+    - 'msbuild "/p:Configuration=Release;Platform=Any CPU;DeployOnBuild=true;PublishProfile=deploy_to_test;OutputPath=bin\\;UserName=WebDeploy;Password=%WEB_DEPLOY_PASSWORD%;AllowUntrustedCertificate=True;AspnetCompileMergeIntermediateOutputPath=..\Temp" /consoleloggerparameters:ErrorsOnly /verbosity:minimal'
+    - 'cd ../WebAppVen'
+    - 'msbuild "/p:Configuration=Release;Platform=Any CPU;DeployOnBuild=true;PublishProfile=Deploy_to_Ven;OutputPath=bin\\;UserName=WebDeploy;Password=%WEB_DEPLOY_PASSWORD%;AllowUntrustedCertificate=True;AspnetCompileMergeIntermediateOutputPath=..\Temp" /consoleloggerparameters:ErrorsOnly /verbosity:minimal'
+  environment:
+    name: test
+    url: http://192.168.99.52
+  only:
+    - master
