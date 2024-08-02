@@ -841,6 +841,7 @@ namespace WebApp.Repository.AB
                             where agen_no = (select agen_no from ME_EXPM
                                               where mmcode = :mmcode
                                                 and lot_no = :lot_no
+                                                and closeflag <>  'Y'
                                                 and TO_CHAR (EXP_DATE, 'YYYYMM') = to_char(to_date(:exp_date, 'YYYY/MM/DD'), 'YYYYMM') --TO_CHAR (SYSDATE, 'YYYYMM')
                                             )";
             return DBWork.Connection.QueryFirst<string>(sql, new { mmcode = mmcode, lot_no = lot_no, exp_date  = exp_date }, DBWork.Transaction);
