@@ -306,3 +306,5 @@ __pycache__/
 
 
 /packages
+/MMSMSREPORT/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/MMSMSREPORT/obj/Debug/MMSMSREPORT.csproj.AssemblyReference.cache
