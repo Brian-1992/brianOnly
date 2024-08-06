@@ -305,3 +305,12 @@ __pycache__/
 
 
 
+/packages
+/MMSMSREPORT/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/MMSMSREPORT/obj/Debug/MMSMSREPORT.csproj.AssemblyReference.cache
+/MMSMSREPORT/bin/Debug/MMSMSREPORT.dll
+/MMSMSREPORT/bin/Debug/MMSMSREPORT.pdb
+/MMSMSREPORT/obj/Debug/MMSMSREPORT.csproj.CoreCompileInputs.cache
+/MMSMSREPORT/obj/Debug/MMSMSREPORT.csproj.FileListAbsolute.txt
+/MMSMSREPORT/obj/Debug/MMSMSREPORT.dll
+/MMSMSREPORT/obj/Debug/MMSMSREPORT.pdb
