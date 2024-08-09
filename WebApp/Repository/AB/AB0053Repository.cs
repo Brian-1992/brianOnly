@@ -838,7 +838,7 @@ namespace WebApp.Repository.AB
         #region 2020-12-04 寄信時檢查是否有廠商email
         public string GetAgenEmail(string mmcode, string lot_no, string exp_date) {
             string sql = @"select nvl(email, ' ') from PH_VENDER 
-                            where agen_no = (select agen_no from ME_EXPM
+                            where agen_no in (select agen_no from ME_EXPM
                                               where mmcode = :mmcode
                                                 and lot_no = :lot_no
                                                 and closeflag <>  'Y'
