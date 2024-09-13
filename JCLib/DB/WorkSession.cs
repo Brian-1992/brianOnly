@@ -47,7 +47,8 @@ namespace JCLib.DB
         {
             get
             {
-                var _connstr = ConfigurationManager.ConnectionStrings["DBT"].ConnectionString; // 測試DB                   
+                var _connstr = ConfigurationManager.ConnectionStrings["DBT"].ConnectionString; // 測試DB          
+                _connstr = "Data Source=localhost:1521/ORCL;User ID=SYSTEM;Password=zxcv1234";
                 return _connstr;
             }
         }
@@ -148,10 +149,14 @@ namespace JCLib.DB
                 switch (DatabaseType)
                 {
                     case "ORA":
-                        if (DbConnType == "TEST")
+                        if(DbConnType == "OFFICIAL")
+                        {
                             _connection = new OracleConnection(JCLib.DB.WorkSession.ConnectionStringTEST); // 測試DB
-                        else
-                            _connection = new OracleConnection(JCLib.DB.WorkSession.ConnectionStringOFFICIAL); // 正式DB
+                        }
+                        //if (DbConnType == "TEST")
+                        //    _connection = new OracleConnection(JCLib.DB.WorkSession.ConnectionStringTEST); // 測試DB
+                        //else
+                        //    _connection = new OracleConnection(JCLib.DB.WorkSession.ConnectionStringOFFICIAL); // 正式DB
                         GetPagingStatementFunc = GetPagingStatementORA;
                         break;
                     case "SQL":
