@@ -13,7 +13,7 @@ namespace WebApi.Models.ADC
         [Required]
         public string DOCNO { get; set; }
         [Required]
-        public decimal SEQ { get; set; }
+        public int SEQ { get; set; }
         [Required]
         public decimal APPQTY { get; set; }
         [Required]

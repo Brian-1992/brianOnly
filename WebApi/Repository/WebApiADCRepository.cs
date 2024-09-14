@@ -53,7 +53,7 @@ and d.FRWH_D =:FRWH
 
         }
 
-        public int updateMedicalOrder()
+        public int updateMedicalOrder(string docno,int seq)
         {
             try
             {
@@ -62,14 +62,12 @@ and d.FRWH_D =:FRWH
 UPDATE SYSTEM.ME_DOCD d 
 SET 
 d.APVQTY = d.APVQTY - 1
-WHERE d.DOCNO = '330300111080109495709';
+WHERE d.DOCNO = :DOCNO  AND d.SEQ=:SEQ 
 
 ";
+                p.Add("DOCNO",docno);
+                p.Add("SEQ",seq);
 
-                //p.Add("DOCNO", input.DOCNO);
-                //p.Add("FRWH", input.FRWH);
-                //p.Add("SDate", input.SDate.ToString("yyyy/MM/dd"));
-                //p.Add("EDate", input.EDate.ToString("yyyy/MM/dd"));
                 return DBWork.Connection.Execute(sql, p);
 
             }

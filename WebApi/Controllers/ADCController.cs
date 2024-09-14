@@ -30,12 +30,14 @@ namespace WebApi.Controllers
                 LogTool logTool = LogTool.getInstance(DBWork);
                 //存log資料
                 logModel logContent = new logModel();
-                logContent.REQUESTDATETIME = DateTime.UtcNow;
-                logContent.REQUESTDATA = JsonConvert.SerializeObject(input);
-                logContent.ADCNO = input.ADCNO;
-                logContent.FUNCTIONNAME = "GetMedicalOrder";
+                
                 try
                 {
+                    logContent.REQUESTDATETIME = DateTime.Now;
+                    logContent.REQUESTDATA = JsonConvert.SerializeObject(input);
+                    logContent.ADCNO = input.ADCNO;
+                    logContent.FUNCTIONNAME = "GetMedicalOrder";
+
                     if (!ModelState.IsValid)
                     {
                         logContent.RESPONSEDATETIME = DateTime.UtcNow;
@@ -58,7 +60,7 @@ namespace WebApi.Controllers
                         Success= true
                     };
 
-                    logContent.RESPONSEDATETIME = DateTime.UtcNow;
+                    logContent.RESPONSEDATETIME = DateTime.Now;
                     logContent.RESPONSESTATUS = 1;
                     logContent.RESPONSECONTENT = JsonConvert.SerializeObject(result);
                     //寫log
@@ -68,7 +70,7 @@ namespace WebApi.Controllers
                 }
                 catch (Exception e)
                 {
-                    logContent.RESPONSEDATETIME = DateTime.UtcNow;
+                    logContent.RESPONSEDATETIME = DateTime.Now;
                     logContent.RESPONSESTATUS = 0;
                     ApiResult errorResult = new ApiResult()
                     {
@@ -94,17 +96,31 @@ namespace WebApi.Controllers
                 WebApiADCRepository repo = new WebApiADCRepository(DBWork);
                 LogTool logTool = LogTool.getInstance(DBWork);
                 logModel logContent = new logModel();
-                logContent.REQUESTDATETIME = DateTime.UtcNow;
-                logContent.REQUESTDATA = JsonConvert.SerializeObject(input);
-                logContent.ADCNO = input.ADCNO;
-                logContent.FUNCTIONNAME = "UpdateMedicalOrder";
-
 
                 try
                 {
-                    int repoResult = repo.updateMedicalOrder();
+                    logContent.REQUESTDATETIME = DateTime.Now;
+                    logContent.REQUESTDATA = JsonConvert.SerializeObject(input);
+                    logContent.ADCNO = input.ADCNO;
+                    logContent.FUNCTIONNAME = "UpdateMedicalOrder";
+
+                    if (!ModelState.IsValid)
+                    {
+                        logContent.RESPONSEDATETIME = DateTime.UtcNow;
+                        logContent.RESPONSESTATUS = 0;
+                        ApiResult errorResult = new ApiResult()
+                        {
+                            Msg = "Required properties are missing.",
+                            Success = false
+                        };
+                        logContent.RESPONSECONTENT = JsonConvert.SerializeObject(errorResult);
+                        logTool.WriteLog(logContent);
+                        return errorResult;
+                    }
+
+                    int repoResult = repo.updateMedicalOrder(input.DOCNO,input.SEQ);
                     logContent.RESPONSESTATUS = 1;
-                    logContent.RESPONSEDATETIME = DateTime.UtcNow;
+                    logContent.RESPONSEDATETIME = DateTime.Now;
                     updateMedOrdResult resultData = new updateMedOrdResult()
                     {
                         LogId = "",
@@ -124,7 +140,7 @@ namespace WebApi.Controllers
                 catch (Exception e)
                 {
                     logContent.ID = logTool.getHexString();
-                    logContent.RESPONSEDATETIME = DateTime.UtcNow;
+                    logContent.RESPONSEDATETIME = DateTime.Now;
                     logContent.RESPONSESTATUS = 0;
                     updateMedOrdResult errorResultData = new updateMedOrdResult()
                     {
