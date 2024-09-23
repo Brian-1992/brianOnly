@@ -94,10 +94,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ADC\getAdcMedOrdResult.cs" />
-    <Compile Include="Models\ADC\getAdcMedOrdRqBody.cs" />
-    <Compile Include="Models\ADC\updateMedOrdResult.cs" />
-    <Compile Include="Models\ADC\updateMedOrdRqBody.cs" />
+    <Compile Include="Models\ADC\getAdcMedOrd\getAdcMedOrdResult.cs" />
+    <Compile Include="Models\ADC\getAdcMedOrd\getAdcMedOrdRqBody.cs" />
+    <Compile Include="Models\ADC\getMedicalAllocate\getMedicalAllocateResult.cs" />
+    <Compile Include="Models\ADC\getMedicalAllocate\getMedicalAllocateRqBody.cs" />
+    <Compile Include="Models\ADC\GetMedicalCheckAccept\GetMedicalCheckAcceptResult.cs" />
+    <Compile Include="Models\ADC\GetMedicalCheckAccept\GetMedicalCheckAcceptRqBody.cs" />
+    <Compile Include="Models\ADC\GetMedicalReturn\GetMedicalReturnResult.cs" />
+    <Compile Include="Models\ADC\GetMedicalReturn\GetMedicalReturnRqBody.cs" />
+    <Compile Include="Models\ADC\UpdateMedicalAllocate\UpdateMedicalAllocateResult.cs" />
+    <Compile Include="Models\ADC\UpdateMedicalAllocate\UpdateMedicalAllocateRqBody.cs" />
+    <Compile Include="Models\ADC\UpdateMedicalCheckAccept\UpdateMedicalCheckAcceptResult.cs" />
+    <Compile Include="Models\ADC\UpdateMedicalCheckAccept\UpdateMedicalCheckAcceptRqBody.cs" />
+    <Compile Include="Models\ADC\UpdateMedicalReturn\UpdateMedicalReturnResult.cs" />
+    <Compile Include="Models\ADC\UpdateMedicalReturn\UpdateMedicalReturnRqbody.cs" />
+    <Compile Include="Models\ADC\updateMedOrd\updateMedOrdResult.cs" />
+    <Compile Include="Models\ADC\updateMedOrd\updateMedOrdRqBody.cs" />
     <Compile Include="Models\ApiResult.cs" />
     <Compile Include="Models\ApiReturnItem.cs" />
     <Compile Include="Models\ETagInfo.cs" />
