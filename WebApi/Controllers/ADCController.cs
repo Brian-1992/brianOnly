@@ -125,22 +125,46 @@ namespace WebApi.Controllers
                     }
 
                     int repoResult = repo.updateMedicalOrder(input.DOCNO,input.SEQ);
-                    logContent.RESPONSESTATUS = 1;
-                    logContent.RESPONSEDATETIME = DateTime.Now;
-                    updateMedOrdResult resultData = new updateMedOrdResult()
+                    if (repoResult>0)
                     {
-                        LogId = logContent.ID,
-                        ResponseTime = logContent.RESPONSEDATETIME.ToString()
-                    };
-                    ApiResult result = new ApiResult()
+                        logContent.RESPONSESTATUS = 1;
+                        logContent.RESPONSEDATETIME = DateTime.Now;
+                        updateMedOrdResult resultData = new updateMedOrdResult()
+                        {
+                            LogId ="",
+                            ResponseTime = logContent.RESPONSEDATETIME.ToString()
+                        };
+                        ApiResult result = new ApiResult()
+                        {
+                            TotalCount = repoResult,
+                            Data = resultData,
+                            Success = true,
+                            Msg = "異動成功"
+                        };
+                        logContent.RESPONSECONTENT = JsonConvert.SerializeObject(result);
+                        logTool.WriteLog(logContent);
+                        return result;
+                    }
+                    else
                     {
-                        Data = resultData,
-                        Success = true,
-                        Msg = $"寫入{repoResult}筆資料"
-                    };
-                    logContent.RESPONSECONTENT = JsonConvert.SerializeObject(result);
-                    logTool.WriteLog(logContent);
-                    return result;
+                        logContent.RESPONSESTATUS = 0;
+                        logContent.RESPONSEDATETIME = DateTime.Now;
+                        updateMedOrdResult resultData = new updateMedOrdResult()
+                        {
+                            LogId = logContent.ID,
+                            ResponseTime = logContent.RESPONSEDATETIME.ToString()
+                        };
+                        ApiResult result = new ApiResult()
+                        {
+                            TotalCount = repoResult,
+                            Data = resultData,
+                            Success = false,
+                            Msg = "異動失敗"
+                        };
+                        logContent.RESPONSECONTENT = JsonConvert.SerializeObject(result);
+                        logTool.WriteLog(logContent);
+                        return result;
+                    }
 
                 }
                 catch (Exception e)
@@ -795,5 +819,6 @@ namespace WebApi.Controllers
 
         }
 
+ 
     }
 }
