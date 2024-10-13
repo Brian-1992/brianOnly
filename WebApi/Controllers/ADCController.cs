@@ -98,6 +98,7 @@ namespace WebApi.Controllers
             using (WorkSession session = new WorkSession())
             {
                 var DBWork = session.UnitOfWork;
+                DBWork.BeginTransaction();
                 WebApiADCRepository repo = new WebApiADCRepository(DBWork);
                 LogTool logTool = LogTool.getInstance(DBWork);
                 logModel logContent = new logModel();
@@ -125,6 +126,12 @@ namespace WebApi.Controllers
                     }
 
                     int repoResult = repo.updateMedicalOrder(input.DOCNO,input.SEQ);
+
+                    //POST_DOC
+                    repo.POST_DOC(input.DOCNO, User.Identity.Name, DBWork.ProcIP);
+
+                    DBWork.Commit();
+
                     if (repoResult>0)
                     {
                         logContent.RESPONSESTATUS = 1;
@@ -169,6 +176,7 @@ namespace WebApi.Controllers
                 }
                 catch (Exception e)
                 {
+                    DBWork.Rollback();
                     logContent.ID = logTool.getHexString();
                     logContent.RESPONSEDATETIME = DateTime.Now;
                     logContent.RESPONSESTATUS = 0;
@@ -308,6 +316,7 @@ namespace WebApi.Controllers
             using (WorkSession session = new WorkSession())
             {
                 var DBWork = session.UnitOfWork;
+                DBWork.BeginTransaction();
                 WebApiADCRepository repo = new WebApiADCRepository(DBWork);
                 LogTool logTool = LogTool.getInstance(DBWork);
                 logModel logContent = new logModel();
@@ -394,6 +403,12 @@ namespace WebApi.Controllers
                     }
 
                     int repoResult = repo.updateMedicalQty(input.ExecuteType,input.DOCNO, input.SEQ, qtyNum);
+
+                    //POST_DOC
+                    repo.POST_DOC(input.DOCNO, User.Identity.Name, DBWork.ProcIP);
+
+                    DBWork.Commit();
+
                     logContent.RESPONSESTATUS = 1;
                     logContent.RESPONSEDATETIME = DateTime.Now;
                     UpdateMedicalAllocateResult resultData = new UpdateMedicalAllocateResult()
@@ -414,6 +429,7 @@ namespace WebApi.Controllers
                 }
                 catch (Exception e)
                 {
+                    DBWork.Rollback();
                     logContent.ID = logTool.getHexString();
                     logContent.RESPONSEDATETIME = DateTime.Now;
                     logContent.RESPONSESTATUS = 0;
@@ -518,6 +534,7 @@ namespace WebApi.Controllers
             using (WorkSession session = new WorkSession())
             {
                 var DBWork = session.UnitOfWork;
+                DBWork.BeginTransaction();
                 WebApiADCRepository repo = new WebApiADCRepository(DBWork);
                 LogTool logTool = LogTool.getInstance(DBWork);
                 logModel logContent = new logModel();
@@ -593,6 +610,12 @@ namespace WebApi.Controllers
                     }
 
                     int repoResult = repo.updateMedicalAPPQTY(input.DOCNO, input.SEQ, qtyNum);
+
+                    //POST_DOC
+                    repo.POST_DOC(input.DOCNO, User.Identity.Name, DBWork.ProcIP);
+
+                    DBWork.Commit();
+
                     logContent.RESPONSESTATUS = 1;
                     logContent.RESPONSEDATETIME = DateTime.Now;
                     UpdateMedicalReturnResult resultData = new UpdateMedicalReturnResult()
@@ -613,6 +636,8 @@ namespace WebApi.Controllers
                 }
                 catch (Exception e)
                 {
+                    DBWork.Rollback();
+
                     logContent.ID = logTool.getHexString();
                     logContent.RESPONSEDATETIME = DateTime.Now;
                     logContent.RESPONSESTATUS = 0;
@@ -717,6 +742,7 @@ namespace WebApi.Controllers
             using (WorkSession session = new WorkSession())
             {
                 var DBWork = session.UnitOfWork;
+                DBWork.BeginTransaction();
                 WebApiADCRepository repo = new WebApiADCRepository(DBWork);
                 LogTool logTool = LogTool.getInstance(DBWork);
                 logModel logContent = new logModel();
@@ -773,6 +799,12 @@ namespace WebApi.Controllers
                     }
 
                     int repoResult = repo.UpdateMedicalCheckAccept(input.DOCNO, input.SEQ, input.ACKQTY,input.ACKID);
+
+                    //POST_DOC
+                    repo.POST_DOC(input.DOCNO, User.Identity.Name, DBWork.ProcIP);
+
+                    DBWork.Commit();
+
                     logContent.RESPONSESTATUS = 1;
                     logContent.RESPONSEDATETIME = DateTime.Now;
                     UpdateMedicalCheckAcceptResult resultData = new UpdateMedicalCheckAcceptResult()
@@ -793,6 +825,7 @@ namespace WebApi.Controllers
                 }
                 catch (Exception e)
                 {
+                    DBWork.Rollback();
                     logContent.ID = logTool.getHexString();
                     logContent.RESPONSEDATETIME = DateTime.Now;
                     logContent.RESPONSESTATUS = 0;

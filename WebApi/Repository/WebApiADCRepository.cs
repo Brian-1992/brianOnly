@@ -1,7 +1,11 @@
 ﻿using Dapper;
 using JCLib.DB;
+using JCLib.Mvc;
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using WebApi.Models.ADC;
 using WebApi.Models.ADC.GetMedicalCheckAccept;
 using WebApi.Models.ADC.GetMedicalReturn;
@@ -317,6 +321,22 @@ and d.SEQ = :SEQ
 
         }
 
+        public string POST_DOC(string I_DOCNO, string I_UPDUSR, string I_UPDIP)
+        {
+            var p = new OracleDynamicParameters();
+            p.Add("I_DOCNO", value: I_DOCNO, dbType: OracleDbType.Varchar2, direction: ParameterDirection.Input, size: 21);
+            p.Add("I_UPDUSR", value: I_UPDUSR, dbType: OracleDbType.Varchar2, direction: ParameterDirection.Input, size: 8);
+            p.Add("I_UPDIP", value: I_UPDIP, dbType: OracleDbType.Varchar2, direction: ParameterDirection.Input, size: 20);
+
+            p.Add("O_RETID", dbType: OracleDbType.Varchar2, direction: ParameterDirection.Output, size: 1);
+            p.Add("O_ERRMSG", dbType: OracleDbType.Varchar2, direction: ParameterDirection.Output, size: 255);
+
+            DBWork.Connection.Query("POST_DOC", p, commandType: CommandType.StoredProcedure);
+            string retid = p.Get<OracleString>("O_RETID").Value;
+            string errmsg = p.Get<OracleString>("O_ERRMSG").Value;
+            return retid;
+        }
+
         public int UpdateMedicalCheckAccept(string docno, int seq, int ackQty,string ackId)
         {
             try
@@ -329,6 +349,7 @@ SET
 d.ACKQTY= :ACKQTY,
 d.ACKQTYT =d.ACKQTYT + :ACKQTY
 d.ACKID = :ACKID
+d.ACKTIME = SYSDATE
 WHERE d.DOCNO = :DOCNO  AND d.SEQ=:SEQ 
 
 ";
